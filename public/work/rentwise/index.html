@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RentWise | Dev</title>
+<meta name="description" content="Case study: RentWise, a Bangalore rental platform built with Next.js, TypeScript, PostgreSQL, Redis and Socket.io.">
+<link rel="canonical" href="https://devshipit.com/work/rentwise/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#2457e6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RentWise | Dev">
+<meta property="og:description" content="Case study: RentWise, a Bangalore rental platform built with Next.js, TypeScript, PostgreSQL, Redis and Socket.io.">
+<meta property="og:url" content="https://devshipit.com/work/rentwise/">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">dev<b>ship</b>it</a>
+    <nav aria-label="Primary">
+      <a href="/#live">Live</a>
+      <a href="/#work">Work</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap cs">
+  <a class="back" href="/#work">&larr; All work</a>
+  <h1>RentWise</h1>
+  <p class="lead">A rental platform for Bangalore that collects listings automatically, pushes updates in real time and gives each kind of user the right level of access.</p>
+  <dl class="meta">
+    <div><dt>Role</dt><dd>Design and development, solo</dd></div>
+    <div><dt>Built</dt><dd>March to April 2026 (2.0)</dd></div>
+    <div><dt>Status</dt><dd>Live</dd></div>
+    <div><dt>Stack</dt><dd>Next.js, TypeScript, PostgreSQL, Redis, Socket.io, Docker, Playwright, Mapbox GL JS, Supabase</dd></div>
+  </dl>
+  <div class="prose">
+    <h2>The problem</h2>
+    <p>Finding a rental in Bangalore means checking several sites and refreshing them by hand. RentWise started in March 2026 as an attempt to put listings in one place and keep them fresh without manual data entry.</p>
+    <h2>What I built</h2>
+    <ul>
+      <li><strong>Automated listing collection.</strong> Playwright scrapers running in Docker containers gather listings automatically.</li>
+      <li><strong>Real-time updates.</strong> Socket.io pushes changes to open sessions over WebSockets, so users see new data without reloading.</li>
+      <li><strong>Role-based access.</strong> Four roles (guest, user, landlord and admin) each see and can do different things.</li>
+      <li><strong>Maps.</strong> Mapbox GL JS powers the map views.</li>
+      <li><strong>Typed end to end.</strong> The app is written in TypeScript on Next.js, with PostgreSQL (through Supabase) for data and Redis alongside it.</li>
+    </ul>
+    <h2>RentWise 2.0</h2>
+    <p>In March and April 2026 I rebuilt the project as RentWise 2.0 and wrote it up as a university academic report, matching the exact formatting my university requires. It is the project I treat as the centerpiece of my portfolio.</p>
+  </div>
+  <div class="next">
+    <a class="btn primary" href="https://bit.ly/4uiOams" rel="noopener">Live demo</a>
+    <a class="btn" href="https://github.com/devag7/rentwise" rel="noopener">Source on GitHub</a>
+  </div>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <nav class="foot-links" aria-label="Legal">
+      <a href="/pricing/">Pricing</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refunds/">Cancellation and refunds</a><a href="/shipping/">Shipping and delivery</a><a href="/contact/">Contact</a>
+    </nav>
+    <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt &middot; Bengaluru, Karnataka, India &middot; <a href="mailto:jantahr@devshipit.com">jantahr@devshipit.com</a></span>
+  </div>
+</footer>
+</body>
+</html>

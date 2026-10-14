@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JantaHR | Dev</title>
+<meta name="description" content="Case study: JantaHR, open-source HR and payroll for Indian companies, built with NestJS, Next.js, Supabase and Razorpay.">
+<link rel="canonical" href="https://devshipit.com/work/jantahr/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#2457e6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JantaHR | Dev">
+<meta property="og:description" content="Case study: JantaHR, open-source HR and payroll for Indian companies, built with NestJS, Next.js, Supabase and Razorpay.">
+<meta property="og:url" content="https://devshipit.com/work/jantahr/">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">dev<b>ship</b>it</a>
+    <nav aria-label="Primary">
+      <a href="/#live">Live</a>
+      <a href="/#work">Work</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap cs">
+  <a class="back" href="/#work">&larr; All work</a>
+  <h1>JantaHR</h1>
+  <p class="lead">Open-source HR and payroll for Indian companies. It works out PF, ESI, professional tax, LWF and TDS every month and produces the files companies file with the government.</p>
+  <dl class="meta">
+    <div><dt>Role</dt><dd>Design and development, solo</dd></div>
+    <div><dt>Built</dt><dd>September to October 2026</dd></div>
+    <div><dt>Status</dt><dd>Live at <a href="https://jantahr.devshipit.com">jantahr.devshipit.com</a></dd></div>
+    <div><dt>Stack</dt><dd>NestJS, Prisma, PostgreSQL, Next.js, Supabase (Auth, Postgres, Storage), Vercel, Razorpay, Expo</dd></div>
+  </dl>
+  <div class="prose">
+    <h2>The problem</h2>
+    <p>Indian payroll is mostly rules that keep changing: a provident fund wage ceiling that moved mid-month in September 2026, ESI contribution periods, professional tax that differs by state, and income tax under two regimes. Small companies either pay per-employee SaaS fees or keep spreadsheets. JantaHR is a third option they can run themselves or subscribe to.</p>
+    <h2>What I built</h2>
+    <ul>
+      <li><strong>Payroll engine.</strong> Formula-based salary structures, proration for mid-month joiners, loss of pay from attendance, arrears and loans, with every statutory rule linked to the notification it comes from.</li>
+      <li><strong>Filing outputs.</strong> EPF ECR, ESI, professional tax and LWF registers, bank advice and a quarterly TDS extract, plus a compliance calendar that ticks items off as they are filed.</li>
+      <li><strong>Everything around payroll.</strong> Leave, geo-fenced attendance, onboarding and exits with full and final settlement, appraisals, recruitment, expenses and a helpdesk, with a guided setup for new companies.</li>
+      <li><strong>Privacy and security.</strong> Supabase Auth with two-factor sign-in, field-level encryption for PAN, Aadhaar and bank details, row-level security and tools for the DPDP Act.</li>
+      <li><strong>A real subscription business.</strong> Per-seat plans billed through Razorpay subscriptions, with webhooks, invoices and a 14-day trial.</li>
+    </ul>
+    <h2>How it runs</h2>
+    <p>The web app and API deploy as one Vercel project in Mumbai, backed by Supabase Postgres, Storage and scheduled jobs. Companies that prefer their own servers can self-host the whole product with one command.</p>
+  </div>
+  <div class="next">
+    <a class="btn primary" href="https://jantahr.devshipit.com" rel="noopener">Open JantaHR</a>
+    <a class="btn" href="https://jantahr.devshipit.com/pricing" rel="noopener">Pricing</a>
+    <a class="btn" href="https://github.com/devag7/jantahr" rel="noopener">Source on GitHub</a>
+  </div>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <nav class="foot-links" aria-label="Legal">
+      <a href="/pricing/">Pricing</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refunds/">Cancellation and refunds</a><a href="/shipping/">Shipping and delivery</a><a href="/contact/">Contact</a>
+    </nav>
+    <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt &middot; Bengaluru, Karnataka, India &middot; <a href="mailto:jantahr@devshipit.com">jantahr@devshipit.com</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "odd-fog-f7c1",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "devshipit.com", "custom_domain": true },
+    { "pattern": "www.devshipit.com", "custom_domain": true }
+  ]
+}
