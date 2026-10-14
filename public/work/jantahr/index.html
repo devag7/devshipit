@@ -5,40 +5,44 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JantaHR | Dev</title>
 <meta name="description" content="Case study: JantaHR, open-source HR and payroll for Indian companies, built with NestJS, Next.js, Supabase and Razorpay.">
+
 <link rel="canonical" href="https://devshipit.com/work/jantahr/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#2457e6">
-<meta property="og:type" content="article">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DevShipIt">
 <meta property="og:title" content="JantaHR | Dev">
 <meta property="og:description" content="Case study: JantaHR, open-source HR and payroll for Indian companies, built with NestJS, Next.js, Supabase and Razorpay.">
 <meta property="og:url" content="https://devshipit.com/work/jantahr/">
-<link rel="stylesheet" href="/styles.css">
+<meta property="og:image" content="https://devshipit.com/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js"></script>
 </head>
 <body>
-<header class="site">
+<a class="skip" href="#main">Skip to content</a>
+<header class="gnav"><div class="gnav-in"><a class="brand" href="/" aria-label="DevShipIt home">dev<span>ship</span>it</a><nav aria-label="Primary"><a href="/#live">Live</a><a href="/#work">Work</a><a href="/pricing/">Pricing</a><a href="/contact/">Contact</a></nav></div></header>
+<main id="main">
+<section class="page-head">
   <div class="wrap">
-    <a class="brand" href="/">dev<b>ship</b>it</a>
-    <nav aria-label="Primary">
-      <a href="/#live">Live</a>
-      <a href="/#work">Work</a>
-      <a href="/pricing/">Pricing</a>
-      <a href="/contact/">Contact</a>
-    </nav>
+    <a class="back" href="/#work"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"/></svg> All work</a>
+    <h1>JantaHR</h1>
+    <p class="lead-airy">Open-source HR and payroll for Indian companies. It works out PF, ESI, professional tax, LWF and TDS every month and produces the files companies file with the government.</p>
+    <div class="btns"><a class="btn" href="https://jantahr.devshipit.com" rel="noopener">Open JantaHR</a><a class="btn ghost" href="https://jantahr.devshipit.com/pricing" rel="noopener">Pricing</a><a class="btn ghost" href="https://github.com/devag7/jantahr" rel="noopener">Source on GitHub</a></div>
   </div>
-</header>
-<main>
-<div class="wrap cs">
-  <a class="back" href="/#work">&larr; All work</a>
-  <h1>JantaHR</h1>
-  <p class="lead">Open-source HR and payroll for Indian companies. It works out PF, ESI, professional tax, LWF and TDS every month and produces the files companies file with the government.</p>
-  <dl class="meta">
-    <div><dt>Role</dt><dd>Design and development, solo</dd></div>
-    <div><dt>Built</dt><dd>September to October 2026</dd></div>
-    <div><dt>Status</dt><dd>Live at <a href="https://jantahr.devshipit.com">jantahr.devshipit.com</a></dd></div>
-    <div><dt>Stack</dt><dd>NestJS, Prisma, PostgreSQL, Next.js, Supabase (Auth, Postgres, Storage), Vercel, Razorpay, Expo</dd></div>
-  </dl>
-  <div class="prose">
-    <h2>The problem</h2>
+</section>
+<section class="doc">
+  <div class="wrap">
+    <div class="card meta-card"><dl class="meta"><div><dt>Role</dt><dd>Design and development, solo</dd></div><div><dt>Built</dt><dd>September to October 2026</dd></div><div><dt>Status</dt><dd>Live at <a href="https://jantahr.devshipit.com">jantahr.devshipit.com</a></dd></div><div><dt>Stack</dt><dd>NestJS, Prisma, PostgreSQL, Next.js, Supabase (Auth, Postgres, Storage), Vercel, Razorpay, Expo</dd></div></dl></div>
+    <div class="gallery">
+  <figure class="wide"><img src="/assets/img/jantahr-compliance.webp" width="1400" height="875" loading="lazy" decoding="async" alt="Compliance calendar listing salary, TDS, EPF, ESI and return deadlines with their status" class="shot"><figcaption>The compliance calendar lists each deadline with its status.</figcaption></figure>
+  <figure><img src="/assets/img/jantahr-payroll.webp" width="1400" height="875" loading="lazy" decoding="async" alt="A payroll run with gross pay, deductions, net pay and employer contributions for each month" class="shot"><figcaption>A payroll run, with gross pay, deductions, net pay and employer contributions.</figcaption></figure>
+  <figure class="phone-fig"><div class="phone"><img src="/assets/img/jantahr-mobile.webp" width="520" height="1040" loading="lazy" decoding="async" alt="Employee home screen on a phone with attendance check-in and leave balance"></div><figcaption>The employee home screen, with attendance check-in and leave balance.</figcaption></figure>
+</div>
+
+    <div class="doc-in doc-prose"><div class="prose">
+<h2>The problem</h2>
     <p>Indian payroll is mostly rules that keep changing: a provident fund wage ceiling that moved mid-month in September 2026, ESI contribution periods, professional tax that differs by state, and income tax under two regimes. Small companies either pay per-employee SaaS fees or keep spreadsheets. JantaHR is a third option they can run themselves or subscribe to.</p>
     <h2>What I built</h2>
     <ul>
@@ -50,20 +54,37 @@
     </ul>
     <h2>How it runs</h2>
     <p>The web app and API deploy as one Vercel project in Mumbai, backed by Supabase Postgres, Storage and scheduled jobs. Companies that prefer their own servers can self-host the whole product with one command.</p>
+    </div></div>
   </div>
-  <div class="next">
-    <a class="btn primary" href="https://jantahr.devshipit.com" rel="noopener">Open JantaHR</a>
-    <a class="btn" href="https://jantahr.devshipit.com/pricing" rel="noopener">Pricing</a>
-    <a class="btn" href="https://github.com/devag7/jantahr" rel="noopener">Source on GitHub</a>
-  </div>
-</div>
+</section>
 </main>
-<footer class="site">
+<footer class="foot">
   <div class="wrap">
-    <nav class="foot-links" aria-label="Legal">
-      <a href="/pricing/">Pricing</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refunds/">Cancellation and refunds</a><a href="/shipping/">Shipping and delivery</a><a href="/contact/">Contact</a>
-    </nav>
-    <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt &middot; Bengaluru, Karnataka, India &middot; <a href="mailto:jantahr@devshipit.com">jantahr@devshipit.com</a></span>
+    <div class="foot-cols">
+      <div><h2>Work</h2><ul>
+        <li><a href="/work/jantahr/">JantaHR</a></li>
+        <li><a href="/work/rentwise/">RentWise</a></li>
+        <li><a href="/work/linkedin-mcp/">linkedin-mcp</a></li>
+        <li><a href="/work/isp-evidence/">ISP Evidence</a></li>
+      </ul></div>
+      <div><h2>Company</h2><ul>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/terms/">Terms</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/refunds/">Cancellation and refunds</a></li>
+        <li><a href="/shipping/">Shipping and delivery</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul></div>
+      <div><h2>Elsewhere</h2><ul>
+        <li><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a></li>
+        <li><a href="https://github.com/devag7" rel="noopener">GitHub</a></li>
+        <li><a href="mailto:hello@devshipit.com">hello@devshipit.com</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt. Bengaluru, Karnataka, India.</span>
+      <span>Each live project runs on its own subdomain of devshipit.com.</span>
+    </div>
   </div>
 </footer>
 </body>
