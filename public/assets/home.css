@@ -28,7 +28,7 @@ html.intro .loader {
 }
 .hero-media { position: absolute; inset: 0; z-index: -2; }
 .hero-media img, .hero-media canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero-media img { object-fit: cover; object-position: 70% 30%; }
+.hero-media img { object-fit: cover; object-position: 50% 0%; }
 .hero-media .bp { display: none; }
 .hero-media canvas { pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
@@ -160,7 +160,7 @@ html.intro .loader {
 @media (max-width: 767px) {
   .hero { margin-top: -66px; }
   .hero-panel { min-height: max(560px, 92dvh); }
-  .hero-media img { object-position: 62% 20%; }
+  .hero-media img { object-position: 58% 0%; }
   .hero-scrim { background: linear-gradient(0deg, rgba(6, 5, 7, 0.96) 0%, rgba(6, 5, 7, 0.8) 42%, rgba(6, 5, 7, 0.2) 70%, rgba(6, 5, 7, 0.9) 100%); }
   .stack ul { justify-content: flex-start; gap: 22px; }
   .band ul { grid-template-columns: 1fr 1fr; gap: 10px; }
