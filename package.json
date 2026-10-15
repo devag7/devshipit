@@ -1,0 +1,11 @@
+{
+  "name": "devshipit",
+  "private": true,
+  "type": "module",
+  "description": "devshipit.com: static site plus an edge Worker for Markdown negotiation and the public MCP server",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "verify": "node scripts/verify-live.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

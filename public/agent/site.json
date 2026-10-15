@@ -1,0 +1,125 @@
+{
+  "profile": {
+    "name": "Dev Agarwalla",
+    "brand": "DevShipIt",
+    "site": "https://devshipit.com/",
+    "role": "Full-stack developer",
+    "location": "Bengaluru, Karnataka, India",
+    "education": "BCA (Data Analytics), Kristu Jayanti (Deemed to be University), Bangalore",
+    "looking_for": "Entry-level software engineer or full-stack developer roles in Bangalore, and freelance web development projects",
+    "freelance": "MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date",
+    "stack": [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "NestJS",
+      "Express",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Supabase",
+      "Docker",
+      "Socket.IO"
+    ],
+    "github": "https://github.com/devag7"
+  },
+  "projects": [
+    {
+      "name": "JantaHR",
+      "status": "Live",
+      "summary": "HR and payroll software for Indian companies: PF, ESI, professional tax, LWF and TDS every month, filing-ready files and a compliance calendar. Open source under AGPL-3.0.",
+      "url": "https://jantahr.devshipit.com",
+      "case_study": "https://devshipit.com/work/jantahr/",
+      "source": "https://github.com/devag7/jantahr"
+    },
+    {
+      "name": "RentWise",
+      "status": "Live",
+      "summary": "A rental platform for Bangalore with automated listing collection, real-time updates, map search and role-based access.",
+      "case_study": "https://devshipit.com/work/rentwise/",
+      "source": "https://github.com/devag7/rentwise"
+    },
+    {
+      "name": "linkedin-mcp",
+      "status": "On npm",
+      "summary": "A 36-tool LinkedIn integration for AI assistants, with caching, rate limiting and retries.",
+      "url": "https://www.npmjs.com/package/linkedin-mcp-tools",
+      "case_study": "https://devshipit.com/work/linkedin-mcp/"
+    },
+    {
+      "name": "ISP Evidence",
+      "status": "In testing",
+      "summary": "An Android app that logs connection drops, latency and jitter, then exports a PDF report you can attach to an ISP complaint.",
+      "case_study": "https://devshipit.com/work/isp-evidence/"
+    }
+  ],
+  "contact": {
+    "hiring_and_freelance": "hello@devshipit.com",
+    "jantahr_support_billing_legal": "jantahr@devshipit.com",
+    "contact_page": "https://devshipit.com/contact/",
+    "note": "Use hello@devshipit.com for jobs, interviews and freelance projects. Use jantahr@devshipit.com only for JantaHR support, billing and legal questions."
+  },
+  "pages": [
+    {
+      "path": "/",
+      "title": "DevShipIt | Dev Agarwalla, freelance full-stack developer in Bengaluru",
+      "description": "DevShipIt is where Dev Agarwalla, a full-stack developer in Bengaluru, ships software: JantaHR, HR and payroll for Indian companies, plus case studies and freelance web development."
+    },
+    {
+      "path": "/pricing/",
+      "title": "Pricing | DevShipIt",
+      "description": "Prices for JantaHR, the HR and payroll software sold by DevShipIt, and for freelance web development."
+    },
+    {
+      "path": "/terms/",
+      "title": "Terms of service | DevShipIt",
+      "description": "Terms for buying JantaHR subscriptions and freelance services from DevShipIt."
+    },
+    {
+      "path": "/privacy/",
+      "title": "Privacy policy | DevShipIt",
+      "description": "How DevShipIt handles personal data on devshipit.com, in JantaHR and in payments."
+    },
+    {
+      "path": "/refunds/",
+      "title": "Cancellation and refund policy | DevShipIt",
+      "description": "How to cancel a DevShipIt subscription or project, and when we refund."
+    },
+    {
+      "path": "/shipping/",
+      "title": "Shipping and delivery policy | DevShipIt",
+      "description": "DevShipIt sells software and services delivered online; nothing is shipped."
+    },
+    {
+      "path": "/contact/",
+      "title": "Contact us | DevShipIt",
+      "description": "Contact DevShipIt: email, location and response times."
+    },
+    {
+      "path": "/work/jantahr/",
+      "title": "JantaHR | Dev",
+      "description": "Case study: JantaHR, open-source HR and payroll for Indian companies, built with NestJS, Next.js, Supabase and Razorpay."
+    },
+    {
+      "path": "/work/rentwise/",
+      "title": "RentWise | Dev",
+      "description": "Case study: RentWise, a Bangalore rental platform built with Next.js, TypeScript, PostgreSQL, Redis and Socket.io."
+    },
+    {
+      "path": "/work/linkedin-mcp/",
+      "title": "linkedin-mcp | Dev",
+      "description": "Case study: linkedin-mcp, a 36-tool LinkedIn integration for AI assistants, published on npm as linkedin-mcp-tools."
+    },
+    {
+      "path": "/work/isp-evidence/",
+      "title": "ISP Evidence | Dev",
+      "description": "Case study: ISP Evidence, an Android app that logs connection drops, latency and jitter and exports a PDF report for ISP complaints."
+    },
+    {
+      "path": "/developers/",
+      "title": "DevShipIt developer resources: Markdown, llms.txt and MCP server",
+      "description": "How developers and AI agents can read devshipit.com: Markdown for every page, llms.txt, and a public read-only MCP server, plus the developer tools Dev Agarwalla has published."
+    }
+  ]
+}

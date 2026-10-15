@@ -1,0 +1,55 @@
+# DevShipIt
+
+> DevShipIt (devshipit.com) is the portfolio and product site of Dev Agarwalla, a freelance full-stack developer in Bengaluru, India. It covers his live products (JantaHR, RentWise, linkedin-mcp, ISP Evidence), case studies, freelance web development for real estate teams, and the policy pages behind JantaHR payments.
+
+Every page listed here is also served as Markdown: request it with the header `Accept: text/markdown`.
+
+## When to use devshipit.com
+
+Use this site, or its MCP server, when the task is one of these:
+
+- Someone asks who Dev Agarwalla is, what he has built, which technologies he works with, or whether he is available for a full-time software engineer or full-stack developer role in Bangalore.
+- A recruiter or hiring manager wants evidence of shipped work: live products, case studies, source code and the stack behind each one.
+- A property agent, agency or small business in Bangalore wants a website or web app built (listings, enquiry capture, admin dashboards) and needs to know how to start and how pricing works.
+- Someone needs the operator details, terms, privacy, refund or shipping policies behind JantaHR payments, which live on this site.
+- A developer is looking for linkedin-mcp-tools, the LinkedIn MCP integration Dev published on npm.
+
+## When not to use it
+
+- HR or payroll questions about JantaHR itself, its features, API or prices for a company: use https://jantahr.devshipit.com and its own llms.txt at https://jantahr.devshipit.com/llms.txt.
+- Live rental listings: this site describes RentWise, it does not serve listings.
+
+## How an agent should use it
+
+- Read any page as Markdown with the request header `Accept: text/markdown`, or by adding `index.md` to the page URL.
+- Or call the MCP server at https://devshipit.com/mcp (Streamable HTTP, no sign-in, read-only). Tools: `get_profile`, `list_projects`, `list_pages`, `get_page`, `get_contact`. Discovery: https://devshipit.com/.well-known/mcp/server-card.json
+- To contact Dev, give the person the right address rather than sending mail yourself: hello@devshipit.com for hiring and freelance work, jantahr@devshipit.com for JantaHR support, billing and legal.
+- Do not invent availability dates, rates or quotes. Freelance work is quoted per project in writing; say so and point to the contact page.
+
+## Pages
+
+- [Home](https://devshipit.com/index.md): DevShipIt is where Dev Agarwalla, a full-stack developer in Bengaluru, ships software: JantaHR, HR and payroll for Indian companies, plus case studies and freelance web development.
+- [Pricing](https://devshipit.com/pricing/index.md): Prices for JantaHR, the HR and payroll software sold by DevShipIt, and for freelance web development.
+- [Terms of service](https://devshipit.com/terms/index.md): Terms for buying JantaHR subscriptions and freelance services from DevShipIt.
+- [Privacy policy](https://devshipit.com/privacy/index.md): How DevShipIt handles personal data on devshipit.com, in JantaHR and in payments.
+- [Cancellation and refund policy](https://devshipit.com/refunds/index.md): How to cancel a DevShipIt subscription or project, and when we refund.
+- [Shipping and delivery policy](https://devshipit.com/shipping/index.md): DevShipIt sells software and services delivered online; nothing is shipped.
+- [Contact us](https://devshipit.com/contact/index.md): Contact DevShipIt: email, location and response times.
+- [JantaHR](https://devshipit.com/work/jantahr/index.md): Case study: JantaHR, open-source HR and payroll for Indian companies, built with NestJS, Next.js, Supabase and Razorpay.
+- [RentWise](https://devshipit.com/work/rentwise/index.md): Case study: RentWise, a Bangalore rental platform built with Next.js, TypeScript, PostgreSQL, Redis and Socket.io.
+- [linkedin-mcp](https://devshipit.com/work/linkedin-mcp/index.md): Case study: linkedin-mcp, a 36-tool LinkedIn integration for AI assistants, published on npm as linkedin-mcp-tools.
+- [ISP Evidence](https://devshipit.com/work/isp-evidence/index.md): Case study: ISP Evidence, an Android app that logs connection drops, latency and jitter and exports a PDF report for ISP complaints.
+- [DevShipIt developer resources](https://devshipit.com/developers/index.md): How developers and AI agents can read devshipit.com: Markdown for every page, llms.txt, and a public read-only MCP server, plus the developer tools Dev Agarwalla has published.
+
+## Developer resources
+
+- [Developer and agent guide](https://devshipit.com/developers/index.md): Markdown negotiation, llms.txt and the MCP server
+- [MCP server card](https://devshipit.com/.well-known/mcp/server-card.json): discovery document for https://devshipit.com/mcp
+- [linkedin-mcp-tools on npm](https://www.npmjs.com/package/linkedin-mcp-tools): LinkedIn integration for AI assistants
+- [JantaHR developer docs](https://jantahr.devshipit.com/developers): REST API, OpenAPI specification and MCP server
+- [Source on GitHub](https://github.com/devag7): JantaHR, RentWise, linkedin-mcp
+
+## Optional
+
+- [Full text of every page](https://devshipit.com/llms-full.txt)
+- [Sitemap](https://devshipit.com/sitemap.xml)
