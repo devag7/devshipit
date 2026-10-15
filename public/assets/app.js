@@ -37,6 +37,44 @@ if (sentinel && gnav && "IntersectionObserver" in window) {
   new IntersectionObserver((en) => gnav.classList.toggle("scrolled", !en[0].isIntersecting)).observe(sentinel);
 }
 
+/* ---------- nav: a pill slides to the hovered link, and rests on the section in view ---------- */
+const navEl = $(".gnav nav");
+const pill = navEl && $(".pill", navEl);
+if (navEl && pill) {
+  const links = $$("a", navEl);
+  let current = links.find((l) => l.hasAttribute("aria-current")) || null;
+  const moveTo = (a) => {
+    if (!a) { pill.classList.remove("on"); return; }
+    pill.style.width = a.offsetWidth + "px";
+    pill.style.transform = `translateX(${a.offsetLeft}px)`;
+    pill.classList.add("on");
+  };
+  links.forEach((a) => a.addEventListener("pointerenter", () => moveTo(a)));
+  navEl.addEventListener("pointerleave", () => moveTo(current));
+  links.forEach((a) => a.addEventListener("focus", () => moveTo(a)));
+  navEl.addEventListener("focusout", (e) => { if (!navEl.contains(e.relatedTarget)) moveTo(current); });
+  const byId = new Map();
+  links.forEach((a) => {
+    const u = new URL(a.href, location.href);
+    if (u.pathname === location.pathname && u.hash) byId.set(u.hash.slice(1), a);
+  });
+  const targets = [...byId.keys()].map((id) => d.getElementById(id)).filter(Boolean);
+  if (targets.length && "IntersectionObserver" in window) {
+    const seen = new Map();
+    const spy = new IntersectionObserver((en) => {
+      en.forEach((e) => seen.set(e.target.id, e.isIntersecting));
+      const id = targets.map((t) => t.id).filter((i) => seen.get(i)).pop();
+      links.forEach((l) => l.classList.remove("cur"));
+      current = id ? byId.get(id) : links.find((l) => l.hasAttribute("aria-current")) || null;
+      if (current) current.classList.add("cur");
+      if (!navEl.matches(":hover")) moveTo(current);
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    targets.forEach((t) => spy.observe(t));
+  }
+  addEventListener("resize", () => moveTo(current));
+  requestAnimationFrame(() => moveTo(current));
+}
+
 /* ---------- footer: pointer-reactive gradient (WebGL, about a kilobyte of shader) ---------- */
 const fcta = $(".foot-cta");
 const fcv = fcta && $("canvas", fcta);

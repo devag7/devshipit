@@ -66,7 +66,9 @@ if (panel && cvs && !reduced) {
     const pos = getComputedStyle(base).objectPosition.split(" ").map((v) => parseFloat(v) / 100);
     const s = Math.max(W / img.naturalWidth, H / img.naturalHeight);
     const dw = img.naturalWidth * s, dh = img.naturalHeight * s;
-    cctx.drawImage(img, (W - dw) * (pos[0] || 0.5), (H - dh) * (pos[1] || 0.5), dw, dh);
+    const px = Number.isFinite(pos[0]) ? pos[0] : 0.5, py = Number.isFinite(pos[1]) ? pos[1] : 0.5;
+    cctx.clearRect(0, 0, W, H);
+    cctx.drawImage(img, (W - dw) * px, (H - dh) * py, dw, dh);
   }
   function stamp(x, y) {
     const dia = brush.width;

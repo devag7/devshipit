@@ -22,6 +22,9 @@
     started = true;
     var els = document.querySelectorAll(".rv, .split");
     if (!els.length) return;
+    /* Above-the-fold hero content reveals at once, it never waits for a scroll. */
+    var heroEls = document.querySelectorAll(".hero .rv, .hero .split");
+    for (var h = 0; h < heroEls.length; h++) heroEls[h].classList.add("in");
     function showAll() { for (var i = 0; i < els.length; i++) els[i].classList.add("in"); }
     if (!("IntersectionObserver" in window)) { showAll(); return; }
     var io = new IntersectionObserver(function (entries) {
