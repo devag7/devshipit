@@ -14,3 +14,7 @@ Cloudflare Workers Builds is connected to this repository. A push to `main` depl
 ## Editing
 
 Edit any file under `public/`, commit to `main`, and the live site updates within a minute or two. Shared styles are in `public/assets/site.css`.
+
+## Email
+
+`hello@devshipit.com` is for the portfolio, hiring and freelance. `jantahr@devshipit.com` is only for JantaHR support, billing and legal. Both forward through Cloudflare Email Routing.
