@@ -22,7 +22,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="gnav"><div class="gnav-in"><a class="brand" href="/" aria-label="DevShipIt home">dev<span>ship</span>it</a><nav aria-label="Primary"><a href="/#live">Live</a><a href="/#work">Work</a><a href="/pricing/">Pricing</a><a href="/contact/">Contact</a></nav></div></header>
+<header class="gnav"><div class="gnav-in"><a class="brand" href="/" aria-label="DevShipIt home">dev<span>ship</span>it</a><nav aria-label="Primary"><a href="/#live">Live</a><a href="/#work">Work</a><a href="/pricing/">Pricing</a><a href="/contact/" data-contact>Contact</a></nav><div class="gnav-r"><span class="clock" aria-hidden="true"><span>Bengaluru</span> <time data-clock></time></span><button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-expanded="false">Menu</button></div></div></header>
 <main id="main" class="err">
   <div class="wrap">
     <h1>That page does not exist.</h1>
@@ -59,5 +59,30 @@
     </div>
   </div>
 </footer>
+<dialog class="menu" id="menu-dialog" aria-label="Menu">
+  <div class="menu-top"><a class="brand" href="/" aria-label="DevShipIt home">dev<span>ship</span>it</a><button class="close" type="button" data-close>Close</button></div>
+  <nav aria-label="Menu"><ul><li><a href="/#live"><i>01</i>Live</a></li><li><a href="/#work"><i>02</i>Work</a></li><li><a href="/#build"><i>03</i>What I build</a></li><li><a href="/#about"><i>04</i>About</a></li><li><a href="/pricing/"><i>05</i>Pricing</a></li><li><a href="/contact/" data-contact><i>06</i>Contact</a></li></ul></nav>
+  <div class="menu-bot"><span>Bengaluru <time data-clock></time></span><a href="mailto:hello@devshipit.com">hello@devshipit.com</a></div>
+</dialog>
+<dialog class="modal" id="contact-dialog" aria-labelledby="cd-title">
+  <button class="x" type="button" data-close aria-label="Close"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  <div id="cd-wrap">
+    <h2 id="cd-title">Tell me what you're building.</h2>
+    <p class="sub">A few words is plenty. I read every message.</p>
+    <p class="topic" id="cd-topic">Topic: <b></b></p>
+    <form id="cd-form">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>What are you building?<textarea name="msg" rows="4" required placeholder="The project, the timeline and a rough budget."></textarea></label>
+      <div class="actions"><p class="note">Opens your email app with this message ready to send.</p><button class="btn" type="submit">Send message</button></div>
+    </form>
+  </div>
+  <div class="done" id="cd-done" hidden>
+    <h2>Your email app should open.</h2>
+    <p class="sub">If nothing happened, write to hello@devshipit.com or copy the address.</p>
+    <div class="btns"><button class="btn" type="button" id="cd-copy">Copy address</button><button class="btn ghost" type="button" data-close>Close</button></div>
+  </div>
+</dialog>
+<script type="module" src="/assets/app.js"></script>
 </body>
 </html>

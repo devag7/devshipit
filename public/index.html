@@ -20,27 +20,33 @@
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/site.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dev Agarwalla","url":"https://devshipit.com/","jobTitle":"Full-stack developer","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"sameAs":["https://github.com/devag7"]}</script>
+<link rel="stylesheet" href="/assets/home.css">
+<link rel="preload" as="image" href="/assets/img/jantahr-blueprint.webp" type="image/webp" fetchpriority="high">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="gnav"><div class="gnav-in"><a class="brand" href="/" aria-label="DevShipIt home">dev<span>ship</span>it</a><nav aria-label="Primary"><a href="/#live">Live</a><a href="/#work">Work</a><a href="/pricing/">Pricing</a><a href="/contact/">Contact</a></nav></div></header>
+<div class="loader" id="loader" aria-hidden="true"><div><div class="ld-mark">dev<span>ship</span>it</div><p class="ld-tag">Ideas in. Products out.</p></div><div class="ld-prog"><div class="ld-bar"><i></i></div><div class="ld-row"><span>Loading</span><b id="ldn">000</b></div></div></div>
+<header class="gnav"><div class="gnav-in"><a class="brand" href="/" aria-label="DevShipIt home">dev<span>ship</span>it</a><nav aria-label="Primary"><a href="/#live">Live</a><a href="/#work">Work</a><a href="/pricing/">Pricing</a><a href="/contact/" data-contact>Contact</a></nav><div class="gnav-r"><span class="clock" aria-hidden="true"><span>Bengaluru</span> <time data-clock></time></span><button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-expanded="false">Menu</button></div></div></header>
 <main id="main">
 
 <section class="tile hero" aria-labelledby="h-hero">
   <div class="wrap">
     <div class="hero-copy">
-      <h1 id="h-hero" class="display-hero">I build full-stack products and ship them.</h1>
-      <p class="lead-airy">I'm Dev, a full-stack developer in Bangalore. Here are the products I've built, most of them live.</p>
-      <div class="btns"><a class="btn" href="#work">See my work</a><a class="btn ghost" href="/contact/">Contact</a></div>
+      <h1 id="h-hero" class="display-hero split"><span class="w"><span>I</span></span> <span class="w"><span>build</span></span> <span class="w"><span>full-stack</span></span> <span class="w"><span>products</span></span> <span class="w"><span>and</span></span> <span class="w"><span>ship</span></span> <span class="w"><span>them.</span></span></h1>
+      <p class="lead-airy rv d1">I'm Dev, a full-stack developer in Bangalore. Here are the products I've built, most of them live.</p>
+      <div class="btns rv d2"><a class="btn" href="#work">See my work</a><a class="btn ghost" href="/contact/" data-contact>Let's talk</a></div>
     </div>
-  </div>
-  <div class="wrap hero-stage">
-    <div class="frame"><img src="/assets/img/jantahr-overview.webp" width="1800" height="1125" fetchpriority="high" decoding="async" alt="JantaHR company overview: headcount, attendance today, pending approvals and statutory deadlines"></div>
+    <figure class="reveal rv d3" id="stage">
+      <img class="real" src="/assets/img/jantahr-hero.webp" width="1600" height="1000" decoding="async" alt="JantaHR company overview: headcount, attendance today, pending approvals, statutory deadlines and payroll cost trend">
+      <img class="bp" src="/assets/img/jantahr-blueprint.webp" width="1600" height="1000" decoding="async" alt="" aria-hidden="true">
+      <canvas aria-hidden="true"></canvas>
+      <figcaption class="hint"><span class="h-fine">Move your cursor across to ship it</span><span class="h-touch">Drag a finger across to ship it</span></figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="tile feature" id="live" aria-labelledby="h-live">
-  <div class="wrap split">
+  <div class="wrap split-2">
     <div class="rv">
       <h2 id="h-live" class="display-lg">JantaHR</h2>
       <p class="lead-airy">HR and payroll for Indian companies, live at jantahr.devshipit.com.</p>
@@ -65,7 +71,7 @@
 
 <section class="tile alt" id="work" aria-labelledby="h-work">
   <div class="wrap">
-    <div class="section-head rv"><h2 id="h-work" class="display-md">Selected work</h2></div>
+    <div class="section-head"><h2 id="h-work" class="display-md split"><span class="w"><span>Selected</span></span> <span class="w"><span>work</span></span></h2></div>
     <div class="bento">
       <a class="cell big rv" href="/work/rentwise/">
         <div class="marks"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm5.696 14.943c-4.103 4.103-11.433 2.794-11.433 2.794S4.94 10.421 9.057 6.304c2.281-2.281 6.061-2.187 8.45.189s2.471 6.168.189 8.45zm-4.319-7.91l-1.174 2.416-2.416 1.174 2.416 1.174 1.174 2.416 1.174-2.416 2.416-1.174-2.416-1.174-1.174-2.416z"/></svg></div>
@@ -102,20 +108,28 @@
   </div>
 </section>
 
-<section class="tile" id="freelance" aria-labelledby="h-free">
-  <div class="wrap statement">
-    <h2 id="h-free" class="display-lg rv">Websites and web apps for real estate teams.</h2>
-    <p class="lead-airy rv d1">I build MERN-stack sites for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date.</p>
-    <ul class="chips rv d2">
-      <li class="chip">Property listing and search pages</li>
-      <li class="chip">Agent and agency landing sites</li>
-      <li class="chip">Admin dashboards to manage listings</li>
+<section class="tile" id="build" aria-labelledby="h-build">
+  <div class="wrap">
+    <div class="build-head">
+      <h2 id="h-build" class="display-lg split"><span class="w"><span>Websites</span></span> <span class="w"><span>and</span></span> <span class="w"><span>web</span></span> <span class="w"><span>apps</span></span> <span class="w"><span>for</span></span> <span class="w"><span>real</span></span> <span class="w"><span>estate</span></span> <span class="w"><span>teams.</span></span></h2>
+      <p class="lead-airy rv">I build MERN-stack sites for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date.</p>
+    </div>
+    <ul class="rows">
+      <li class="rv"><a class="row" href="/contact/" data-contact data-topic="Real estate website"><span class="n">01</span><h3>Real estate websites</h3><p>Property listing and search pages, and landing sites for agents and agencies.</p><span class="badge"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a></li><li class="rv"><a class="row" href="/contact/" data-contact data-topic="Admin dashboard"><span class="n">02</span><h3>Admin dashboards</h3><p>Dashboards that let you manage listings and enquiries without touching code.</p><span class="badge"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a></li><li class="rv"><a class="row" href="/contact/" data-contact data-topic="Full-stack web app"><span class="n">03</span><h3>Full-stack web apps</h3><p>Next.js, Node and PostgreSQL apps with real-time updates and map search, like RentWise.</p><span class="badge"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a></li><li class="rv"><a class="row" href="/contact/" data-contact data-topic="SaaS product"><span class="n">04</span><h3>SaaS products</h3><p>Subscription products with plans, roles and compliance, like JantaHR.</p><span class="badge"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a></li><li class="rv"><a class="row" href="/contact/" data-contact data-topic="Android app"><span class="n">05</span><h3>Android apps</h3><p>Apps that work in the background and export reports, like ISP Evidence.</p><span class="badge"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a></li><li class="rv"><a class="row" href="/contact/" data-contact data-topic="AI integration"><span class="n">06</span><h3>AI integrations</h3><p>MCP servers that connect assistants to the tools you already use, like linkedin-mcp.</p><span class="badge"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></span></a></li>
     </ul>
-    <a class="btn rv d3" href="mailto:hello@devshipit.com?subject=Website%20enquiry">Contact</a>
   </div>
 </section>
 
-<section class="tile alt" id="about" aria-labelledby="h-about">
+<section class="tile alt" aria-labelledby="h-stats">
+  <div class="wrap">
+    <h2 id="h-stats" class="display-md stats-head split"><span class="w"><span>Numbers</span></span> <span class="w"><span>from</span></span> <span class="w"><span>the</span></span> <span class="w"><span>work.</span></span></h2>
+    <ul class="stats">
+      <li class="rv d0"><span class="num" data-to="4">4</span><p>Products built and shipped</p></li><li class="rv d1"><span class="num" data-to="36">36</span><p>Tools in the linkedin-mcp server</p></li><li class="rv d2"><span class="num" data-to="5">5</span><p>Indian payroll compliances JantaHR calculates: PF, ESI, PT, LWF and TDS</p></li><li class="rv d3"><span class="num" data-to="14">14</span><p>Days to try JantaHR free, no card needed</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="tile" id="about" aria-labelledby="h-about">
   <div class="wrap about">
     <div class="rv">
       <h2 id="h-about" class="display-md">About</h2>
@@ -128,21 +142,21 @@
   </div>
 </section>
 
-<section class="tile contact" id="contact" aria-labelledby="h-contact">
+<section class="tile feature closing" id="contact" aria-labelledby="h-contact">
   <div class="wrap">
-    <div class="rv">
-      <h2 id="h-contact" class="display-lg">Contact</h2>
-      <p class="lead-airy">Hiring, or have a project in mind? The fastest way to reach me is email.</p>
-      <div class="btns">
-        <a class="btn" href="mailto:hello@devshipit.com">hello@devshipit.com</a>
-        <a class="btn ghost" href="https://github.com/devag7" rel="noopener"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/></svg> GitHub</a>
-      </div>
-      <dl class="meta-row">
-        <div><dt>Operated by</dt><dd>Dev Agarwalla (individual), trading as DevShipIt</dd></div>
-        <div><dt>Location</dt><dd>Bengaluru, Karnataka, India</dd></div>
-      </dl>
+    <h2 id="h-contact" class="display-hero split"><span class="w"><span>Have</span></span> <span class="w"><span>a</span></span> <span class="w"><span>project</span></span> <span class="w"><span>in</span></span> <span class="w"><span>mind?</span></span> <span class="w"><span>Let&#x27;s</span></span> <span class="w"><span>get</span></span> <span class="w"><span>to</span></span> <span class="w"><span>work.</span></span></h2>
+    <p class="lead-airy rv">Hiring, or have a project in mind? The fastest way to reach me is email.</p>
+    <div class="btns rv d1">
+      <a class="btn" href="/contact/" data-contact>Start a project</a>
+      <a class="btn ghost" href="mailto:hello@devshipit.com">hello@devshipit.com</a>
+      <a class="btn ghost" href="https://github.com/devag7" rel="noopener"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/></svg> GitHub</a>
     </div>
+    <dl class="meta-row rv d2">
+      <div><dt>Operated by</dt><dd>Dev Agarwalla (individual), trading as DevShipIt</dd></div>
+      <div><dt>Location</dt><dd>Bengaluru, Karnataka, India</dd></div>
+    </dl>
   </div>
+  <span class="mark" aria-hidden="true">DEVSHIPIT</span>
 </section>
 
 </main>
@@ -175,5 +189,31 @@
     </div>
   </div>
 </footer>
+<dialog class="menu" id="menu-dialog" aria-label="Menu">
+  <div class="menu-top"><a class="brand" href="/" aria-label="DevShipIt home">dev<span>ship</span>it</a><button class="close" type="button" data-close>Close</button></div>
+  <nav aria-label="Menu"><ul><li><a href="/#live"><i>01</i>Live</a></li><li><a href="/#work"><i>02</i>Work</a></li><li><a href="/#build"><i>03</i>What I build</a></li><li><a href="/#about"><i>04</i>About</a></li><li><a href="/pricing/"><i>05</i>Pricing</a></li><li><a href="/contact/" data-contact><i>06</i>Contact</a></li></ul></nav>
+  <div class="menu-bot"><span>Bengaluru <time data-clock></time></span><a href="mailto:hello@devshipit.com">hello@devshipit.com</a></div>
+</dialog>
+<dialog class="modal" id="contact-dialog" aria-labelledby="cd-title">
+  <button class="x" type="button" data-close aria-label="Close"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  <div id="cd-wrap">
+    <h2 id="cd-title">Tell me what you're building.</h2>
+    <p class="sub">A few words is plenty. I read every message.</p>
+    <p class="topic" id="cd-topic">Topic: <b></b></p>
+    <form id="cd-form">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>What are you building?<textarea name="msg" rows="4" required placeholder="The project, the timeline and a rough budget."></textarea></label>
+      <div class="actions"><p class="note">Opens your email app with this message ready to send.</p><button class="btn" type="submit">Send message</button></div>
+    </form>
+  </div>
+  <div class="done" id="cd-done" hidden>
+    <h2>Your email app should open.</h2>
+    <p class="sub">If nothing happened, write to hello@devshipit.com or copy the address.</p>
+    <div class="btns"><button class="btn" type="button" id="cd-copy">Copy address</button><button class="btn ghost" type="button" data-close>Close</button></div>
+  </div>
+</dialog>
+<script type="module" src="/assets/app.js"></script>
+<script type="module" src="/assets/home.js"></script>
 </body>
 </html>
