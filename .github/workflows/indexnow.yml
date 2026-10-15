@@ -13,10 +13,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Wait until the live sitemap matches this commit
+      - name: Wait until the live sitemap and key file match this commit
         run: |
+          key=$(ls public | grep -E '^[0-9a-f]{32}\.txt$')
           for i in $(seq 1 40); do
-            if curl -fsS https://devshipit.com/sitemap.xml | cmp -s - public/sitemap.xml; then echo "deployed"; exit 0; fi
+            if curl -fsS https://devshipit.com/sitemap.xml | cmp -s - public/sitemap.xml && curl -fsS "https://devshipit.com/$key" | cmp -s - "public/$key"; then
+              echo "deployed"; sleep 30; exit 0
+            fi
             sleep 15
           done
           echo "The live sitemap never matched; submitting anyway"
