@@ -63,3 +63,16 @@ export function varyAccept(existing) {
   const names = (existing || "").split(",").map((s) => s.trim()).filter(Boolean);
   return names.some((n) => n.toLowerCase() === "accept" || n === "*") ? names.join(", ") : [...names, "Accept"].join(", ");
 }
+
+/**
+ * True when the client names JSON (application/json, application/problem+json or any application subtype) with a
+ * quality above zero and at least as high as HTML. Such clients get errors as RFC 9457 problem details.
+ */
+export function prefersJson(header) {
+  const ranges = parseAccept(header);
+  const named = ranges.filter((r) => r.q > 0 && (r.type === "application/json" || r.type === "application/problem+json" || r.type === "application/*"));
+  if (!named.length) return false;
+  const json = Math.max(...named.map((r) => r.q));
+  const html = Math.max(qualityFor(ranges, "text/html"), qualityFor(ranges, "application/xhtml+xml"));
+  return json >= html;
+}

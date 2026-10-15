@@ -1,11 +1,14 @@
 {
   "name": "devshipit",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "devshipit.com: static site plus an edge Worker for Markdown negotiation and the public MCP server",
+  "description": "devshipit.com: static site plus an edge Worker for Markdown negotiation, the public JSON API and the MCP server, and the devshipit CLI",
+  "bin": { "devshipit": "cli/bin/devshipit.mjs" },
   "scripts": {
     "test": "node --test test/*.test.mjs",
-    "verify": "node scripts/verify-live.mjs"
+    "verify": "node scripts/verify-live.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "engines": { "node": ">=20" }
 }

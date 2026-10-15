@@ -22,36 +22,151 @@
       "Docker",
       "Socket.IO"
     ],
-    "github": "https://github.com/devag7"
+    "github": "https://github.com/devag7",
+    "linkedin": "https://www.linkedin.com/in/devagarwalla"
   },
   "projects": [
     {
+      "slug": "jantahr",
       "name": "JantaHR",
       "status": "Live",
+      "stack": [
+        "NestJS",
+        "Prisma",
+        "PostgreSQL",
+        "Next.js",
+        "Supabase",
+        "Vercel",
+        "Razorpay",
+        "Expo"
+      ],
       "summary": "HR and payroll software for Indian companies: PF, ESI, professional tax, LWF and TDS every month, filing-ready files and a compliance calendar. Open source under AGPL-3.0.",
       "url": "https://jantahr.devshipit.com",
       "case_study": "https://devshipit.com/work/jantahr/",
       "source": "https://github.com/devag7/jantahr"
     },
     {
+      "slug": "rentwise",
       "name": "RentWise",
       "status": "Live",
+      "stack": [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Redis",
+        "Socket.io",
+        "Docker",
+        "Playwright",
+        "Mapbox GL JS",
+        "Supabase"
+      ],
       "summary": "A rental platform for Bangalore with automated listing collection, real-time updates, map search and role-based access.",
       "case_study": "https://devshipit.com/work/rentwise/",
       "source": "https://github.com/devag7/rentwise"
     },
     {
+      "slug": "linkedin-mcp",
       "name": "linkedin-mcp",
       "status": "On npm",
+      "stack": [
+        "Node.js",
+        "MCP"
+      ],
       "summary": "A 36-tool LinkedIn integration for AI assistants, with caching, rate limiting and retries.",
       "url": "https://www.npmjs.com/package/linkedin-mcp-tools",
       "case_study": "https://devshipit.com/work/linkedin-mcp/"
     },
     {
+      "slug": "isp-evidence",
       "name": "ISP Evidence",
       "status": "In testing",
+      "stack": [
+        "Android"
+      ],
       "summary": "An Android app that logs connection drops, latency and jitter, then exports a PDF report you can attach to an ISP complaint.",
       "case_study": "https://devshipit.com/work/isp-evidence/"
+    }
+  ],
+  "services": [
+    {
+      "slug": "real-estate-websites",
+      "name": "Real estate websites",
+      "summary": "Listing and search pages, enquiry capture and landing sites for property agents and agencies, easy to keep up to date.",
+      "example": "https://devshipit.com/work/rentwise/"
+    },
+    {
+      "slug": "full-stack-web-apps",
+      "name": "Full-stack web apps",
+      "summary": "Next.js, Node and PostgreSQL apps with real-time updates and map search, like RentWise.",
+      "example": "https://devshipit.com/work/rentwise/"
+    },
+    {
+      "slug": "saas-products",
+      "name": "SaaS products",
+      "summary": "Subscription products with plans, roles and compliance, like JantaHR.",
+      "example": "https://devshipit.com/work/jantahr/"
+    },
+    {
+      "slug": "android-apps-and-ai-tools",
+      "name": "Android apps and AI tools",
+      "summary": "Background apps that export reports, and MCP servers that connect AI assistants to your tools.",
+      "example": "https://devshipit.com/work/linkedin-mcp/"
+    }
+  ],
+  "process": [
+    {
+      "step": "Tell me what you need",
+      "detail": "Email a few lines: what it is, when you need it and a rough budget. I reply within 2 working days."
+    },
+    {
+      "step": "Get a written quote",
+      "detail": "Scope, price and delivery dates, agreed before any work starts. You pay only the amounts in the quote."
+    },
+    {
+      "step": "I build it",
+      "detail": "I design and build what the quote describes, from the database to the interface."
+    },
+    {
+      "step": "Delivered online",
+      "detail": "A live website, a code repository or files, on the dates in your quote. Once paid for, it is yours."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How much does a website or web app cost?",
+      "answer": "Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget."
+    },
+    {
+      "question": "How long does a project take?",
+      "answer": "It depends on the scope. The delivery dates are written into your quote before any work starts, so you know them up front."
+    },
+    {
+      "question": "Who owns the code and the website?",
+      "answer": "You do. For freelance work, ownership of what is built passes to you once it is paid for, unless the quote says otherwise."
+    },
+    {
+      "question": "How is the work delivered?",
+      "answer": "Online: a live website, a code repository or files, on the dates in your quote. Nothing is shipped physically."
+    },
+    {
+      "question": "What if I need to cancel a project?",
+      "answer": "Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts."
+    },
+    {
+      "question": "What do you build with?",
+      "answer": "TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack."
+    },
+    {
+      "question": "How quickly do you reply?",
+      "answer": "Within 2 working days, usually sooner. Email is the fastest way to reach me."
+    },
+    {
+      "question": "Is Dev Agarwalla open to full-time roles?",
+      "answer": "Yes. Dev is looking for an entry-level software engineer or full-stack developer role in Bangalore. Write to hello@devshipit.com."
+    },
+    {
+      "question": "What is DevShipIt, and how is it related to JantaHR?",
+      "answer": "DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com."
     }
   ],
   "contact": {
@@ -64,12 +179,27 @@
     {
       "path": "/",
       "title": "DevShipIt | Dev Agarwalla, freelance full-stack developer in Bengaluru",
-      "description": "DevShipIt is where Dev Agarwalla, a full-stack developer in Bengaluru, ships software: JantaHR, HR and payroll for Indian companies, plus case studies and freelance web development."
+      "description": "DevShipIt is Dev Agarwalla, a freelance full-stack developer in Bengaluru: websites and web apps for clients, JantaHR HR and payroll software, and case studies."
+    },
+    {
+      "path": "/work/",
+      "title": "Work and case studies by Dev Agarwalla | DevShipIt",
+      "description": "Products Dev Agarwalla has built and shipped as DevShipIt, each with a case study: JantaHR, RentWise, linkedin-mcp and ISP Evidence, with their stack, status and links."
+    },
+    {
+      "path": "/services/",
+      "title": "Freelance web development in Bengaluru | DevShipIt",
+      "description": "Websites and web apps for property agents, agencies and small businesses in Bengaluru, built by Dev Agarwalla at DevShipIt. Priced by a written quote before work starts."
+    },
+    {
+      "path": "/about/",
+      "title": "About Dev Agarwalla, full-stack developer in Bengaluru | DevShipIt",
+      "description": "Dev Agarwalla is a full-stack developer in Bengaluru who ships software as DevShipIt: his education, stack, products, and the roles and freelance work he is open to."
     },
     {
       "path": "/pricing/",
-      "title": "Pricing | DevShipIt",
-      "description": "Prices for JantaHR, the HR and payroll software sold by DevShipIt, and for freelance web development."
+      "title": "JantaHR and freelance pricing in rupees | DevShipIt",
+      "description": "JantaHR prices per employee in rupees (Free, Standard, Professional and Enterprise), and how DevShipIt quotes freelance web development projects."
     },
     {
       "path": "/terms/",
@@ -93,33 +223,33 @@
     },
     {
       "path": "/contact/",
-      "title": "Contact us | DevShipIt",
-      "description": "Contact DevShipIt: email, location and response times."
+      "title": "Contact for hiring and freelance projects | DevShipIt",
+      "description": "Email Dev Agarwalla at DevShipIt about a full-time role or a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days."
     },
     {
       "path": "/work/jantahr/",
-      "title": "JantaHR | Dev",
+      "title": "JantaHR case study: Indian HR and payroll SaaS | DevShipIt",
       "description": "Case study: JantaHR, open-source HR and payroll for Indian companies, built with NestJS, Next.js, Supabase and Razorpay."
     },
     {
       "path": "/work/rentwise/",
-      "title": "RentWise | Dev",
+      "title": "RentWise case study: Bangalore rental platform | DevShipIt",
       "description": "Case study: RentWise, a Bangalore rental platform built with Next.js, TypeScript, PostgreSQL, Redis and Socket.io."
     },
     {
       "path": "/work/linkedin-mcp/",
-      "title": "linkedin-mcp | Dev",
+      "title": "linkedin-mcp case study: LinkedIn MCP server | DevShipIt",
       "description": "Case study: linkedin-mcp, a 36-tool LinkedIn integration for AI assistants, published on npm as linkedin-mcp-tools."
     },
     {
       "path": "/work/isp-evidence/",
-      "title": "ISP Evidence | Dev",
+      "title": "ISP Evidence case study: Android network logger | DevShipIt",
       "description": "Case study: ISP Evidence, an Android app that logs connection drops, latency and jitter and exports a PDF report for ISP complaints."
     },
     {
       "path": "/developers/",
-      "title": "DevShipIt developer resources: Markdown, llms.txt and MCP server",
-      "description": "How developers and AI agents can read devshipit.com: Markdown for every page, llms.txt, and a public read-only MCP server, plus the developer tools Dev Agarwalla has published."
+      "title": "DevShipIt developer docs: API, OpenAPI, CLI and MCP server",
+      "description": "The DevShipIt public API with its OpenAPI 3.1 document, the devshipit command-line tool, the MCP server, llms.txt and Markdown for every page of devshipit.com."
     }
   ]
 }

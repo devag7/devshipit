@@ -1,6 +1,6 @@
 # Contact us
 
-> Contact DevShipIt: email, location and response times.
+> Email Dev Agarwalla at DevShipIt about a full-time role or a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days.
 
 Last updated October 2026
 

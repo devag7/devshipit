@@ -1,0 +1,15 @@
+{
+  "name": "devshipit",
+  "version": "1.0.0",
+  "description": "Command-line client for the DevShipIt API: Dev Agarwalla's profile, projects, freelance services, FAQ, contact details and devshipit.com pages as Markdown.",
+  "type": "module",
+  "bin": { "devshipit": "bin/devshipit.mjs" },
+  "files": ["bin", "lib", "README.md"],
+  "engines": { "node": ">=20" },
+  "keywords": ["devshipit", "dev-agarwalla", "freelance-developer", "bengaluru", "cli", "openapi"],
+  "homepage": "https://devshipit.com/developers/#cli",
+  "repository": { "type": "git", "url": "git+https://github.com/devag7/devshipit.git", "directory": "cli" },
+  "bugs": { "email": "hello@devshipit.com" },
+  "author": "Dev Agarwalla <hello@devshipit.com> (https://devshipit.com)",
+  "license": "MIT"
+}

@@ -3,11 +3,15 @@
  * - Markdown for every page when an agent asks for it (Accept: text/markdown), with Vary: Accept on pages
  * - a Markdown 404 for agents, and 406 when a client accepts neither HTML nor Markdown
  * - the public, read-only MCP server at /mcp (Streamable HTTP) and its discovery documents
+ * - the public, read-only JSON API at /api/v1, its OpenAPI 3.1 document and the RFC 9727 API catalog
+ * - RFC 9457 problem details (application/problem+json) for errors whenever the client prefers JSON
  * - security and cache headers (a Worker in front of assets means _headers no longer applies)
  * - one canonical host: www.devshipit.com redirects to devshipit.com
  */
-import { negotiate, varyAccept } from "./negotiate.js";
+import { negotiate, varyAccept, prefersJson } from "./negotiate.js";
 import { handleMcpPayload, mcpServerCard, MCP_PROTOCOL_VERSIONS } from "./mcp.js";
+import { handleApi, problem, API_BASE } from "./api.js";
+import { openapi, apiCatalog } from "./openapi.js";
 
 export const APEX = "devshipit.com";
 const ORIGIN = `https://${APEX}`;
@@ -27,6 +31,11 @@ const CORS = {
   "Access-Control-Max-Age": "86400",
 };
 const MARKDOWN = "text/markdown; charset=utf-8";
+export const OPENAPI_PATHS = ["/openapi.json", "/.well-known/openapi.json"];
+export const CATALOG_PATH = "/.well-known/api-catalog";
+const CATALOG_TYPE = 'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"';
+/** Advertised on every HTML page (RFC 8631 service-desc, RFC 9727 api-catalog). */
+const API_LINKS = `<${ORIGIN}/openapi.json>; rel="service-desc"; type="application/json", <${ORIGIN}/developers/>; rel="service-doc"; type="text/html", <${ORIGIN}${CATALOG_PATH}>; rel="api-catalog"`;
 export const CARD_PATHS = ["/.well-known/mcp", "/.well-known/mcp.json", "/.well-known/mcp/server-card.json", "/.well-known/mcp/server-cards.json"];
 
 /* ---------- paths ---------- */
@@ -131,7 +140,7 @@ export function publicMcpServer(env, origin) {
   };
   return {
     info: { name: "devshipit", title: "DevShipIt", version: "1.0.0" },
-    instructions: "Public, read-only information about Dev Agarwalla and his work at devshipit.com. Use get_profile for who he is, his stack and what roles or projects he is open to; list_projects for JantaHR, RentWise, linkedin-mcp and ISP Evidence; list_pages then get_page to read any page as Markdown; get_contact for the right email address. Give people the address instead of sending email yourself, and do not invent rates, dates or quotes. For JantaHR product, API or company-data questions use https://jantahr.devshipit.com/mcp instead.",
+    instructions: "Public, read-only information about Dev Agarwalla and his work at devshipit.com. Use get_profile for who he is, his stack and what roles or projects he is open to; list_projects for JantaHR, RentWise, linkedin-mcp and ISP Evidence; list_services and get_faq for freelance work and common questions; list_pages then get_page to read any page as Markdown; get_contact for the right email address. Give people the address instead of sending email yourself, and do not invent rates, dates or quotes. For JantaHR product, API or company-data questions use https://jantahr.devshipit.com/mcp instead.",
     tools: [
       {
         name: "get_profile", title: "Dev Agarwalla's profile",
@@ -144,6 +153,18 @@ export function publicMcpServer(env, origin) {
         description: "Lists Dev's products (JantaHR, RentWise, linkedin-mcp, ISP Evidence) with their status, a one-line summary and links to the live product, source code and case study.",
         inputSchema: { type: "object", properties: {}, additionalProperties: false },
         call: async () => (await siteData(env, origin)).projects,
+      },
+      {
+        name: "list_services", title: "Freelance services",
+        description: "Lists the freelance services Dev offers (real estate websites, full-stack web apps, SaaS products, Android apps and AI tools) and the four steps of a project, from the written quote to delivery. Never returns prices: every project is quoted in writing.",
+        inputSchema: { type: "object", properties: {}, additionalProperties: false },
+        call: async () => { const d = await siteData(env, origin); return { services: d.services, process: d.process }; },
+      },
+      {
+        name: "get_faq", title: "Frequently asked questions",
+        description: "Returns the published answers to common questions from clients and recruiters: cost, timelines, ownership, delivery, cancellation, stack, reply times, availability for full-time roles, and how DevShipIt relates to JantaHR.",
+        inputSchema: { type: "object", properties: {}, additionalProperties: false },
+        call: async () => (await siteData(env, origin)).faq,
       },
       {
         name: "list_pages", title: "List devshipit.com pages",
@@ -224,6 +245,30 @@ export const handler = {
 
     if (url.pathname === "/mcp" || url.pathname === "/mcp/") return handleMcp(request, env);
 
+    if (url.pathname === API_BASE || url.pathname.startsWith(`${API_BASE}/`)) {
+      const r = await handleApi(request, env, openapi);
+      for (const [k, v] of Object.entries(SECURITY)) r.headers.set(k, v);
+      return r;
+    }
+
+    if (OPENAPI_PATHS.includes(url.pathname)) {
+      if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { ...CORS } });
+      if (request.method !== "GET" && request.method !== "HEAD") return problem("method_not_allowed", `${request.method} is not supported on ${url.pathname}.`, { instance: url.pathname, headers: SECURITY });
+      return new Response(request.method === "HEAD" ? null : JSON.stringify(openapi, null, 2), {
+        status: 200,
+        headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "public, max-age=3600", Link: `<${ORIGIN}/developers/>; rel="service-doc"`, ...CORS, ...SECURITY },
+      });
+    }
+
+    if (url.pathname === CATALOG_PATH) {
+      if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { ...CORS } });
+      if (request.method !== "GET" && request.method !== "HEAD") return problem("method_not_allowed", `${request.method} is not supported on ${url.pathname}.`, { instance: url.pathname, headers: SECURITY });
+      return new Response(request.method === "HEAD" ? null : JSON.stringify(apiCatalog, null, 2), {
+        status: 200,
+        headers: { "Content-Type": CATALOG_TYPE, "Cache-Control": "public, max-age=3600", Link: `<${ORIGIN}${CATALOG_PATH}>; rel="api-catalog"`, ...CORS, ...SECURITY },
+      });
+    }
+
     if (CARD_PATHS.includes(url.pathname)) {
       if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { ...CORS } });
       return json(serverCard(env, url.origin), 200, { "Cache-Control": "public, max-age=3600" });
@@ -239,17 +284,34 @@ export const handler = {
       return withHeaders(asset, url.pathname, { "Content-Type": MARKDOWN, Link: `<${canonicalFor(url.pathname)}>; rel="canonical"`, "X-Robots-Tag": "noindex" });
     }
 
-    if (!isPagePath(url.pathname)) return withHeaders(await env.ASSETS.fetch(request), url.pathname);
+    const accept = request.headers.get("Accept");
+    const wantsJson = prefersJson(accept);
 
-    const choice = negotiate(request.headers.get("Accept"));
+    if (!isPagePath(url.pathname)) {
+      const res = await env.ASSETS.fetch(request);
+      if (res.status === 404 && wantsJson) return problem("not_found", `There is no file at ${url.pathname}.`, { instance: url.pathname, method: request.method, headers: { Vary: "Accept", ...SECURITY } });
+      return withHeaders(res, url.pathname);
+    }
+
+    const choice = negotiate(accept);
     if (choice === null) {
-      return text("406 Not Acceptable: this page is available as text/html or text/markdown.\n", 406, { "Content-Type": "text/plain; charset=utf-8", Vary: "Accept", ...SECURITY }, request.method);
+      const twin = await env.ASSETS.fetch(new Request(`${url.origin}${markdownPathFor(url.pathname)}`));
+      const headers = { Vary: "Accept", ...SECURITY };
+      if (twin.status !== 200) {
+        if (wantsJson) return problem("not_found", `There is no page at ${url.pathname}.`, { instance: url.pathname, method: request.method, headers });
+        return text("404 Not Found: there is no page at this path. See https://devshipit.com/sitemap.xml.\n", 404, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store", ...headers }, request.method);
+      }
+      if (wantsJson) {
+        return problem("not_acceptable", `${url.pathname} is a page, available as text/html or text/markdown. For JSON use the API: ${ORIGIN}${API_BASE}/page?path=${encodeURIComponent(url.pathname.endsWith("/") ? url.pathname : url.pathname + "/")}`, { instance: url.pathname, method: request.method, headers });
+      }
+      return text("406 Not Acceptable: this page is available as text/html or text/markdown.\n", 406, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store", ...headers }, request.method);
     }
     if (choice === "markdown" || choice === "plain") return serveMarkdown(request, env, url, choice);
 
     const res = await env.ASSETS.fetch(request);
+    if (res.status === 404 && wantsJson) return problem("not_found", `There is no page at ${url.pathname}.`, { instance: url.pathname, method: request.method, headers: { Vary: "Accept", ...SECURITY } });
     const extra = { Vary: varyAccept(res.headers.get("Vary")) };
-    if (res.status === 200) extra.Link = `<${ORIGIN}${markdownPathFor(url.pathname)}>; rel="alternate"; type="text/markdown"`;
+    if (res.status === 200) extra.Link = `<${ORIGIN}${markdownPathFor(url.pathname)}>; rel="alternate"; type="text/markdown", ${API_LINKS}`;
     return withHeaders(res, url.pathname, extra);
   },
 };

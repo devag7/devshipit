@@ -28,7 +28,11 @@ const nfBody = await nf.text();
 check("404 with Markdown body for agents", nf.status === 404 && /^text\/markdown/.test(nf.headers.get("content-type") || "") && nfBody.length >= 20 && /llms\.txt|sitemap/.test(nfBody));
 const nfh = await get("/__probe-does-not-exist-" + Date.now(), { Accept: "text/html" });
 check("404 HTML page for browsers", nfh.status === 404 && /^text\/html/.test(nfh.headers.get("content-type") || ""));
-check("406 for unsupported Accept", (await get("/", { Accept: "application/json" })).status === 406);
+const n406 = await get("/", { Accept: "application/json" });
+check("406 as problem+json when a page is asked for as JSON", n406.status === 406 && n406.headers.get("content-type") === "application/problem+json");
+const nfj = await get("/__probe-does-not-exist-" + Date.now(), { Accept: "application/json" });
+const nfjBody = nfj.status === 404 ? await nfj.json() : {};
+check("404 as problem+json for JSON clients", nfjBody.code === "not_found" && !!nfjBody.hint);
 
 const llms = await get("/llms.txt");
 const llmsBody = await llms.text();
@@ -44,6 +48,20 @@ check("MCP initialize over Streamable HTTP", initJson.result?.serverInfo?.name =
 const tools = await fetch(`${BASE}/mcp`, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json, text/event-stream" }, body: JSON.stringify({ jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "get_page", arguments: { path: "/pricing/" } } }) });
 const toolsJson = await tools.json();
 check("MCP tools/call get_page", toolsJson.result?.isError === false && /^# Pricing/.test(toolsJson.result.content[0].text));
+
+const api = await get("/api/v1/projects/jantahr");
+check("API getProject", api.status === 200 && (await api.json()).name === "JantaHR" && api.headers.get("access-control-allow-origin") === "*");
+const apiErr = await get("/api/v1/projects/nope");
+const apiErrBody = await apiErr.json();
+check("API error is RFC 9457 with code and hint", apiErr.status === 404 && apiErr.headers.get("content-type") === "application/problem+json" && apiErrBody.code === "project_not_found" && !!apiErrBody.hint);
+const oa = await get("/openapi.json");
+const oaJson = oa.status === 200 ? await oa.json() : { paths: {} };
+const ops = Object.values(oaJson.paths).flatMap((i) => Object.values(i));
+check("OpenAPI 3.1 with unique operationIds and descriptions", oaJson.openapi === "3.1.0" && ops.length > 0 && new Set(ops.map((o) => o.operationId)).size === ops.length && ops.every((o) => o.description), `${ops.length} operations`);
+const cat = await get("/.well-known/api-catalog");
+check("API catalog (RFC 9727)", cat.status === 200 && /application\/linkset\+json/.test(cat.headers.get("content-type") || "") && (await cat.json()).linkset?.[0]?.["service-desc"]?.[0]?.href === "https://devshipit.com/openapi.json");
+check("Link rel=service-desc on pages", /rel="service-desc"/.test(html.headers.get("link") || ""));
+for (const p of ["/about/", "/services/", "/work/", "/site.webmanifest", "/favicon.ico", "/apple-touch-icon.png"]) check(`${p} is live`, (await get(p)).status === 200);
 
 const ld = htmlBody.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
 const person = ld ? JSON.parse(ld[1])["@graph"]?.find((n) => n["@type"] === "Person") : null;

@@ -176,3 +176,14 @@ html.intro .loader {
   .row .rbadge { width: 42px; height: 42px; }
   .stats { gap: 36px 20px; margin-top: 44px; }
 }
+
+/* ---------- /work/: all four projects, two by two ---------- */
+.work-grid.even { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+.art-jhr { background: radial-gradient(70% 60% at 85% 15%, rgba(1, 105, 252, 0.5), transparent 70%), radial-gradient(50% 40% at 10% 90%, rgba(134, 178, 255, 0.18), transparent 70%), #0a0f1c; }
+.work .more, .services .more { margin-top: 28px; }
+@media (max-width: 767px) { .work-grid.even { grid-template-columns: 1fr; } }
+.qa { padding-block: var(--section) 0; }
+.qa-head { margin-bottom: 40px; }
+.about-foot .textlink { margin-right: auto; }
+.wcard h2.h3 { margin-top: 10px; font-size: clamp(28px, 2.8vw, 40px); font-weight: 300; line-height: 1.06; letter-spacing: -0.03em; }
+.page-head + .work, .page-head + .services { padding-top: 64px; }

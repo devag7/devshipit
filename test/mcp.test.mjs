@@ -33,7 +33,7 @@ test("notifications are accepted with 202 and no body", async () => {
 test("tools/list exposes read-only tools with schemas", async () => {
   const j = await call(3, "tools/list", {});
   const names = j.result.tools.map((t) => t.name).sort();
-  assert.deepEqual(names, ["get_contact", "get_page", "get_profile", "list_pages", "list_projects"]);
+  assert.deepEqual(names, ["get_contact", "get_faq", "get_page", "get_profile", "list_pages", "list_projects", "list_services"]);
   for (const t of j.result.tools) {
     assert.equal(t.inputSchema.type, "object");
     assert.equal(t.annotations.readOnlyHint, true);
@@ -51,6 +51,13 @@ test("tools/call returns real site content", async () => {
   assert.match(page.result.content[0].text, /^# RentWise/);
   const contact = await call(7, "tools/call", { name: "get_contact", arguments: {} });
   assert.equal(contact.result.structuredContent.hiring_and_freelance, "hello@devshipit.com");
+  const services = await call(71, "tools/call", { name: "list_services", arguments: {} });
+  assert.equal(services.result.isError, false);
+  assert.ok(services.result.structuredContent.services.length >= 4);
+  assert.equal(services.result.structuredContent.process.length, 4);
+  const faq = await call(72, "tools/call", { name: "get_faq", arguments: {} });
+  assert.equal(faq.result.isError, false);
+  assert.ok(faq.result.structuredContent.items.every((q) => q.question.endsWith("?") && q.answer.length > 20));
 });
 
 test("tool errors are reported in the result, protocol errors as JSON-RPC errors", async () => {
@@ -90,6 +97,6 @@ test("server card is published at every discovery path", async () => {
     assert.equal(card.transport.type, "streamable-http");
     assert.equal(card.endpoint, "https://devshipit.com/mcp");
     assert.equal(card.remotes[0].url, "https://devshipit.com/mcp");
-    assert.ok(card.tools.length === 5);
+    assert.ok(card.tools.length === 7);
   }
 });

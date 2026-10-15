@@ -1,6 +1,6 @@
 # Pricing
 
-> Prices for JantaHR, the HR and payroll software sold by DevShipIt, and for freelance web development.
+> JantaHR prices per employee in rupees (Free, Standard, Professional and Enterprise), and how DevShipIt quotes freelance web development projects.
 
 Last updated October 2026
 

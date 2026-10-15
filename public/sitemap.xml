@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://devshipit.com/</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://devshipit.com/work/</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://devshipit.com/services/</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://devshipit.com/about/</loc><lastmod>2026-10-15</lastmod></url>
   <url><loc>https://devshipit.com/pricing/</loc><lastmod>2026-10-15</lastmod></url>
   <url><loc>https://devshipit.com/terms/</loc><lastmod>2026-10-15</lastmod></url>
   <url><loc>https://devshipit.com/privacy/</loc><lastmod>2026-10-15</lastmod></url>

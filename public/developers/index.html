@@ -1,24 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DevShipIt developer resources: Markdown, llms.txt and MCP server</title>
-<meta name="description" content="How developers and AI agents can read devshipit.com: Markdown for every page, llms.txt, and a public read-only MCP server, plus the developer tools Dev Agarwalla has published.">
+<title>DevShipIt developer docs: API, OpenAPI, CLI and MCP server</title>
+<meta name="description" content="The DevShipIt public API with its OpenAPI 3.1 document, the devshipit command-line tool, the MCP server, llms.txt and Markdown for every page of devshipit.com.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://devshipit.com/developers/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="service-desc" type="application/json" href="/openapi.json" title="DevShipIt API (OpenAPI 3.1)">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#060507">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DevShipIt">
-<meta property="og:title" content="DevShipIt developer resources: Markdown, llms.txt and MCP server">
-<meta property="og:description" content="How developers and AI agents can read devshipit.com: Markdown for every page, llms.txt, and a public read-only MCP server, plus the developer tools Dev Agarwalla has published.">
+<meta property="og:locale" content="en_IN">
+<meta property="og:title" content="DevShipIt developer docs: API, OpenAPI, CLI and MCP server">
+<meta property="og:description" content="The DevShipIt public API with its OpenAPI 3.1 document, the devshipit command-line tool, the MCP server, llms.txt and Markdown for every page of devshipit.com.">
 <meta property="og:url" content="https://devshipit.com/developers/">
 <meta property="og:image" content="https://devshipit.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/site.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://devshipit.com/developers/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://devshipit.com/"},{"@type":"ListItem","position":2,"name":"Developers","item":"https://devshipit.com/developers/"}]},{"@type":"WebAPI","@id":"https://devshipit.com/api/v1#api","name":"DevShipIt API","description":"Read-only public JSON API with Dev Agarwalla's profile, projects, services, FAQ, contact details and every devshipit.com page as Markdown.","url":"https://devshipit.com/api/v1","documentation":"https://devshipit.com/developers/","provider":{"@id":"https://devshipit.com/#business"},"termsOfService":"https://devshipit.com/terms/"}]}</script>
 <link rel="alternate" type="text/markdown" href="https://devshipit.com/developers/index.md" title="This page as Markdown">
 </head>
 <body>
@@ -26,41 +34,61 @@
 <div id="top-sentinel" aria-hidden="true"></div>
 <header class="gnav"><div class="gnav-in">
   <a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a>
-  <nav aria-label="Primary"><span class="pill" aria-hidden="true"></span><a href="/#live">Live</a><a href="/#work">Work</a><a href="/#services">Services</a><a href="/pricing/">Pricing</a></nav>
+  <nav aria-label="Primary"><span class="pill" aria-hidden="true"></span><a href="/work/">Work</a><a href="/services/">Services</a><a href="/about/">About</a><a href="/pricing/">Pricing</a></nav>
   <div class="gnav-r"><a class="btn arrow" href="/contact/" data-contact>Contact<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a><button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-expanded="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-list"/></svg>Menu</button></div>
 </div></header>
 <main id="main">
 <section class="page-head">
   <div class="wrap">
-    <a class="back" href="/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-left"/></svg> Home</a>
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Developers</li></ol></nav>
     <h1>DevShipIt for developers and AI agents</h1>
-    <p class="lead">Every page on devshipit.com can be read as Markdown, the site has an llms.txt, and a public MCP server answers questions about Dev's work.</p>
+    <p class="lead">A public JSON API with an OpenAPI 3.1 document, a command-line tool, an MCP server, llms.txt, and Markdown for every page. No sign-in, read-only.</p>
+    <div class="btns"><a class="btn" href="/openapi.json">OpenAPI document</a><a class="btn ghost" href="/api/v1">Try the API</a></div>
   </div>
 </section>
 <section class="doc">
   <div class="wrap"><div class="doc-in"><div class="prose">
-<h2>Read any page as Markdown</h2>
-<p>Send <code>Accept: text/markdown</code> with a request for any page and you get Markdown instead of HTML, with <code>Vary: Accept</code> on both. You can also open the Markdown file directly by adding <code>index.md</code> to a page URL, for example <a href="/pricing/index.md">/pricing/index.md</a>.</p>
-<p><code>curl -H "Accept: text/markdown" https://devshipit.com/</code></p>
-<p>A path that does not exist returns 404, with a Markdown explanation when Markdown was asked for.</p>
-<h2>llms.txt</h2>
-<p><a href="/llms.txt">/llms.txt</a> describes the site, says when an agent should use it and lists every page. <a href="/llms-full.txt">/llms-full.txt</a> holds the full text of every page in one file.</p>
-<h2>MCP server</h2>
+<h2 id="api">DevShipIt API</h2>
+<p>A read-only JSON API at <code>https://devshipit.com/api/v1</code> with the same facts as the site. It needs no key, sends <code>Access-Control-Allow-Origin: *</code>, and is described by an OpenAPI 3.1 document at <a href="/openapi.json">/openapi.json</a>, where every operation has an <code>operationId</code>, typed parameters and response schemas. The API catalog is at <a href="/.well-known/api-catalog">/.well-known/api-catalog</a> (RFC 9727).</p>
+<p><code>curl https://devshipit.com/api/v1/projects/jantahr</code></p>
+<div class="table-wrap"><table><thead><tr><th>Endpoint</th><th>operationId</th><th>Returns</th></tr></thead><tbody><tr><td><code>GET /api/v1/</code></td><td><code>getApiIndex</code></td><td>API name, version and every endpoint</td></tr><tr><td><code>GET /api/v1/profile</code></td><td><code>getProfile</code></td><td>Who Dev is, his stack and what he is open to</td></tr><tr><td><code>GET /api/v1/projects</code></td><td><code>listProjects</code></td><td>JantaHR, RentWise, linkedin-mcp and ISP Evidence</td></tr><tr><td><code>GET /api/v1/projects/{slug}</code></td><td><code>getProject</code></td><td>One project, for example jantahr</td></tr><tr><td><code>GET /api/v1/services</code></td><td><code>listServices</code></td><td>Freelance services</td></tr><tr><td><code>GET /api/v1/faq</code></td><td><code>listFaq</code></td><td>Frequently asked questions with answers</td></tr><tr><td><code>GET /api/v1/contact</code></td><td><code>getContact</code></td><td>Which email address to use</td></tr><tr><td><code>GET /api/v1/pages</code></td><td><code>listPages</code></td><td>Every public page</td></tr><tr><td><code>GET /api/v1/page?path=/pricing/</code></td><td><code>getPage</code></td><td>One page as Markdown</td></tr></tbody></table></div>
+<p>To use it as tools for a model with function calling, load the OpenAPI document: each <code>operationId</code> becomes a function name and its description says when to call it.</p>
+<h2 id="errors">Errors</h2>
+<p>Every error is RFC 9457 problem details, sent as <code>application/problem+json</code>, with three extra members: <code>code</code> (stable and machine-readable), <code>hint</code> (what to do next) and <code>docs</code>. The <code>type</code> URI of each error opens its row below. Clients that ask for JSON also get problem details for a missing page or file anywhere on the site.</p>
+<p><code>{"type": "https://devshipit.com/developers/#error-project_not_found", "title": "Project not found", "status": 404, "detail": "There is no project "x". Valid slugs: jantahr, rentwise, linkedin-mcp, isp-evidence.", "code": "project_not_found", "hint": "Call GET /api/v1/projects for the valid slugs.", "instance": "/api/v1/projects/x"}</code></p>
+<div class="table-wrap"><table><thead><tr><th>code</th><th>Status</th><th>Meaning</th><th>What to do</th></tr></thead><tbody><tr id="error-not_found"><td><code>not_found</code></td><td>404</td><td>No endpoint, page or file at that path.</td><td>List what exists with GET /api/v1/ or read /openapi.json.</td></tr><tr id="error-project_not_found"><td><code>project_not_found</code></td><td>404</td><td>No project with that slug.</td><td>Call GET /api/v1/projects for the valid slugs.</td></tr><tr id="error-page_not_found"><td><code>page_not_found</code></td><td>404</td><td>No public page at that path.</td><td>Call GET /api/v1/pages for the valid paths.</td></tr><tr id="error-missing_parameter"><td><code>missing_parameter</code></td><td>400</td><td>A required query parameter is missing.</td><td>Add it and retry, for example ?path=/pricing/.</td></tr><tr id="error-invalid_parameter"><td><code>invalid_parameter</code></td><td>400</td><td>A parameter has the wrong format.</td><td>Check the format in the OpenAPI document.</td></tr><tr id="error-method_not_allowed"><td><code>method_not_allowed</code></td><td>405</td><td>The API is read-only.</td><td>Use GET or HEAD.</td></tr><tr id="error-not_acceptable"><td><code>not_acceptable</code></td><td>406</td><td>A page was asked for as JSON.</td><td>Use /api/v1/page?path=..., or ask for text/html or text/markdown.</td></tr><tr id="error-unavailable"><td><code>unavailable</code></td><td>503</td><td>The site data could not be loaded.</td><td>Retry after the Retry-After header.</td></tr></tbody></table></div>
+<h2 id="cli">Command-line tool</h2>
+<p>The <code>devshipit</code> CLI reads the API from a terminal. It needs Node.js 20 or newer and has no dependencies.</p>
+<p><code>npx github:devag7/devshipit projects</code></p>
+<ul>
+<li><code>devshipit profile</code>, <code>devshipit projects</code>, <code>devshipit project jantahr</code></li>
+<li><code>devshipit services</code>, <code>devshipit faq</code>, <code>devshipit contact</code></li>
+<li><code>devshipit pages</code> and <code>devshipit page /pricing/</code> to print a page as Markdown</li>
+<li>Add <code>--json</code> to any command for raw JSON. Errors exit with code 1 and print the API's <code>code</code> and <code>hint</code>.</li>
+</ul>
+<p>Source: <a href="https://github.com/devag7/devshipit/tree/main/cli" rel="noopener">github.com/devag7/devshipit/tree/main/cli</a>.</p>
+<h2 id="mcp">MCP server</h2>
 <p>A public, read-only Model Context Protocol server runs at <code>https://devshipit.com/mcp</code> over Streamable HTTP. It needs no sign-in and does not store anything you send.</p>
 <ul>
 <li><code>get_profile</code>: who Dev is, what he works with and what he is looking for</li>
 <li><code>list_projects</code>: JantaHR, RentWise, linkedin-mcp and ISP Evidence with their status and links</li>
+<li><code>list_services</code> and <code>get_faq</code>: freelance services and answers to common questions</li>
 <li><code>list_pages</code> and <code>get_page</code>: every public page as Markdown</li>
 <li><code>get_contact</code>: which email address to use for hiring, freelance work or JantaHR</li>
 </ul>
 <p>Add it to Claude Code with <code>claude mcp add --transport http devshipit https://devshipit.com/mcp</code>, or to any client that accepts a remote server URL. The discovery document is at <a href="/.well-known/mcp/server-card.json">/.well-known/mcp/server-card.json</a>.</p>
-<h2>Published developer tools</h2>
+<h2 id="markdown">Read any page as Markdown</h2>
+<p>Send <code>Accept: text/markdown</code> with a request for any page and you get Markdown instead of HTML, with <code>Vary: Accept</code> on both. You can also open the Markdown file directly by adding <code>index.md</code> to a page URL, for example <a href="/pricing/index.md">/pricing/index.md</a>.</p>
+<p><code>curl -H "Accept: text/markdown" https://devshipit.com/</code></p>
+<h2 id="llms">llms.txt</h2>
+<p><a href="/llms.txt">/llms.txt</a> describes the site, says when an agent should use it and lists every page. <a href="/llms-full.txt">/llms-full.txt</a> holds the full text of every page in one file.</p>
+<h2 id="tools">Published developer tools</h2>
 <ul>
-<li><a href="https://www.npmjs.com/package/linkedin-mcp-tools" rel="noopener">linkedin-mcp-tools</a> on npm: a 36-tool LinkedIn integration for AI assistants, with caching, rate limiting and retries. <a href="/work/linkedin-mcp/">Case study</a>.</li>
+<li><a href="https://www.npmjs.com/package/linkedin-mcp-tools" rel="noopener">linkedin-mcp-tools</a> on npm: a 36-tool LinkedIn integration for AI assistants, with caching, rate limiting and retries. <a href="/work/linkedin-mcp/">linkedin-mcp case study</a>.</li>
 <li><a href="https://jantahr.devshipit.com/developers" rel="noopener">JantaHR developer docs</a>: the REST API with its <a href="https://jantahr.devshipit.com/openapi.json" rel="noopener">OpenAPI specification</a>, and JantaHR's own MCP server for plans, pages and contact details.</li>
-<li><a href="https://github.com/devag7" rel="noopener">github.com/devag7</a>: source for JantaHR, RentWise and linkedin-mcp.</li>
+<li><a href="https://github.com/devag7" rel="noopener">github.com/devag7</a>: source for JantaHR, RentWise, linkedin-mcp and this site.</li>
 </ul>
-<h2>Questions</h2>
+<h2 id="questions">Questions</h2>
 <p>Email <a href="mailto:hello@devshipit.com">hello@devshipit.com</a>.</p>
   </div></div></div>
 </section>
@@ -77,12 +105,15 @@
     <div class="foot-cols">
       <div class="f-about"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><p>DevShipIt is where Dev Agarwalla, a freelance full-stack developer in Bengaluru, ships products, case studies and client work.</p></div>
       <div><h3>Work</h3><ul>
+        <li><a href="/work/">All work</a></li>
         <li><a href="/work/jantahr/">JantaHR</a></li>
         <li><a href="/work/rentwise/">RentWise</a></li>
         <li><a href="/work/linkedin-mcp/">linkedin-mcp</a></li>
         <li><a href="/work/isp-evidence/">ISP Evidence</a></li>
       </ul></div>
       <div><h3>Company</h3><ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
         <li><a href="/pricing/">Pricing</a></li>
         <li><a href="/terms/">Terms</a></li>
         <li><a href="/privacy/">Privacy</a></li>
@@ -95,6 +126,7 @@
         <li><a href="https://github.com/devag7" rel="noopener">GitHub</a></li>
         <li><a href="mailto:hello@devshipit.com">Email</a></li>
         <li><a href="/developers/">Developers and agents</a></li>
+        <li><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a></li>
       </ul></div>
     </div>
     <div class="foot-legal">
@@ -106,7 +138,7 @@
 </footer>
 <dialog class="menu" id="menu-dialog" aria-label="Menu">
   <div class="menu-top"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><button class="close" type="button" data-close><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-x"/></svg>Close</button></div>
-  <nav aria-label="Menu"><ul><li><a href="/#live"><i>01</i>Live</a></li><li><a href="/#work"><i>02</i>Work</a></li><li><a href="/#services"><i>03</i>Services</a></li><li><a href="/#about"><i>04</i>About</a></li><li><a href="/pricing/"><i>05</i>Pricing</a></li><li><a href="/contact/" data-contact><i>06</i>Contact</a></li></ul></nav>
+  <nav aria-label="Menu"><ul><li><a href="/work/"><i>01</i>Work</a></li><li><a href="/services/"><i>02</i>Services</a></li><li><a href="/about/"><i>03</i>About</a></li><li><a href="/pricing/"><i>04</i>Pricing</a></li><li><a href="/developers/"><i>05</i>Developers</a></li><li><a href="/contact/" data-contact><i>06</i>Contact</a></li></ul></nav>
   <div class="menu-bot"><a href="mailto:hello@devshipit.com">hello@devshipit.com</a><a href="https://github.com/devag7" rel="noopener">GitHub</a></div>
 </dialog>
 <dialog class="modal" id="contact-dialog" aria-labelledby="cd-title">

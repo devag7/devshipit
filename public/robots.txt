@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://devshipit.com/sitemap.xml
 # Agent guide: https://devshipit.com/llms.txt
+# API description: https://devshipit.com/openapi.json

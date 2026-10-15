@@ -1,0 +1,23 @@
+name: indexnow
+# After a push that changes the site, wait for Cloudflare to deploy it, then tell IndexNow search engines.
+on:
+  push:
+    branches: [main]
+    paths: ["public/**"]
+  workflow_dispatch:
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Wait until the live sitemap matches this commit
+        run: |
+          for i in $(seq 1 40); do
+            if curl -fsS https://devshipit.com/sitemap.xml | cmp -s - public/sitemap.xml; then echo "deployed"; exit 0; fi
+            sleep 15
+          done
+          echo "The live sitemap never matched; submitting anyway"
+      - run: npm run indexnow

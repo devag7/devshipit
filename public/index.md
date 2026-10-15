@@ -1,10 +1,10 @@
 # DevShipIt: Dev Agarwalla, full-stack developer in Bengaluru
 
-> DevShipIt is where Dev Agarwalla, a full-stack developer in Bengaluru, ships software: JantaHR, HR and payroll for Indian companies, plus case studies and freelance web development.
+> DevShipIt is Dev Agarwalla, a freelance full-stack developer in Bengaluru: websites and web apps for clients, JantaHR HR and payroll software, and case studies.
 
 ## I build products and ship them.
 
-I'm Dev, a full-stack developer in Bangalore. Most of what I build is live and open to look at. I'm open to full-time software engineer and full-stack developer roles in Bangalore, and I take freelance web development projects.
+I'm Dev Agarwalla, a full-stack developer in Bangalore. DevShipIt is where I ship products and freelance work, and most of it is live and open to look at. I'm open to full-time software engineer and full-stack developer roles in Bangalore, and I take freelance web development projects.
 
 - BCA (Data Analytics), Kristu Jayanti (Deemed to be University), Bangalore
 - Looking for: Entry-level software engineer or full-stack developer roles in Bangalore, and freelance web development projects
@@ -54,6 +54,8 @@ I build MERN-stack sites for property agents and agencies in Bangalore that list
 - **SaaS products**: Subscription products with plans, roles and compliance, like JantaHR.
 - **Android apps and AI tools**: Background apps that export reports, and MCP servers that connect AI assistants to your tools.
 
+How a project works, and more answers: https://devshipit.com/services/
+
 ## Proof in the work, not the words.
 
 - **4**: Products built and shipped
@@ -61,15 +63,40 @@ I build MERN-stack sites for property agents and agencies in Bangalore that list
 - **5**: Indian payroll compliances JantaHR calculates: PF, ESI, PT, LWF and TDS
 - **14**: Days to try JantaHR free, no card needed
 
+## Questions
+
+### What is DevShipIt, and how is it related to JantaHR?
+
+DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com. [JantaHR case study](https://devshipit.com/work/jantahr/).
+
+### How much does a website or web app cost?
+
+Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget. [See pricing](https://devshipit.com/pricing/).
+
+### Who owns the code and the website?
+
+You do. For freelance work, ownership of what is built passes to you once it is paid for, unless the quote says otherwise. [Read the terms](https://devshipit.com/terms/).
+
+### How long does a project take?
+
+It depends on the scope. The delivery dates are written into your quote before any work starts, so you know them up front.
+
+### Is Dev Agarwalla open to full-time roles?
+
+Yes. Dev is looking for an entry-level software engineer or full-stack developer role in Bangalore. Write to hello@devshipit.com. [About Dev](https://devshipit.com/about/).
+
+
 ## Contact
 
 - Hiring and freelance projects: hello@devshipit.com
 - JantaHR support, billing and legal: jantahr@devshipit.com
 - Contact page: https://devshipit.com/contact/
 - GitHub: https://github.com/devag7
+- LinkedIn: https://www.linkedin.com/in/devagarwalla
 
 ---
 
 Canonical page: https://devshipit.com/  
 Site guide for agents: https://devshipit.com/llms.txt  
-Developers and agents: https://devshipit.com/developers/
+Developers and agents: https://devshipit.com/developers/  
+API: https://devshipit.com/api/v1 (OpenAPI: https://devshipit.com/openapi.json)
