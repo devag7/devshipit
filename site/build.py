@@ -1165,13 +1165,32 @@ def agents_pass():
     write("assets/icons.svg", '<svg xmlns="http://www.w3.org/2000/svg">' + "".join(SYMBOLS[k] for k in sorted(SYMBOLS)) + "</svg>\n")
 
 
+def page_images(path):
+    """Content images on a page (real screenshots with alt text), for the image sitemap. Logos and decoration are skipped."""
+    rel = "index.html" if path == "/" else path.strip("/") + "/index.html"
+    html = open(os.path.join(OUT, rel), encoding="utf-8").read()
+    found = []
+    for tag in re.findall(r"<img\b[^>]*>", html):
+        src = re.search(r'src="(/assets/img/[^"]+)"', tag)
+        alt = re.search(r'alt="([^"]+)"', tag)
+        if src and alt and "logo" not in src.group(1) and src.group(1) not in found:
+            found.append(src.group(1))
+    return found
+
+
 def housekeeping():
     urls = [p for p, _, _ in PAGES]
     # The personal site is listed too. That is a cross-host entry, allowed because me.devshipit.com/robots.txt
     # names this sitemap (sitemaps.org cross-submission) and Search Console verifies the whole domain.
-    entries = [(SITE + u, LASTMOD) for u in urls] + [(ME + "/", LASTMOD)]
-    sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
-        f"  <url><loc>{loc}</loc><lastmod>{mod}</lastmod></url>\n" for loc, mod in entries) + "</urlset>\n"
+    entries = [(SITE + u, LASTMOD, page_images(u)) for u in urls] + [(ME + "/", LASTMOD, [])]
+
+    def url_xml(loc, mod, imgs):
+        img = "".join(f"<image:image><image:loc>{SITE}{src}</image:loc></image:image>" for src in imgs)
+        return f"  <url><loc>{loc}</loc><lastmod>{mod}</lastmod>{img}</url>\n"
+
+    sm = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
+          + "".join(url_xml(*e) for e in entries) + "</urlset>\n")
     write("sitemap.xml", sm)
     write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\nSitemap: {ME}/sitemap.xml\n# Agent guide: {SITE}/llms.txt\n# API description: {SITE}/openapi.json\n# Dev Agarwalla's personal site: {ME}/\n")
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY + "\n")

@@ -137,3 +137,11 @@ test("robots.txt names both sitemaps: this site and the personal site", async ()
   assert.match(robots, /^Sitemap: https:\/\/devshipit\.com\/sitemap\.xml$/m);
   assert.match(robots, /^Sitemap: https:\/\/me\.devshipit\.com\/sitemap\.xml$/m);
 });
+
+test("image sitemap entries point at real screenshots", async () => {
+  const sm = await pub("sitemap.xml");
+  assert.match(sm, /xmlns:image="http:\/\/www\.google\.com\/schemas\/sitemap-image\/1\.1"/);
+  const imgs = [...sm.matchAll(/<image:loc>https:\/\/devshipit\.com(\/[^<]+)<\/image:loc>/g)].map((m) => m[1]);
+  assert.ok(imgs.length >= 3);
+  for (const src of imgs) assert.ok(await exists(src.slice(1)), src);
+});
