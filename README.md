@@ -33,9 +33,15 @@ Machine-readable files: `/llms.txt` (with when-to-use guidance), `/llms-full.txt
 
 ## Editing
 
-Edit any file under `public/`, commit to `main`, and the live site updates within a minute or two. Shared styles are in `public/assets/site.css`; icons are symbols in `public/assets/icons.svg`.
+The pages are generated. `site/build.py` writes every HTML page, its Markdown twin, `llms.txt`, `llms-full.txt`, `agent/site.json`, the sitemap, `robots.txt`, the web manifest and the icon sprite into `public/`. Legal and case-study copy comes verbatim from `site/source/`. Styles and scripts in `public/assets/` (`site.css`, `home.css`, `app.js`, `site.js`, `home.js`) are edited by hand.
 
-When you change a page's text, change its `index.md` too, and `public/llms.txt` or `public/agent/site.json` if the change affects them. The tests check that every page has a Markdown twin with the same H1.
+```
+npm --prefix site ci             # icon sources
+pip install markdownify==1.2.3   # Markdown twins
+python3 site/build.py            # regenerate public/
+```
+
+Change copy in `site/build.py` (or `site/source/`), rebuild, and commit both. CI rebuilds and fails if `public/` differs from what the generator produces.
 
 ## Tests
 

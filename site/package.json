@@ -1,0 +1,9 @@
+{
+  "name": "devshipit-site-build",
+  "private": true,
+  "description": "Icon sources for site/build.py",
+  "devDependencies": {
+    "@phosphor-icons/core": "2.1.1",
+    "simple-icons": "16.35.0"
+  }
+}
