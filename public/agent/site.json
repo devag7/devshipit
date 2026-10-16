@@ -3,10 +3,9 @@
     "name": "Dev Agarwalla",
     "brand": "DevShipIt",
     "site": "https://devshipit.com/",
-    "role": "Full-stack developer",
+    "role": "Full-stack and applied AI engineer",
+    "current_role": "Technical Delivery Associate at Falcon Reality (AI for maritime operations), since September 2026",
     "location": "Bengaluru, Karnataka, India",
-    "education": "BCA (Data Analytics), Kristu Jayanti (Deemed to be University), Bangalore",
-    "looking_for": "Entry-level software engineer or full-stack developer roles in Bangalore, and freelance web development projects",
     "freelance": "MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date",
     "stack": [
       "TypeScript",
@@ -23,7 +22,33 @@
       "Socket.IO"
     ],
     "github": "https://github.com/devag7",
-    "linkedin": "https://www.linkedin.com/in/devagarwalla"
+    "linkedin": "https://www.linkedin.com/in/devagarwalla",
+    "experience": [
+      {
+        "organisation": "Falcon Reality",
+        "role": "Technical Delivery Associate",
+        "dates": "September 2026 to now",
+        "summary": "Joined as an intern in August 2026 and moved to full-time. Working on Fleet Intelligence, an AI layer over ships' planned maintenance systems: requirements discovery with maritime experts, product specs, MVP scope, and integration with the ERP and maintenance systems customers already run."
+      },
+      {
+        "organisation": "Cyber Secure India",
+        "role": "Full-stack Developer Intern",
+        "dates": "January to June 2025",
+        "summary": "Shipped three MERN applications to production and built 15+ REST APIs with JWT authentication and role-based access, cutting API latency by about 30% through query indexing, caching and modular routes."
+      },
+      {
+        "organisation": "GDSC",
+        "role": "Student Developer",
+        "dates": "2023 to 2024",
+        "summary": "Ran technical workshops and coding sessions, and built frontend projects with other student developers."
+      },
+      {
+        "organisation": "Bobble AI",
+        "role": "Data Annotator Intern",
+        "dates": "2021",
+        "summary": "Prepared conversational datasets for the NLP models behind an AI keyboard."
+      }
+    ]
   },
   "projects": [
     {
@@ -161,8 +186,8 @@
       "answer": "Within 2 working days, usually sooner. Email is the fastest way to reach me."
     },
     {
-      "question": "Is Dev Agarwalla open to full-time roles?",
-      "answer": "Yes. Dev is looking for an entry-level software engineer or full-stack developer role in Bangalore. Write to hello@devshipit.com."
+      "question": "Who will build my project?",
+      "answer": "Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own."
     },
     {
       "question": "What is DevShipIt, and how is it related to JantaHR?",
@@ -173,7 +198,7 @@
     "hiring_and_freelance": "hello@devshipit.com",
     "jantahr_support_billing_legal": "jantahr@devshipit.com",
     "contact_page": "https://devshipit.com/contact/",
-    "note": "Use hello@devshipit.com for jobs, interviews and freelance projects. Use jantahr@devshipit.com only for JantaHR support, billing and legal questions."
+    "note": "Use hello@devshipit.com for freelance projects and general enquiries. Use jantahr@devshipit.com only for JantaHR support, billing and legal questions."
   },
   "pages": [
     {
@@ -194,7 +219,7 @@
     {
       "path": "/about/",
       "title": "About Dev Agarwalla, full-stack developer in Bengaluru | DevShipIt",
-      "description": "Dev Agarwalla is a full-stack developer in Bengaluru who ships software as DevShipIt: his education, stack, products, and the roles and freelance work he is open to."
+      "description": "Dev Agarwalla is a full-stack and applied AI engineer in Bengaluru who ships software as DevShipIt: his work at Falcon Reality, his stack, products and freelance work."
     },
     {
       "path": "/pricing/",
@@ -223,8 +248,8 @@
     },
     {
       "path": "/contact/",
-      "title": "Contact for hiring and freelance projects | DevShipIt",
-      "description": "Email Dev Agarwalla at DevShipIt about a full-time role or a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days."
+      "title": "Contact for freelance projects and enquiries | DevShipIt",
+      "description": "Email Dev Agarwalla at DevShipIt about a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days."
     },
     {
       "path": "/work/jantahr/",

@@ -15,7 +15,7 @@ A read-only JSON API at `https://devshipit.com/api/v1` with the same facts as th
 | Endpoint | operationId | Returns |
 | --- | --- | --- |
 | `GET /api/v1/` | `getApiIndex` | API name, version and every endpoint |
-| `GET /api/v1/profile` | `getProfile` | Who Dev is, his stack and what he is open to |
+| `GET /api/v1/profile` | `getProfile` | Who Dev is, his experience and stack |
 | `GET /api/v1/projects` | `listProjects` | JantaHR, RentWise, linkedin-mcp and ISP Evidence |
 | `GET /api/v1/projects/{slug}` | `getProject` | One project, for example jantahr |
 | `GET /api/v1/services` | `listServices` | Freelance services |
@@ -60,11 +60,11 @@ Source: [github.com/devag7/devshipit/tree/main/cli](https://github.com/devag7/de
 
 A public, read-only Model Context Protocol server runs at `https://devshipit.com/mcp` over Streamable HTTP. It needs no sign-in and does not store anything you send.
 
-- `get_profile`: who Dev is, what he works with and what he is looking for
+- `get_profile`: who Dev is, where he works, his experience and stack
 - `list_projects`: JantaHR, RentWise, linkedin-mcp and ISP Evidence with their status and links
 - `list_services` and `get_faq`: freelance services and answers to common questions
 - `list_pages` and `get_page`: every public page as Markdown
-- `get_contact`: which email address to use for hiring, freelance work or JantaHR
+- `get_contact`: which email address to use for freelance work, general enquiries or JantaHR
 
 Add it to Claude Code with `claude mcp add --transport http devshipit https://devshipit.com/mcp`, or to any client that accepts a remote server URL. The discovery document is at </.well-known/mcp/server-card.json>.
 

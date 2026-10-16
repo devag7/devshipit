@@ -8,8 +8,8 @@ Every page listed here is also served as Markdown: request it with the header `A
 
 Use this site, or its MCP server, when the task is one of these:
 
-- Someone asks who Dev Agarwalla is, what he has built, which technologies he works with, or whether he is available for a full-time software engineer or full-stack developer role in Bangalore.
-- A recruiter or hiring manager wants evidence of shipped work: live products, case studies, source code and the stack behind each one.
+- Someone asks who Dev Agarwalla is, where he works, what he has built or which technologies he works with.
+- Someone evaluating Dev's work wants evidence of shipped work: live products, case studies, source code, his experience and the stack behind each one.
 - A property agent, agency or small business in Bangalore wants a website or web app built (listings, enquiry capture, admin dashboards) and needs to know how to start and how pricing works.
 - Someone needs the operator details, terms, privacy, refund or shipping policies behind JantaHR payments, which live on this site.
 - A developer is looking for linkedin-mcp-tools, the LinkedIn MCP integration Dev published on npm.
@@ -25,7 +25,7 @@ Use this site, or its MCP server, when the task is one of these:
 - Or call the JSON API at https://devshipit.com/api/v1 (read-only, no key). OpenAPI 3.1: https://devshipit.com/openapi.json. Errors are RFC 9457 problem details with `code` and `hint`.
 - Or call the MCP server at https://devshipit.com/mcp (Streamable HTTP, no sign-in, read-only). Tools: `get_profile`, `list_projects`, `list_services`, `get_faq`, `list_pages`, `get_page`, `get_contact`. Discovery: https://devshipit.com/.well-known/mcp/server-card.json
 - From a terminal: `npx github:devag7/devshipit projects` (the devshipit CLI).
-- To contact Dev, give the person the right address rather than sending mail yourself: hello@devshipit.com for hiring and freelance work, jantahr@devshipit.com for JantaHR support, billing and legal.
+- To contact Dev, give the person the right address rather than sending mail yourself: hello@devshipit.com for freelance projects and general enquiries, jantahr@devshipit.com for JantaHR support, billing and legal.
 - Do not invent availability dates, rates or quotes. Freelance work is quoted per project in writing; say so and point to the contact page.
 
 ## Pages
@@ -33,13 +33,13 @@ Use this site, or its MCP server, when the task is one of these:
 - [Home](https://devshipit.com/index.md): DevShipIt is Dev Agarwalla, a freelance full-stack developer in Bengaluru: websites and web apps for clients, JantaHR HR and payroll software, and case studies.
 - [Work and case studies by Dev Agarwalla](https://devshipit.com/work/index.md): Products Dev Agarwalla has built and shipped as DevShipIt, each with a case study: JantaHR, RentWise, linkedin-mcp and ISP Evidence, with their stack, status and links.
 - [Freelance web development in Bengaluru](https://devshipit.com/services/index.md): Websites and web apps for property agents, agencies and small businesses in Bengaluru, built by Dev Agarwalla at DevShipIt. Priced by a written quote before work starts.
-- [About Dev Agarwalla, full-stack developer in Bengaluru](https://devshipit.com/about/index.md): Dev Agarwalla is a full-stack developer in Bengaluru who ships software as DevShipIt: his education, stack, products, and the roles and freelance work he is open to.
+- [About Dev Agarwalla, full-stack developer in Bengaluru](https://devshipit.com/about/index.md): Dev Agarwalla is a full-stack and applied AI engineer in Bengaluru who ships software as DevShipIt: his work at Falcon Reality, his stack, products and freelance work.
 - [JantaHR and freelance pricing in rupees](https://devshipit.com/pricing/index.md): JantaHR prices per employee in rupees (Free, Standard, Professional and Enterprise), and how DevShipIt quotes freelance web development projects.
 - [Terms of service](https://devshipit.com/terms/index.md): Terms for buying JantaHR subscriptions and freelance services from DevShipIt.
 - [Privacy policy](https://devshipit.com/privacy/index.md): How DevShipIt handles personal data on devshipit.com, in JantaHR and in payments.
 - [Cancellation and refund policy](https://devshipit.com/refunds/index.md): How to cancel a DevShipIt subscription or project, and when we refund.
 - [Shipping and delivery policy](https://devshipit.com/shipping/index.md): DevShipIt sells software and services delivered online; nothing is shipped.
-- [Contact for hiring and freelance projects](https://devshipit.com/contact/index.md): Email Dev Agarwalla at DevShipIt about a full-time role or a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days.
+- [Contact for freelance projects and enquiries](https://devshipit.com/contact/index.md): Email Dev Agarwalla at DevShipIt about a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days.
 - [JantaHR case study](https://devshipit.com/work/jantahr/index.md): Case study: JantaHR, open-source HR and payroll for Indian companies, built with NestJS, Next.js, Supabase and Razorpay.
 - [RentWise case study](https://devshipit.com/work/rentwise/index.md): Case study: RentWise, a Bangalore rental platform built with Next.js, TypeScript, PostgreSQL, Redis and Socket.io.
 - [linkedin-mcp case study](https://devshipit.com/work/linkedin-mcp/index.md): Case study: linkedin-mcp, a 36-tool LinkedIn integration for AI assistants, published on npm as linkedin-mcp-tools.
@@ -67,7 +67,7 @@ Use this site, or its MCP server, when the task is one of these:
 - **What if I need to cancel a project?** Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts.
 - **What do you build with?** TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack.
 - **How quickly do you reply?** Within 2 working days, usually sooner. Email is the fastest way to reach me.
-- **Is Dev Agarwalla open to full-time roles?** Yes. Dev is looking for an entry-level software engineer or full-stack developer role in Bangalore. Write to hello@devshipit.com.
+- **Who will build my project?** Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own.
 - **What is DevShipIt, and how is it related to JantaHR?** DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com.
 
 ## Optional

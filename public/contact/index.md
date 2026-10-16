@@ -1,12 +1,12 @@
 # Contact us
 
-> Email Dev Agarwalla at DevShipIt about a full-time role or a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days.
+> Email Dev Agarwalla at DevShipIt about a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days.
 
 Last updated October 2026
 
 - **Operated by**: Dev Agarwalla (individual), trading as DevShipIt
 - **Email**: [jantahr@devshipit.com](mailto:jantahr@devshipit.com)
-- **General and hiring**: [hello@devshipit.com](mailto:hello@devshipit.com)
+- **Projects and general**: [hello@devshipit.com](mailto:hello@devshipit.com)
 - **Location**: Bengaluru, Karnataka, India
 - **Hours**: Monday to Friday, 10:00 to 18:00 IST
 

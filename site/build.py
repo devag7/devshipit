@@ -20,7 +20,7 @@ OUT = os.path.join(os.path.dirname(HERE), "public")
 NPM = os.path.join(HERE, "node_modules")
 
 SITE = "https://devshipit.com"
-HELLO = "hello@devshipit.com"      # portfolio, hiring and freelance
+HELLO = "hello@devshipit.com"      # freelance projects and general enquiries
 JANTAHR = "jantahr@devshipit.com"  # JantaHR support, billing and legal pages only
 OG = SITE + "/assets/img/og.png"
 
@@ -293,10 +293,11 @@ GITHUB = "https://github.com/devag7"
 
 PERSON_NODE = {
     "@type": "Person", "@id": DEV_ID, "name": "Dev Agarwalla", "url": SITE + "/about/",
-    "description": "Full-stack developer in Bengaluru, India, who builds and ships web products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app). Open to entry-level software engineer and full-stack developer roles, and takes freelance web development projects.",
-    "jobTitle": "Full-stack developer",
-    "knowsAbout": ["TypeScript", "React", "Next.js", "Node.js", "NestJS", "PostgreSQL", "MongoDB", "Supabase", "MERN stack", "Model Context Protocol", "Android"],
-    "alumniOf": {"@type": "CollegeOrUniversity", "name": "Kristu Jayanti (Deemed to be University)"},
+    "description": "Full-stack and applied AI engineer in Bengaluru, India. Technical Delivery Associate at Falcon Reality (AI for maritime operations). Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.",
+    "jobTitle": "Full-stack and applied AI engineer",
+    "worksFor": {"@type": "Organization", "name": "Falcon Reality"},
+    "affiliation": {"@type": "CollegeOrUniversity", "name": "BITS Pilani"},
+    "knowsAbout": ["TypeScript", "React", "Next.js", "Node.js", "NestJS", "PostgreSQL", "MongoDB", "Supabase", "MERN stack", "Applied AI", "Model Context Protocol", "Android"],
     "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN"},
     "email": "mailto:" + HELLO, "image": SITE + "/icon-512.png",
     "brand": {"@id": BIZ_ID},
@@ -343,11 +344,11 @@ ROWS = [
     ("SaaS products", "Subscription products with plans, roles and compliance, like JantaHR.", "SaaS product"),
     ("Android apps and AI tools", "Background apps that export reports, and MCP servers that connect AI assistants to your tools.", "Android app or AI tool"),
 ]
-STATS = [
-    ("4", "Products built and shipped"),
-    ("36", "Tools in the linkedin-mcp server"),
-    ("5", "Indian payroll compliances JantaHR calculates: PF, ESI, PT, LWF and TDS"),
-    ("14", "Days to try JantaHR free, no card needed"),
+STATS = [  # (value, suffix, label); every figure is on a case study or the LinkedIn profile
+    ("4", "", "Products designed, built and shipped solo"),
+    ("36", "", "Tools in the linkedin-mcp server, published on npm"),
+    ("3", "", "MERN apps taken to production as a full-stack intern"),
+    ("15", "k+", "People following my engineering posts on LinkedIn"),
 ]
 
 
@@ -360,11 +361,11 @@ FAQ = {
     "cancel": ("What if I need to cancel a project?", "Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts.", ("Cancellation and refund policy", "/refunds/")),
     "stack": ("What do you build with?", "TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack.", None),
     "reply": ("How quickly do you reply?", "Within 2 working days, usually sooner. Email is the fastest way to reach me.", ("Contact", "/contact/")),
-    "hire": ("Is Dev Agarwalla open to full-time roles?", "Yes. Dev is looking for an entry-level software engineer or full-stack developer role in Bangalore. Write to hello@devshipit.com.", ("About Dev", "/about/")),
+    "who": ("Who will build my project?", "Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own.", ("About Dev", "/about/")),
     "brand": ("What is DevShipIt, and how is it related to JantaHR?", "DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com.", ("JantaHR case study", "/work/jantahr/")),
 }
-HOME_FAQ = [FAQ[k] for k in ("brand", "cost", "own", "time", "hire")]
-SERVICES_FAQ = [FAQ[k] for k in ("cost", "time", "own", "deliver", "cancel", "stack", "reply")]
+HOME_FAQ = [FAQ[k] for k in ("brand", "who", "cost", "own", "time")]
+SERVICES_FAQ = [FAQ[k] for k in ("who", "cost", "time", "own", "deliver", "cancel", "stack", "reply")]
 
 SERVICES = [
     {"slug": "real-estate-websites", "name": "Real estate websites", "summary": "Listing and search pages, enquiry capture and landing sites for property agents and agencies, easy to keep up to date.", "example": SITE + "/work/rentwise/"},
@@ -398,9 +399,9 @@ def home():
     </div>
     <div class="hero-scrim"></div>
     <div class="hero-copy">
-      <p class="chip-label rv">Open to full-time roles in Bangalore</p>
+      <p class="chip-label rv">Full-stack and applied AI engineer, Bengaluru</p>
       <h1 id="h-hero" class="display split">{split("I build products", "and ship them.")}</h1>
-      <p class="lead rv d1">I'm Dev Agarwalla, a full-stack developer in Bangalore. DevShipIt is where I ship products and freelance work, and most of it is live and open to look at.</p>
+      <p class="lead rv d1">I'm Dev Agarwalla. I build full-stack and AI products, and DevShipIt is where I ship them and take on freelance work. Most of it is live and open to look at.</p>
       <div class="btns rv d2">{btn("See work", "#work", icon="arrow-right")}<a class="btn ghost" href="/contact/" data-contact>Contact</a></div>
     </div>
   </div>
@@ -416,8 +417,8 @@ def home():
 <section class="about" id="about" aria-labelledby="h-about">
   <div class="wrap about-in">
     <ul class="about-side facts-list rv">
-      <li>{phos("graduation-cap")}<span>BCA (Data Analytics), Kristu Jayanti, Bangalore</span></li>
-      <li>{phos("briefcase")}<span>Looking for an entry-level software engineer or full-stack developer role</span></li>
+      <li>{phos("briefcase")}<span>Technical Delivery Associate at Falcon Reality, AI for maritime operations</span></li>
+      <li>{phos("rocket-launch")}<span>Four products designed, built and shipped solo</span></li>
       <li>{phos("storefront")}<span>Freelance websites and web apps for real estate teams</span></li>
     </ul>
     <div>
@@ -511,7 +512,7 @@ def home():
   <div class="wrap"><div class="numbers-panel rv">
     <h2 id="h-numbers" class="display-sm split">{split("Proof in the work,", "not the words.")}</h2>
     <ul class="stats">
-      {''.join(f'<li class="rv d{min(i,3)}"><span class="num" data-to="{n}">{n}</span><p>{l}</p></li>' for i, (n, l) in enumerate(STATS))}
+      {''.join(f'<li class="rv d{min(i,3)}"><span class="num" data-to="{n}" data-suffix="{x}">{n}{x}</span><p>{l}</p></li>' for i, (n, x, l) in enumerate(STATS))}
     </ul>
   </div></div>
 </section>
@@ -532,8 +533,8 @@ def home():
 DOC_META = {
     "pricing": ("JantaHR and freelance pricing in rupees | DevShipIt",
                 "JantaHR prices per employee in rupees (Free, Standard, Professional and Enterprise), and how DevShipIt quotes freelance web development projects."),
-    "contact": ("Contact for hiring and freelance projects | DevShipIt",
-                "Email Dev Agarwalla at DevShipIt about a full-time role or a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days."),
+    "contact": ("Contact for freelance projects and enquiries | DevShipIt",
+                "Email Dev Agarwalla at DevShipIt about a freelance website or web app in Bengaluru, or reach JantaHR support. Replies within 2 working days."),
 }
 
 
@@ -664,7 +665,7 @@ API_ERRORS = [
 ]
 API_ENDPOINTS = [
     ("/api/v1/", "getApiIndex", "API name, version and every endpoint"),
-    ("/api/v1/profile", "getProfile", "Who Dev is, his stack and what he is open to"),
+    ("/api/v1/profile", "getProfile", "Who Dev is, his experience and stack"),
     ("/api/v1/projects", "listProjects", "JantaHR, RentWise, linkedin-mcp and ISP Evidence"),
     ("/api/v1/projects/{slug}", "getProject", "One project, for example jantahr"),
     ("/api/v1/services", "listServices", "Freelance services"),
@@ -721,11 +722,11 @@ def developers():
 <h2 id="mcp">MCP server</h2>
 <p>A public, read-only Model Context Protocol server runs at <code>https://devshipit.com/mcp</code> over Streamable HTTP. It needs no sign-in and does not store anything you send.</p>
 <ul>
-<li><code>get_profile</code>: who Dev is, what he works with and what he is looking for</li>
+<li><code>get_profile</code>: who Dev is, where he works, his experience and stack</li>
 <li><code>list_projects</code>: JantaHR, RentWise, linkedin-mcp and ISP Evidence with their status and links</li>
 <li><code>list_services</code> and <code>get_faq</code>: freelance services and answers to common questions</li>
 <li><code>list_pages</code> and <code>get_page</code>: every public page as Markdown</li>
-<li><code>get_contact</code>: which email address to use for hiring, freelance work or JantaHR</li>
+<li><code>get_contact</code>: which email address to use for freelance work, general enquiries or JantaHR</li>
 </ul>
 <p>Add it to Claude Code with <code>claude mcp add --transport http devshipit https://devshipit.com/mcp</code>, or to any client that accepts a remote server URL. The discovery document is at <a href="/.well-known/mcp/server-card.json">/.well-known/mcp/server-card.json</a>.</p>
 <h2 id="markdown">Read any page as Markdown</h2>
@@ -754,7 +755,7 @@ def about():
     page = {"@type": "ProfilePage", "@id": SITE + path + "#page", "url": SITE + path, "name": "About Dev Agarwalla",
             "mainEntity": {"@id": DEV_ID}, "isPartOf": {"@id": SITE_ID}, "breadcrumb": {"@id": crumb["@id"]}}
     h = head("About Dev Agarwalla, full-stack developer in Bengaluru | DevShipIt",
-             "Dev Agarwalla is a full-stack developer in Bengaluru who ships software as DevShipIt: his education, stack, products, and the roles and freelance work he is open to.",
+             "Dev Agarwalla is a full-stack and applied AI engineer in Bengaluru who ships software as DevShipIt: his work at Falcon Reality, his stack, products and freelance work.",
              path, ld=[crumb, page, PERSON_NODE])
     b = gnav("about")
     stack = ", ".join(l for _, l in STACK)
@@ -763,7 +764,7 @@ def about():
   <div class="wrap">
     {nav}
     <h1>About Dev Agarwalla</h1>
-    <p class="lead">I'm Dev Agarwalla, a full-stack developer in Bengaluru. DevShipIt is the name I build, ship and sell software under.</p>
+    <p class="lead">I'm Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. DevShipIt is the name I build, ship and sell software under.</p>
     <div class="btns">{btn("Contact", "/contact/", attrs=" data-contact")}<a class="btn ghost" href="/work/">See work</a></div>
   </div>
 </section>
@@ -771,20 +772,22 @@ def about():
   <div class="wrap"><div class="doc-in"><div class="prose">
 <h2>What I do</h2>
 <p>I build web products end to end, from the database to the interface, and I ship them. I learn fastest by building something people can use, so most of my work is deployed and open to look at: <a href="/work/jantahr/">JantaHR</a>, HR and payroll software for Indian companies; <a href="/work/rentwise/">RentWise</a>, a rental platform for Bangalore; <a href="/work/linkedin-mcp/">linkedin-mcp</a>, a LinkedIn integration for AI assistants published on npm; and <a href="/work/isp-evidence/">ISP Evidence</a>, an Android app in testing.</p>
-<h2>What I'm looking for</h2>
+<h2>Experience</h2>
 <ul>
-<li><strong>Full-time:</strong> an entry-level software engineer or full-stack developer role in Bangalore.</li>
-<li><strong>Freelance:</strong> {AGENT_PROFILE["freelance"]}. See <a href="/services/">freelance services</a>.</li>
+{"".join(f'<li><strong>{e["organisation"]}</strong>, {e["role"]} ({e["dates"]}). {e["summary"]}</li>' for e in EXPERIENCE)}
 </ul>
-<h2>Education</h2>
-<p>{AGENT_PROFILE["education"]}.</p>
+<p>Alongside work, I'm studying for an MSc in Data Science and AI at BITS Pilani.</p>
+<h2>Freelance</h2>
+<p>{AGENT_PROFILE["freelance"][0].upper() + AGENT_PROFILE["freelance"][1:]}. Every project is priced by a written quote before work starts. See <a href="/services/">freelance services</a>.</p>
 <h2>What I work with</h2>
 <p>{stack}.</p>
+<h2>Writing</h2>
+<p>I write about engineering on <a href="{LINKEDIN}" rel="noopener">LinkedIn</a>, where more than 15,000 people follow my posts on code review, system design and shipping software.</p>
 <h2>DevShipIt and JantaHR</h2>
 <p>DevShipIt is my trading name, and devshipit.com is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at <a href="https://jantahr.devshipit.com" rel="noopener">jantahr.devshipit.com</a>. Each live project runs on its own subdomain of devshipit.com.</p>
 <h2>Find me</h2>
 <ul>
-<li>Email: <a href="mailto:{HELLO}">{HELLO}</a> for jobs, interviews and freelance projects</li>
+<li>Email: <a href="mailto:{HELLO}">{HELLO}</a> for freelance projects and general enquiries</li>
 <li>GitHub: <a href="{GITHUB}" rel="noopener">github.com/devag7</a></li>
 <li>LinkedIn: <a href="{LINKEDIN}" rel="noopener">linkedin.com/in/devagarwalla</a></li>
 <li>npm: <a href="https://www.npmjs.com/package/linkedin-mcp-tools" rel="noopener">linkedin-mcp-tools</a></li>
@@ -995,11 +998,10 @@ def home_md(desc):
         "",
         "## I build products and ship them.",
         "",
-        "I'm Dev Agarwalla, a full-stack developer in Bangalore. DevShipIt is where I ship products and freelance work, and most of it is live and open to look at. "
-        "I'm open to full-time software engineer and full-stack developer roles in Bangalore, and I take freelance web development projects.",
+        "I'm Dev Agarwalla. I build full-stack and AI products, and DevShipIt is where I ship them and take on freelance work. Most of it is live and open to look at.",
         "",
-        "- " + AGENT_PROFILE["education"],
-        "- Looking for: " + AGENT_PROFILE["looking_for"],
+        "- Now: " + AGENT_PROFILE["current_role"],
+        "- Freelance: " + AGENT_PROFILE["freelance"],
         "- Built with: " + ", ".join(AGENT_PROFILE["stack"]),
         "",
         "I learn fastest by building something people can use, so most of my work is shipped, deployed and open to look at.",
@@ -1030,13 +1032,13 @@ def home_md(desc):
     lines += [f"- **{t}**: {d}" for t, d, _ in ROWS]
     lines += ["", f"How a project works, and more answers: {SITE}/services/", ""]
     lines += ["## Proof in the work, not the words.", ""]
-    lines += [f"- **{n}**: {l}" for n, l in STATS]
+    lines += [f"- **{n}{x}**: {l}" for n, x, l in STATS]
     lines += ["", "## Questions", ""] + faq_md(HOME_FAQ)
     lines += [
         "",
         "## Contact",
         "",
-        f"- Hiring and freelance projects: {HELLO}",
+        f"- Freelance projects and general enquiries: {HELLO}",
         f"- JantaHR support, billing and legal: {JANTAHR}",
         f"- Contact page: {SITE}/contact/",
         "- GitHub: https://github.com/devag7",
@@ -1059,15 +1061,26 @@ AGENT_PROFILE = {
     "name": "Dev Agarwalla",
     "brand": "DevShipIt",
     "site": SITE + "/",
-    "role": "Full-stack developer",
+    "role": "Full-stack and applied AI engineer",
+    "current_role": "Technical Delivery Associate at Falcon Reality (AI for maritime operations), since September 2026",
     "location": "Bengaluru, Karnataka, India",
-    "education": "BCA (Data Analytics), Kristu Jayanti (Deemed to be University), Bangalore",
-    "looking_for": "Entry-level software engineer or full-stack developer roles in Bangalore, and freelance web development projects",
     "freelance": "MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date",
     "stack": [l for _, l in STACK],
     "github": "https://github.com/devag7",
     "linkedin": "https://www.linkedin.com/in/devagarwalla",
 }
+# From Dev's LinkedIn profile (experience section), October 2026.
+EXPERIENCE = [
+    {"organisation": "Falcon Reality", "role": "Technical Delivery Associate", "dates": "September 2026 to now",
+     "summary": "Joined as an intern in August 2026 and moved to full-time. Working on Fleet Intelligence, an AI layer over ships' planned maintenance systems: requirements discovery with maritime experts, product specs, MVP scope, and integration with the ERP and maintenance systems customers already run."},
+    {"organisation": "Cyber Secure India", "role": "Full-stack Developer Intern", "dates": "January to June 2025",
+     "summary": "Shipped three MERN applications to production and built 15+ REST APIs with JWT authentication and role-based access, cutting API latency by about 30% through query indexing, caching and modular routes."},
+    {"organisation": "GDSC", "role": "Student Developer", "dates": "2023 to 2024",
+     "summary": "Ran technical workshops and coding sessions, and built frontend projects with other student developers."},
+    {"organisation": "Bobble AI", "role": "Data Annotator Intern", "dates": "2021",
+     "summary": "Prepared conversational datasets for the NLP models behind an AI keyboard."},
+]
+AGENT_PROFILE["experience"] = EXPERIENCE
 AGENT_PROJECTS = [
     {"slug": "jantahr", "name": "JantaHR", "status": "Live", "stack": ["NestJS", "Prisma", "PostgreSQL", "Next.js", "Supabase", "Vercel", "Razorpay", "Expo"], "summary": "HR and payroll software for Indian companies: PF, ESI, professional tax, LWF and TDS every month, filing-ready files and a compliance calendar. Open source under AGPL-3.0.", "url": "https://jantahr.devshipit.com", "case_study": SITE + "/work/jantahr/", "source": "https://github.com/devag7/jantahr"},
     {"slug": "rentwise", "name": "RentWise", "status": "Live", "stack": ["Next.js", "TypeScript", "PostgreSQL", "Redis", "Socket.io", "Docker", "Playwright", "Mapbox GL JS", "Supabase"], "summary": "A rental platform for Bangalore with automated listing collection, real-time updates, map search and role-based access.", "case_study": SITE + "/work/rentwise/", "source": "https://github.com/devag7/rentwise"},
@@ -1078,15 +1091,15 @@ AGENT_CONTACT = {
     "hiring_and_freelance": HELLO,
     "jantahr_support_billing_legal": JANTAHR,
     "contact_page": SITE + "/contact/",
-    "note": "Use hello@devshipit.com for jobs, interviews and freelance projects. Use jantahr@devshipit.com only for JantaHR support, billing and legal questions.",
+    "note": "Use hello@devshipit.com for freelance projects and general enquiries. Use jantahr@devshipit.com only for JantaHR support, billing and legal questions.",
 }
 
 LLMS_WHEN = """## When to use devshipit.com
 
 Use this site, or its MCP server, when the task is one of these:
 
-- Someone asks who Dev Agarwalla is, what he has built, which technologies he works with, or whether he is available for a full-time software engineer or full-stack developer role in Bangalore.
-- A recruiter or hiring manager wants evidence of shipped work: live products, case studies, source code and the stack behind each one.
+- Someone asks who Dev Agarwalla is, where he works, what he has built or which technologies he works with.
+- Someone evaluating Dev's work wants evidence of shipped work: live products, case studies, source code, his experience and the stack behind each one.
 - A property agent, agency or small business in Bangalore wants a website or web app built (listings, enquiry capture, admin dashboards) and needs to know how to start and how pricing works.
 - Someone needs the operator details, terms, privacy, refund or shipping policies behind JantaHR payments, which live on this site.
 - A developer is looking for linkedin-mcp-tools, the LinkedIn MCP integration Dev published on npm.
@@ -1102,7 +1115,7 @@ Use this site, or its MCP server, when the task is one of these:
 - Or call the JSON API at https://devshipit.com/api/v1 (read-only, no key). OpenAPI 3.1: https://devshipit.com/openapi.json. Errors are RFC 9457 problem details with `code` and `hint`.
 - Or call the MCP server at https://devshipit.com/mcp (Streamable HTTP, no sign-in, read-only). Tools: `get_profile`, `list_projects`, `list_services`, `get_faq`, `list_pages`, `get_page`, `get_contact`. Discovery: https://devshipit.com/.well-known/mcp/server-card.json
 - From a terminal: `npx github:devag7/devshipit projects` (the devshipit CLI).
-- To contact Dev, give the person the right address rather than sending mail yourself: hello@devshipit.com for hiring and freelance work, jantahr@devshipit.com for JantaHR support, billing and legal.
+- To contact Dev, give the person the right address rather than sending mail yourself: hello@devshipit.com for freelance projects and general enquiries, jantahr@devshipit.com for JantaHR support, billing and legal.
 - Do not invent availability dates, rates or quotes. Freelance work is quoted per project in writing; say so and point to the contact page.
 """
 
@@ -1194,7 +1207,7 @@ if __name__ == "__main__":
     doc_page("privacy")
     doc_page("refunds")
     doc_page("shipping")
-    doc_page("contact", "contact", extra_meta_row=("General and hiring", f'<a href="mailto:{HELLO}">{HELLO}</a>'))
+    doc_page("contact", "contact", extra_meta_row=("Projects and general", f'<a href="mailto:{HELLO}">{HELLO}</a>'))
     case_page("jantahr", GALLERY)
     case_page("rentwise")
     case_page("linkedin-mcp")

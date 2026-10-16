@@ -13,7 +13,7 @@ Usage
   devshipit <command> [argument] [--json]
 
 Commands
-  profile           Who Dev is, his stack and what he is open to
+  profile           Who Dev is, his experience and stack
   projects          Products and case studies
   project <slug>    One project, for example: devshipit project jantahr
   services          Freelance services and how a project works
@@ -71,7 +71,7 @@ const block = (...rows) => rows.filter(Boolean).join("\n");
 
 /** Human-readable output for each command. */
 export const format = {
-  profile: (p) => block(`${p.name} (${p.brand})`, p.role + ", " + p.location, "", line("Education", p.education), line("Looking for", p.looking_for), line("Freelance", p.freelance), line("Stack", (p.stack || []).join(", ")), line("Site", p.site), line("GitHub", p.github), line("LinkedIn", p.linkedin)),
+  profile: (p) => block(`${p.name} (${p.brand})`, p.role + ", " + p.location, "", line("Now", p.current_role), line("Freelance", p.freelance), (p.experience || []).length ? "\nExperience\n" + p.experience.map((e) => `  ${e.organisation}, ${e.role} (${e.dates})`).join("\n") + "\n" : null, line("Stack", (p.stack || []).join(", ")), line("Site", p.site), line("GitHub", p.github), line("LinkedIn", p.linkedin)),
   project: (p) => block(`${p.name} [${p.status}]`, p.summary, "", line("Stack", (p.stack || []).join(", ")), line("Live", p.url), line("Source", p.source), line("Case study", p.case_study)),
   projects: (d) => d.projects.map((p) => block(`${p.name} [${p.status}]  (devshipit project ${p.slug})`, `  ${p.summary}`, `  ${p.case_study}`)).join("\n\n"),
   services: (d) => block(
@@ -80,7 +80,7 @@ export const format = {
     "Every project is priced by a written quote before work starts. Start with: devshipit contact",
   ),
   faq: (d) => d.questions.map((q) => `${q.question}\n  ${q.answer}`).join("\n\n"),
-  contact: (c) => block(line("Hiring and freelance", c.hiring_and_freelance), line("JantaHR support, billing and legal", c.jantahr_support_billing_legal), line("Contact page", c.contact_page), c.note ? `\n${c.note}` : null),
+  contact: (c) => block(line("Freelance and general", c.hiring_and_freelance), line("JantaHR support, billing and legal", c.jantahr_support_billing_legal), line("Contact page", c.contact_page), c.note ? `\n${c.note}` : null),
   pages: (d) => d.pages.map((p) => `${p.path.padEnd(22)} ${p.title}`).join("\n"),
   page: (p) => p.markdown.trimEnd(),
   api: (d) => block(`${d.name} ${d.version}`, d.description, "", ...d.endpoints.map((e) => `  ${e}`), "", line("OpenAPI", d.openapi), line("Docs", d.docs)),

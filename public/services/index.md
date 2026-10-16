@@ -20,6 +20,10 @@ I build websites and web apps for property agents, agencies and small businesses
 
 ## Questions
 
+### Who will build my project?
+
+Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
+
 ### How much does a website or web app cost?
 
 Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget. [See pricing](https://devshipit.com/pricing/).

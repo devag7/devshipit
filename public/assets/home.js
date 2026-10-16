@@ -152,7 +152,7 @@ if (panel && cvs && !reduced) {
 const nums = $$(".num[data-to]");
 if (nums.length && !reduced && "IntersectionObserver" in window) {
   const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-  nums.forEach((n) => { n.textContent = "0"; });
+  nums.forEach((n) => { n.textContent = "0" + (n.dataset.suffix || ""); });
   const io = new IntersectionObserver((en) => {
     en.forEach((e) => {
       if (!e.isIntersecting) return;
@@ -160,7 +160,7 @@ if (nums.length && !reduced && "IntersectionObserver" in window) {
       const n = e.target, to = Number(n.dataset.to), D = 1400, t0 = performance.now();
       const f = (now) => {
         const t = clamp((now - t0) / D, 0, 1);
-        n.textContent = String(Math.round(easeOut(t) * to));
+        n.textContent = String(Math.round(easeOut(t) * to)) + (n.dataset.suffix || "");
         if (t < 1) requestAnimationFrame(f);
       };
       requestAnimationFrame(f);

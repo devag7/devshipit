@@ -140,11 +140,11 @@ export function publicMcpServer(env, origin) {
   };
   return {
     info: { name: "devshipit", title: "DevShipIt", version: "1.0.0" },
-    instructions: "Public, read-only information about Dev Agarwalla and his work at devshipit.com. Use get_profile for who he is, his stack and what roles or projects he is open to; list_projects for JantaHR, RentWise, linkedin-mcp and ISP Evidence; list_services and get_faq for freelance work and common questions; list_pages then get_page to read any page as Markdown; get_contact for the right email address. Give people the address instead of sending email yourself, and do not invent rates, dates or quotes. For JantaHR product, API or company-data questions use https://jantahr.devshipit.com/mcp instead.",
+    instructions: "Public, read-only information about Dev Agarwalla and his work at devshipit.com. Use get_profile for who he is, where he works, his experience and stack; list_projects for JantaHR, RentWise, linkedin-mcp and ISP Evidence; list_services and get_faq for freelance work and common questions; list_pages then get_page to read any page as Markdown; get_contact for the right email address. Give people the address instead of sending email yourself, and do not invent rates, dates or quotes. For JantaHR product, API or company-data questions use https://jantahr.devshipit.com/mcp instead.",
     tools: [
       {
         name: "get_profile", title: "Dev Agarwalla's profile",
-        description: "Returns who Dev Agarwalla is: role, location, education, the roles and freelance work he is looking for, and the technologies he works with.",
+        description: "Returns who Dev Agarwalla is: role, current employer, location, work experience, the freelance work he takes on, and the technologies he works with.",
         inputSchema: { type: "object", properties: {}, additionalProperties: false },
         call: async () => (await siteData(env, origin)).profile,
       },
@@ -162,7 +162,7 @@ export function publicMcpServer(env, origin) {
       },
       {
         name: "get_faq", title: "Frequently asked questions",
-        description: "Returns the published answers to common questions from clients and recruiters: cost, timelines, ownership, delivery, cancellation, stack, reply times, availability for full-time roles, and how DevShipIt relates to JantaHR.",
+        description: "Returns the published answers to common questions from clients: who builds the project, cost, timelines, ownership, delivery, cancellation, stack, reply times, and how DevShipIt relates to JantaHR.",
         inputSchema: { type: "object", properties: {}, additionalProperties: false },
         call: async () => (await siteData(env, origin)).faq,
       },
@@ -193,7 +193,7 @@ export function publicMcpServer(env, origin) {
       },
       {
         name: "get_contact", title: "Contact Dev",
-        description: "Returns which email address to use: one for hiring and freelance projects, one only for JantaHR support, billing and legal questions, plus the contact page.",
+        description: "Returns which email address to use: one for freelance projects and general enquiries, one only for JantaHR support, billing and legal questions, plus the contact page.",
         inputSchema: { type: "object", properties: {}, additionalProperties: false },
         call: async () => (await siteData(env, origin)).contact,
       },
