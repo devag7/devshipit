@@ -390,15 +390,15 @@ def home():
              "DevShipIt is Dev Agarwalla, a freelance full-stack developer in Bengaluru: websites and web apps for clients, JantaHR HR and payroll software, and case studies.",
              "/", ld=[PERSON_NODE, BUSINESS_NODE, WEBSITE_NODE, faq_node(HOME_FAQ, "/")],
              extra='<link rel="stylesheet" href="/assets/home.css">\n<link rel="preload" as="image" href="/assets/img/code-dim.webp" imagesrcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" imagesizes="100vw" type="image/webp" fetchpriority="high">\n')
-    b = '<div class="loader" id="loader" aria-hidden="true"><div class="ld-in"><div class="ld-mark"><img src="/assets/img/logo.svg" width="1969" height="453" alt=""></div><p class="ld-tag">Ideas in. Products out.</p></div><div class="ld-prog"><div class="ld-bar"><i></i></div><div class="ld-row"><span>Loading</span><b id="ldn">000</b></div></div></div>\n'
+    b = '<div class="loader" id="loader" aria-hidden="true"><div class="ld-in"><div class="ld-mark"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt logo"></div><p class="ld-tag">Ideas in. Products out.</p></div><div class="ld-prog"><div class="ld-bar"><i></i></div><div class="ld-row"><span>Loading</span><b id="ldn">000</b></div></div></div>\n'
     b += gnav()
     b += f"""<main id="main">
 
 <section class="hero" aria-labelledby="h-hero">
   <div class="hero-panel">
     <div class="hero-media" aria-hidden="true">
-      <img class="real" src="/assets/img/code-lit.webp" srcset="/assets/img/code-lit-1200.webp 1200w, /assets/img/code-lit.webp 2400w" sizes="100vw" width="2400" height="1500" alt="" decoding="async">
-      <img class="bp" src="/assets/img/code-dim.webp" srcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" sizes="100vw" width="2400" height="1500" alt="" decoding="async" fetchpriority="high">
+      <img class="real" src="/assets/img/code-lit.webp" srcset="/assets/img/code-lit-1200.webp 1200w, /assets/img/code-lit.webp 2400w" sizes="100vw" width="2400" height="1500" alt="Source code from a DevShipIt product in a code editor, lit" decoding="async">
+      <img class="bp" src="/assets/img/code-dim.webp" srcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" sizes="100vw" width="2400" height="1500" alt="Source code from a DevShipIt product in a code editor, dimmed" decoding="async" fetchpriority="high">
       <canvas></canvas>
     </div>
     <div class="hero-scrim"></div>

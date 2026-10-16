@@ -145,3 +145,13 @@ test("image sitemap entries point at real screenshots", async () => {
   assert.ok(imgs.length >= 3);
   for (const src of imgs) assert.ok(await exists(src.slice(1)), src);
 });
+
+test("every image has non-empty alt text (Bing flags empty alt as missing)", async () => {
+  for (const path of [...(await sitemapPaths()), "/404.html"]) {
+    const file = path === "/404.html" ? "404.html" : fileFor(path);
+    if (!(await exists(file))) continue;
+    for (const [tag] of (await pub(file)).matchAll(/<img\b[^>]*>/g)) {
+      assert.match(tag, /\balt="[^"]+"/, `${path}: ${tag.slice(0, 80)}`);
+    }
+  }
+});
