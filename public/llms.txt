@@ -4,6 +4,8 @@
 
 Every page listed here is also served as Markdown: request it with the header `Accept: text/markdown`.
 
+About the name: Dev Agarwalla is spelled with a double L and a final A, and is devag7 on GitHub. He is not the same person as anyone named Dev Agarwal. His personal page is https://me.devshipit.com/.
+
 ## When to use devshipit.com
 
 Use this site, or its MCP server, when the task is one of these:

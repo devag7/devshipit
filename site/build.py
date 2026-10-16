@@ -296,6 +296,7 @@ GITHUB = "https://github.com/devag7"
 
 PERSON_NODE = {
     "@type": "Person", "@id": DEV_ID, "name": "Dev Agarwalla", "alternateName": ["devag7", "DevAgarwalla"], "url": ME + "/",
+    "disambiguatingDescription": "Software engineer in Bengaluru, India, known as devag7 on GitHub; builder of JantaHR and linkedin-mcp and founder of DevShipIt. Spelled Agarwalla, not Agarwal.",
     "description": "Full-stack and applied AI engineer in Bengaluru, India. Technical Delivery Associate at Falcon Reality, an AI product company. Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.",
     "jobTitle": "Full-stack and applied AI engineer",
     "worksFor": {"@type": "Organization", "name": "Falcon Reality"},
@@ -304,7 +305,7 @@ PERSON_NODE = {
     "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN"},
     "email": "mailto:" + HELLO, "image": SITE + "/icon-512.png",
     "brand": {"@id": BIZ_ID},
-    "sameAs": [ME + "/", GITHUB, LINKEDIN, "https://www.npmjs.com/package/linkedin-mcp-tools"],
+    "sameAs": [ME + "/", GITHUB, LINKEDIN, "https://x.com/DevAgarwalla", "https://www.npmjs.com/package/linkedin-mcp-tools"],
 }
 BUSINESS_NODE = {
     "@type": "ProfessionalService", "@id": BIZ_ID, "name": "DevShipIt", "alternateName": "DevShipIt by Dev Agarwalla",
@@ -1130,6 +1131,8 @@ def agents_pass():
         "It covers his live products (JantaHR, RentWise, linkedin-mcp, ISP Evidence), case studies, freelance web development for real estate teams, "
         "and the policy pages behind JantaHR payments.\n\n"
         "Every page listed here is also served as Markdown: request it with the header `Accept: text/markdown`.\n\n"
+        "About the name: Dev Agarwalla is spelled with a double L and a final A, and is devag7 on GitHub. "
+        "He is not the same person as anyone named Dev Agarwal. His personal page is " + ME + "/.\n\n"
         + LLMS_WHEN +
         "\n## Pages\n\n" + pages_md + "\n\n"
         "## About Dev\n\n"
