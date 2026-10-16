@@ -6,7 +6,7 @@
 
 I'm Dev Agarwalla. I build full-stack and AI products, and DevShipIt is where I ship them and take on freelance work. Most of it is live and open to look at.
 
-- Now: Technical Delivery Associate at Falcon Reality (AI for maritime operations), since September 2026
+- Now: Technical Delivery Associate at Falcon Reality, an AI product company, since September 2026
 - Freelance: MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date
 - Built with: TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker, Socket.IO
 
@@ -71,7 +71,7 @@ DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengal
 
 ### Who will build my project?
 
-Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
+Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
 
 ### How much does a website or web app cost?
 

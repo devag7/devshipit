@@ -22,7 +22,7 @@ I build websites and web apps for property agents, agencies and small businesses
 
 ### Who will build my project?
 
-Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
+Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
 
 ### How much does a website or web app cost?
 

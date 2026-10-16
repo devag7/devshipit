@@ -295,8 +295,8 @@ LINKEDIN = "https://www.linkedin.com/in/devagarwalla"
 GITHUB = "https://github.com/devag7"
 
 PERSON_NODE = {
-    "@type": "Person", "@id": DEV_ID, "name": "Dev Agarwalla", "url": ME + "/",
-    "description": "Full-stack and applied AI engineer in Bengaluru, India. Technical Delivery Associate at Falcon Reality (AI for maritime operations). Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.",
+    "@type": "Person", "@id": DEV_ID, "name": "Dev Agarwalla", "alternateName": ["devag7", "DevAgarwalla"], "url": ME + "/",
+    "description": "Full-stack and applied AI engineer in Bengaluru, India. Technical Delivery Associate at Falcon Reality, an AI product company. Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.",
     "jobTitle": "Full-stack and applied AI engineer",
     "worksFor": {"@type": "Organization", "name": "Falcon Reality"},
     "affiliation": {"@type": "CollegeOrUniversity", "name": "BITS Pilani"},
@@ -364,7 +364,7 @@ FAQ = {
     "cancel": ("What if I need to cancel a project?", "Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts.", ("Cancellation and refund policy", "/refunds/")),
     "stack": ("What do you build with?", "TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack.", None),
     "reply": ("How quickly do you reply?", "Within 2 working days, usually sooner. Email is the fastest way to reach me.", ("Contact", "/contact/")),
-    "who": ("Who will build my project?", "Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own.", ("About Dev", "/about/")),
+    "who": ("Who will build my project?", "Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own.", ("About Dev", "/about/")),
     "brand": ("What is DevShipIt, and how is it related to JantaHR?", "DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com.", ("JantaHR case study", "/work/jantahr/")),
 }
 HOME_FAQ = [FAQ[k] for k in ("brand", "who", "cost", "own", "time")]
@@ -420,7 +420,7 @@ def home():
 <section class="about" id="about" aria-labelledby="h-about">
   <div class="wrap about-in">
     <ul class="about-side facts-list rv">
-      <li>{phos("briefcase")}<span>Technical Delivery Associate at Falcon Reality, AI for maritime operations</span></li>
+      <li>{phos("briefcase")}<span>Technical Delivery Associate at Falcon Reality, an AI product company</span></li>
       <li>{phos("rocket-launch")}<span>Four products designed, built and shipped solo</span></li>
       <li>{phos("storefront")}<span>Freelance websites and web apps for real estate teams</span></li>
     </ul>
@@ -774,7 +774,7 @@ def about():
 <section class="doc">
   <div class="wrap"><div class="doc-in"><div class="prose">
 <h2>Who builds your project</h2>
-<p>Dev is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, where he turns operations workflows into product specs and MVP scope. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: <a href="/work/jantahr/">JantaHR</a>, <a href="/work/rentwise/">RentWise</a>, <a href="/work/linkedin-mcp/">linkedin-mcp</a> and <a href="/work/isp-evidence/">ISP Evidence</a>.</p>
+<p>Dev is a Technical Delivery Associate at Falcon Reality, an AI product company, where he turns operations workflows into product specs and MVP scope. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: <a href="/work/jantahr/">JantaHR</a>, <a href="/work/rentwise/">RentWise</a>, <a href="/work/linkedin-mcp/">linkedin-mcp</a> and <a href="/work/isp-evidence/">ISP Evidence</a>.</p>
 <h2>What DevShipIt does</h2>
 <ul>
 <li><strong>Freelance:</strong> {AGENT_PROFILE["freelance"]}. Every project is priced by a written quote before work starts. See <a href="/services/">freelance services</a>.</li>
@@ -1059,7 +1059,7 @@ AGENT_PROFILE = {
     "brand": "DevShipIt",
     "site": SITE + "/",
     "role": "Full-stack and applied AI engineer",
-    "current_role": "Technical Delivery Associate at Falcon Reality (AI for maritime operations), since September 2026",
+    "current_role": "Technical Delivery Associate at Falcon Reality, an AI product company, since September 2026",
     "location": "Bengaluru, Karnataka, India",
     "freelance": "MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date",
     "stack": [l for _, l in STACK],
@@ -1070,7 +1070,7 @@ AGENT_PROFILE = {
 # From Dev's LinkedIn profile (experience section), October 2026.
 EXPERIENCE = [
     {"organisation": "Falcon Reality", "role": "Technical Delivery Associate", "dates": "September 2026 to now",
-     "summary": "Joined as an intern in August 2026 and moved to full-time. Working on Fleet Intelligence, an AI layer over ships' planned maintenance systems: requirements discovery with maritime experts, product specs, MVP scope, and integration with the ERP and maintenance systems customers already run."},
+     "summary": "Joined as an intern in August 2026 and moved to full-time. Turns operations workflows into product specs, user stories and MVP scope for an AI product, and plans how it integrates with the systems customers already run."},
     {"organisation": "Cyber Secure India", "role": "Full-stack Developer Intern", "dates": "January to June 2025",
      "summary": "Shipped three MERN applications to production and built 15+ REST APIs with JWT authentication and role-based access, cutting API latency by about 30% through query indexing, caching and modular routes."},
     {"organisation": "GDSC", "role": "Student Developer", "dates": "2023 to 2024",

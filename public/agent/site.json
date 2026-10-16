@@ -4,7 +4,7 @@
     "brand": "DevShipIt",
     "site": "https://devshipit.com/",
     "role": "Full-stack and applied AI engineer",
-    "current_role": "Technical Delivery Associate at Falcon Reality (AI for maritime operations), since September 2026",
+    "current_role": "Technical Delivery Associate at Falcon Reality, an AI product company, since September 2026",
     "location": "Bengaluru, Karnataka, India",
     "freelance": "MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date",
     "stack": [
@@ -29,7 +29,7 @@
         "organisation": "Falcon Reality",
         "role": "Technical Delivery Associate",
         "dates": "September 2026 to now",
-        "summary": "Joined as an intern in August 2026 and moved to full-time. Working on Fleet Intelligence, an AI layer over ships' planned maintenance systems: requirements discovery with maritime experts, product specs, MVP scope, and integration with the ERP and maintenance systems customers already run."
+        "summary": "Joined as an intern in August 2026 and moved to full-time. Turns operations workflows into product specs, user stories and MVP scope for an AI product, and plans how it integrates with the systems customers already run."
       },
       {
         "organisation": "Cyber Secure India",
@@ -188,7 +188,7 @@
     },
     {
       "question": "Who will build my project?",
-      "answer": "Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own."
+      "answer": "Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own."
     },
     {
       "question": "What is DevShipIt, and how is it related to JantaHR?",
