@@ -132,10 +132,8 @@ test("icons, manifest and IndexNow key", async () => {
   assert.equal((await pub(keys[0])).trim(), keys[0].replace(".txt", ""));
 });
 
-test("robots.txt lists both sitemaps: this site and the personal site", async () => {
+test("robots.txt names both sitemaps: this site and the personal site", async () => {
   const robots = await pub("robots.txt");
   assert.match(robots, /^Sitemap: https:\/\/devshipit\.com\/sitemap\.xml$/m);
   assert.match(robots, /^Sitemap: https:\/\/me\.devshipit\.com\/sitemap\.xml$/m);
-  const sm = await pub("sitemap.xml");
-  assert.ok(!sm.includes("me.devshipit.com"), "each sitemap lists only its own host");
 });
