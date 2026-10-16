@@ -1173,7 +1173,7 @@ def housekeeping():
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
         f"  <url><loc>{loc}</loc><lastmod>{mod}</lastmod></url>\n" for loc, mod in entries) + "</urlset>\n"
     write("sitemap.xml", sm)
-    write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n# Agent guide: {SITE}/llms.txt\n# API description: {SITE}/openapi.json\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\nSitemap: {ME}/sitemap.xml\n# Agent guide: {SITE}/llms.txt\n# API description: {SITE}/openapi.json\n# Dev Agarwalla's personal site: {ME}/\n")
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY + "\n")
     write("site.webmanifest", json.dumps({
         "name": "DevShipIt", "short_name": "DevShipIt", "description": "Dev Agarwalla, freelance full-stack developer in Bengaluru.",

@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://devshipit.com/sitemap.xml
+Sitemap: https://me.devshipit.com/sitemap.xml
 # Agent guide: https://devshipit.com/llms.txt
 # API description: https://devshipit.com/openapi.json
+# Dev Agarwalla's personal site: https://me.devshipit.com/
