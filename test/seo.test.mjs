@@ -19,6 +19,10 @@ test("sitemap covers every public page, including about, services and work", asy
   for (const p of ["/", "/about/", "/services/", "/work/", "/developers/", "/pricing/", "/contact/"]) assert.ok(paths.includes(p), p);
   for (const p of paths) assert.ok(await exists(fileFor(p)), p);
   assert.match(await pub("robots.txt"), /^Sitemap: https:\/\/devshipit\.com\/sitemap\.xml$/m);
+  // The only cross-host entry is the personal site (its robots.txt names this sitemap: cross-submission).
+  const hosts = [...(await pub("sitemap.xml")).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).host);
+  assert.deepEqual([...new Set(hosts)].sort(), ["devshipit.com", "me.devshipit.com"]);
+  assert.equal(hosts.filter((h) => h === "me.devshipit.com").length, 1);
 });
 
 test("every page: unique title with DevShipIt, unique description, canonical, lang, one H1", async () => {

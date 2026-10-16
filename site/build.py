@@ -103,6 +103,7 @@ def parse(path):
 # ---------- shared chrome ----------
 NAV = [("Work", "/work/", "work"), ("Services", "/services/", "services"), ("About", "/about/", "about"), ("Pricing", "/pricing/", "pricing")]
 MENU = [("Work", "/work/"), ("Services", "/services/"), ("About", "/about/"), ("Pricing", "/pricing/"), ("Developers", "/developers/"), ("Contact", "/contact/")]
+LASTMOD = "2026-10-16"
 INDEXNOW_KEY = "65e5a2c9e4e9ca153a417f71ef59cc9d"
 
 
@@ -1166,8 +1167,11 @@ def agents_pass():
 
 def housekeeping():
     urls = [p for p, _, _ in PAGES]
+    # The personal site is listed too. That is a cross-host entry, allowed because me.devshipit.com/robots.txt
+    # names this sitemap (sitemaps.org cross-submission) and Search Console verifies the whole domain.
+    entries = [(SITE + u, LASTMOD) for u in urls] + [(ME + "/", LASTMOD)]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
-        f"  <url><loc>{SITE}{u}</loc><lastmod>2026-10-15</lastmod></url>\n" for u in urls) + "</urlset>\n"
+        f"  <url><loc>{loc}</loc><lastmod>{mod}</lastmod></url>\n" for loc, mod in entries) + "</urlset>\n"
     write("sitemap.xml", sm)
     write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n# Agent guide: {SITE}/llms.txt\n# API description: {SITE}/openapi.json\n")
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY + "\n")
