@@ -23,6 +23,7 @@
     ],
     "github": "https://github.com/devag7",
     "linkedin": "https://www.linkedin.com/in/devagarwalla",
+    "personal_site": "https://me.devshipit.com/",
     "experience": [
       {
         "organisation": "Falcon Reality",
@@ -218,8 +219,8 @@
     },
     {
       "path": "/about/",
-      "title": "About Dev Agarwalla, full-stack developer in Bengaluru | DevShipIt",
-      "description": "Dev Agarwalla is a full-stack and applied AI engineer in Bengaluru who ships software as DevShipIt: his work at Falcon Reality, his stack, products and freelance work."
+      "title": "About Dev Agarwalla, the developer behind DevShipIt | DevShipIt",
+      "description": "DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru who builds every project himself. Who he is, what DevShipIt does, and where to read more."
     },
     {
       "path": "/pricing/",

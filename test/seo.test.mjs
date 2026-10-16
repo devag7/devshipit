@@ -77,7 +77,7 @@ test("case studies describe their product, JantaHR with real prices", async () =
   for (const [slug, type] of Object.entries(types)) {
     const node = graphOf(await pub(`work/${slug}/index.html`)).find((n) => n["@id"] === `https://devshipit.com/work/${slug}/#product`);
     assert.equal(node["@type"], type, slug);
-    assert.equal(node.author["@id"], "https://devshipit.com/#dev");
+    assert.equal(node.author["@id"], "https://me.devshipit.com/#person");
   }
   const jhr = graphOf(await pub("work/jantahr/index.html")).find((n) => n.name === "JantaHR" && n.offers);
   const pricing = await pub("pricing/index.md");
@@ -94,7 +94,7 @@ test("services and about pages carry Service, FAQPage and ProfilePage data", asy
   assert.ok(catalog.itemListElement.every((o) => o.itemOffered["@type"] === "Service" && o.itemOffered.provider["@id"]));
   assert.ok(s.find((n) => n["@type"] === "FAQPage").mainEntity.length >= 5);
   const a = graphOf(await pub("about/index.html"));
-  assert.equal(a.find((n) => n["@type"] === "ProfilePage").mainEntity["@id"], "https://devshipit.com/#dev");
+  assert.equal(a.find((n) => n["@type"] === "AboutPage").mainEntity["@id"], "https://me.devshipit.com/#person");
   const w = graphOf(await pub("work/index.html"));
   assert.equal(w.find((n) => n["@type"] === "ItemList").itemListElement.length, 4);
 });

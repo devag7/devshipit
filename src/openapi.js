@@ -206,6 +206,7 @@ export const openapi = {
           stack: { type: "array", items: { type: "string" }, description: "Technologies he works with." },
           github: uri("GitHub profile."),
           linkedin: uri("LinkedIn profile."),
+          personal_site: uri("Personal site with experience, skills and résumé."),
         },
       },
       Project: {

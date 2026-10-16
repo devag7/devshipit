@@ -258,6 +258,7 @@ def footer(extra_js=""):
         <li><a href="/contact/">Contact</a></li>
       </ul></div>
       <div><h3>Elsewhere</h3><ul>
+        <li><a href="https://me.devshipit.com/">Dev Agarwalla</a></li>
         <li><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a></li>
         <li><a href="https://github.com/devag7" rel="noopener">GitHub</a></li>
         <li><a href="mailto:{HELLO}">Email</a></li>
@@ -285,14 +286,15 @@ def write(rel, content):
 
 
 # ---------- home ----------
-DEV_ID = SITE + "/#dev"
+ME = "https://me.devshipit.com"
+DEV_ID = ME + "/#person"  # the Person entity lives on me.devshipit.com; both sites share this @id
 BIZ_ID = SITE + "/#business"
 SITE_ID = SITE + "/#site"
 LINKEDIN = "https://www.linkedin.com/in/devagarwalla"
 GITHUB = "https://github.com/devag7"
 
 PERSON_NODE = {
-    "@type": "Person", "@id": DEV_ID, "name": "Dev Agarwalla", "url": SITE + "/about/",
+    "@type": "Person", "@id": DEV_ID, "name": "Dev Agarwalla", "url": ME + "/",
     "description": "Full-stack and applied AI engineer in Bengaluru, India. Technical Delivery Associate at Falcon Reality (AI for maritime operations). Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.",
     "jobTitle": "Full-stack and applied AI engineer",
     "worksFor": {"@type": "Organization", "name": "Falcon Reality"},
@@ -301,7 +303,7 @@ PERSON_NODE = {
     "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN"},
     "email": "mailto:" + HELLO, "image": SITE + "/icon-512.png",
     "brand": {"@id": BIZ_ID},
-    "sameAs": [GITHUB, LINKEDIN, "https://www.npmjs.com/package/linkedin-mcp-tools"],
+    "sameAs": [ME + "/", GITHUB, LINKEDIN, "https://www.npmjs.com/package/linkedin-mcp-tools"],
 }
 BUSINESS_NODE = {
     "@type": "ProfessionalService", "@id": BIZ_ID, "name": "DevShipIt", "alternateName": "DevShipIt by Dev Agarwalla",
@@ -752,45 +754,39 @@ def developers():
 def about():
     path = "/about/"
     nav, crumb = crumbs(("About", path))
-    page = {"@type": "ProfilePage", "@id": SITE + path + "#page", "url": SITE + path, "name": "About Dev Agarwalla",
-            "mainEntity": {"@id": DEV_ID}, "isPartOf": {"@id": SITE_ID}, "breadcrumb": {"@id": crumb["@id"]}}
-    h = head("About Dev Agarwalla, full-stack developer in Bengaluru | DevShipIt",
-             "Dev Agarwalla is a full-stack and applied AI engineer in Bengaluru who ships software as DevShipIt: his work at Falcon Reality, his stack, products and freelance work.",
-             path, ld=[crumb, page, PERSON_NODE])
+    page = {"@type": "AboutPage", "@id": SITE + path + "#page", "url": SITE + path, "name": "About DevShipIt and Dev Agarwalla",
+            "about": {"@id": BIZ_ID}, "mainEntity": {"@id": DEV_ID}, "isPartOf": {"@id": SITE_ID}, "breadcrumb": {"@id": crumb["@id"]},
+            "relatedLink": ME + "/"}
+    h = head("About Dev Agarwalla, the developer behind DevShipIt | DevShipIt",
+             "DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru who builds every project himself. Who he is, what DevShipIt does, and where to read more.",
+             path, ld=[crumb, page, PERSON_NODE, BUSINESS_NODE])
     b = gnav("about")
-    stack = ", ".join(l for _, l in STACK)
     b += f"""<main id="main">
 <section class="page-head">
   <div class="wrap">
     {nav}
     <h1>About Dev Agarwalla</h1>
-    <p class="lead">I'm Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. DevShipIt is the name I build, ship and sell software under.</p>
-    <div class="btns">{btn("Contact", "/contact/", attrs=" data-contact")}<a class="btn ghost" href="/work/">See work</a></div>
+    <p class="lead">DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. Every DevShipIt project is built by him personally.</p>
+    <div class="btns">{btn("Full profile", ME + "/")}<a class="btn ghost" href="/contact/" data-contact>Contact</a></div>
   </div>
 </section>
 <section class="doc">
   <div class="wrap"><div class="doc-in"><div class="prose">
-<h2>What I do</h2>
-<p>I build web products end to end, from the database to the interface, and I ship them. I learn fastest by building something people can use, so most of my work is deployed and open to look at: <a href="/work/jantahr/">JantaHR</a>, HR and payroll software for Indian companies; <a href="/work/rentwise/">RentWise</a>, a rental platform for Bangalore; <a href="/work/linkedin-mcp/">linkedin-mcp</a>, a LinkedIn integration for AI assistants published on npm; and <a href="/work/isp-evidence/">ISP Evidence</a>, an Android app in testing.</p>
-<h2>Experience</h2>
+<h2>Who builds your project</h2>
+<p>Dev is a Technical Delivery Associate at Falcon Reality, an AI company for maritime operations, where he turns operations workflows into product specs and MVP scope. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: <a href="/work/jantahr/">JantaHR</a>, <a href="/work/rentwise/">RentWise</a>, <a href="/work/linkedin-mcp/">linkedin-mcp</a> and <a href="/work/isp-evidence/">ISP Evidence</a>.</p>
+<h2>What DevShipIt does</h2>
 <ul>
-{"".join(f'<li><strong>{e["organisation"]}</strong>, {e["role"]} ({e["dates"]}). {e["summary"]}</li>' for e in EXPERIENCE)}
+<li><strong>Freelance:</strong> {AGENT_PROFILE["freelance"]}. Every project is priced by a written quote before work starts. See <a href="/services/">freelance services</a>.</li>
+<li><strong>Products:</strong> software Dev builds and runs himself, starting with JantaHR. See <a href="/work/">all work</a>.</li>
 </ul>
-<p>Alongside work, I'm studying for an MSc in Data Science and AI at BITS Pilani.</p>
-<h2>Freelance</h2>
-<p>{AGENT_PROFILE["freelance"][0].upper() + AGENT_PROFILE["freelance"][1:]}. Every project is priced by a written quote before work starts. See <a href="/services/">freelance services</a>.</p>
-<h2>What I work with</h2>
-<p>{stack}.</p>
-<h2>Writing</h2>
-<p>I write about engineering on <a href="{LINKEDIN}" rel="noopener">LinkedIn</a>, where more than 15,000 people follow my posts on code review, system design and shipping software.</p>
 <h2>DevShipIt and JantaHR</h2>
-<p>DevShipIt is my trading name, and devshipit.com is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at <a href="https://jantahr.devshipit.com" rel="noopener">jantahr.devshipit.com</a>. Each live project runs on its own subdomain of devshipit.com.</p>
-<h2>Find me</h2>
+<p>DevShipIt is Dev's trading name, and devshipit.com is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at <a href="https://jantahr.devshipit.com" rel="noopener">jantahr.devshipit.com</a>. Each live project runs on its own subdomain of devshipit.com.</p>
+<h2>More about Dev</h2>
+<p>His full experience, skills, writing and résumé are on his personal site, <a href="{ME}/">me.devshipit.com</a>.</p>
 <ul>
-<li>Email: <a href="mailto:{HELLO}">{HELLO}</a> for freelance projects and general enquiries</li>
-<li>GitHub: <a href="{GITHUB}" rel="noopener">github.com/devag7</a></li>
+<li>Email: <a href="mailto:{HELLO}">{HELLO}</a></li>
 <li>LinkedIn: <a href="{LINKEDIN}" rel="noopener">linkedin.com/in/devagarwalla</a></li>
-<li>npm: <a href="https://www.npmjs.com/package/linkedin-mcp-tools" rel="noopener">linkedin-mcp-tools</a></li>
+<li>GitHub: <a href="{GITHUB}" rel="noopener">github.com/devag7</a></li>
 </ul>
   </div></div></div>
 </section>
@@ -1068,6 +1064,7 @@ AGENT_PROFILE = {
     "stack": [l for _, l in STACK],
     "github": "https://github.com/devag7",
     "linkedin": "https://www.linkedin.com/in/devagarwalla",
+    "personal_site": "https://me.devshipit.com/",
 }
 # From Dev's LinkedIn profile (experience section), October 2026.
 EXPERIENCE = [
@@ -1134,6 +1131,8 @@ def agents_pass():
         "Every page listed here is also served as Markdown: request it with the header `Accept: text/markdown`.\n\n"
         + LLMS_WHEN +
         "\n## Pages\n\n" + pages_md + "\n\n"
+        "## About Dev\n\n"
+        "- [Dev Agarwalla](https://me.devshipit.com/): personal site with experience, skills, writing and résumé (also https://me.devshipit.com/llms.txt)\n\n"
         "## Developer resources\n\n"
         f"- [DevShipIt developer docs]({SITE}/developers/index.md): the API, CLI, MCP server, Markdown negotiation and llms.txt\n"
         f"- [DevShipIt API OpenAPI 3.1 document]({SITE}/openapi.json): every operation with an operationId, typed parameters and response schemas\n"
