@@ -200,6 +200,7 @@ html:not(.js) .gnav nav a[aria-current] { background: rgba(255, 255, 255, 0.09);
 .foot li a { display: inline-block; color: var(--fg-2); transition: color 0.2s, transform 0.3s var(--ease-spring); }
 .foot li a:hover { color: var(--fg); text-decoration: none; transform: translateX(4px); }
 .foot-legal { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 12px 32px; flex-wrap: wrap; padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 13px; color: var(--fg-3); }
+.foot .mark-word::after { content: attr(data-word); }
 .foot .mark-word {
   display: block; padding-bottom: 8px; text-align: center; white-space: nowrap; pointer-events: none; user-select: none;
   font-size: clamp(64px, 17.5vw, 280px); font-weight: 600; letter-spacing: -0.06em; line-height: 0.8; color: rgba(255, 255, 255, 0.04);

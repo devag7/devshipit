@@ -272,7 +272,7 @@ def footer(extra_js=""):
       <span>Each live project runs on its own subdomain of devshipit.com.</span>
     </div>
   </div>
-  <span class="mark-word" aria-hidden="true">devshipit</span>
+  <span class="mark-word" aria-hidden="true" data-word="devshipit"></span>
 </footer>
 {dialogs()}<script type="module" src="/assets/app.js"></script>
 {extra_js}</body>
@@ -388,7 +388,7 @@ def home():
     h = head("DevShipIt | Dev Agarwalla, freelance full-stack developer in Bengaluru",
              "DevShipIt is Dev Agarwalla, a freelance full-stack developer in Bengaluru: websites and web apps for clients, JantaHR HR and payroll software, and case studies.",
              "/", ld=[PERSON_NODE, BUSINESS_NODE, WEBSITE_NODE, faq_node(HOME_FAQ, "/")],
-             extra='<link rel="stylesheet" href="/assets/home.css">\n<link rel="preload" as="image" href="/assets/img/code-dim.webp" type="image/webp" fetchpriority="high">\n')
+             extra='<link rel="stylesheet" href="/assets/home.css">\n<link rel="preload" as="image" href="/assets/img/code-dim.webp" imagesrcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" imagesizes="100vw" type="image/webp" fetchpriority="high">\n')
     b = '<div class="loader" id="loader" aria-hidden="true"><div class="ld-in"><div class="ld-mark"><img src="/assets/img/logo.svg" width="1969" height="453" alt=""></div><p class="ld-tag">Ideas in. Products out.</p></div><div class="ld-prog"><div class="ld-bar"><i></i></div><div class="ld-row"><span>Loading</span><b id="ldn">000</b></div></div></div>\n'
     b += gnav()
     b += f"""<main id="main">
@@ -396,8 +396,8 @@ def home():
 <section class="hero" aria-labelledby="h-hero">
   <div class="hero-panel">
     <div class="hero-media" aria-hidden="true">
-      <img class="real" src="/assets/img/code-lit.webp" width="2400" height="1500" alt="" decoding="async">
-      <img class="bp" src="/assets/img/code-dim.webp" width="2400" height="1500" alt="" decoding="async" fetchpriority="high">
+      <img class="real" src="/assets/img/code-lit.webp" srcset="/assets/img/code-lit-1200.webp 1200w, /assets/img/code-lit.webp 2400w" sizes="100vw" width="2400" height="1500" alt="" decoding="async">
+      <img class="bp" src="/assets/img/code-dim.webp" srcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" sizes="100vw" width="2400" height="1500" alt="" decoding="async" fetchpriority="high">
       <canvas></canvas>
     </div>
     <div class="hero-scrim"></div>
@@ -1187,7 +1187,7 @@ def housekeeping():
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
 
 /assets/*
   Cache-Control: public, max-age=300, must-revalidate
