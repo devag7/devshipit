@@ -4,6 +4,8 @@
 
 A rental platform for Bangalore that collects listings automatically, pushes updates in real time and gives each kind of user the right level of access.
 
+[Live demo](https://bit.ly/4uiOams) [Source on GitHub](https://github.com/devag7/rentwise)
+
 - **Role**: Design and development, solo
 - **Built**: March to April 2026 (2.0)
 - **Status**: Live
@@ -24,8 +26,6 @@ Finding a rental in Bangalore means checking several sites and refreshing them b
 ## RentWise 2.0
 
 In March and April 2026 I rebuilt the project as RentWise 2.0 and wrote it up as a university academic report, matching the exact formatting my university requires. It is the project I treat as the centerpiece of my portfolio.
-
-[Live demo](https://bit.ly/4uiOams) [Source on GitHub](https://github.com/devag7/rentwise)
 
 ---
 

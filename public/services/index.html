@@ -13,8 +13,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="service-desc" type="application/json" href="/openapi.json" title="DevShipIt API (OpenAPI 3.1)">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#2457e6">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#060507">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DevShipIt">
 <meta property="og:locale" content="en_IN">
@@ -23,52 +23,117 @@
 <meta property="og:url" content="https://devshipit.com/services/">
 <meta property="og:image" content="https://devshipit.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/styles.css">
+<link rel="preload" href="/assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://devshipit.com/services/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://devshipit.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://devshipit.com/services/"}]},{"@type":"ProfessionalService","@id":"https://devshipit.com/#business","name":"DevShipIt","alternateName":"DevShipIt by Dev Agarwalla","url":"https://devshipit.com/","logo":"https://devshipit.com/icon-512.png","image":"https://devshipit.com/assets/img/og.png","description":"DevShipIt is the trading name of Dev Agarwalla, a freelance full-stack developer in Bengaluru. It builds websites and web apps for property agents, agencies and small businesses, and sells JantaHR, HR and payroll software for Indian companies.","founder":{"@id":"https://me.devshipit.com/#person"},"email":"hello@devshipit.com","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"areaServed":[{"@type":"City","name":"Bengaluru"},{"@type":"Country","name":"India"}],"knowsAbout":["Web development","Real estate websites","SaaS development","Next.js","MERN stack","HR and payroll software"],"sameAs":["https://github.com/devag7","https://www.linkedin.com/in/devagarwalla"],"hasOfferCatalog":{"@id":"https://devshipit.com/services/#catalog"}},{"@type":"OfferCatalog","@id":"https://devshipit.com/services/#catalog","name":"DevShipIt freelance web development","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://devshipit.com/services/#real-estate-websites","name":"Real estate websites","description":"Listing and search pages, enquiry capture and landing sites for property agents and agencies, easy to keep up to date.","serviceType":"Real estate websites","provider":{"@id":"https://devshipit.com/#business"},"areaServed":{"@type":"City","name":"Bengaluru"}}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://devshipit.com/services/#full-stack-web-apps","name":"Full-stack web apps","description":"Next.js, Node and PostgreSQL apps with real-time updates and map search, like RentWise.","serviceType":"Full-stack web apps","provider":{"@id":"https://devshipit.com/#business"},"areaServed":{"@type":"City","name":"Bengaluru"}}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://devshipit.com/services/#saas-products","name":"SaaS products","description":"Subscription products with plans, roles and compliance, like JantaHR.","serviceType":"SaaS products","provider":{"@id":"https://devshipit.com/#business"},"areaServed":{"@type":"City","name":"Bengaluru"}}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://devshipit.com/services/#android-apps-and-ai-tools","name":"Android apps and AI tools","description":"Background apps that export reports, and MCP servers that connect AI assistants to your tools.","serviceType":"Android apps and AI tools","provider":{"@id":"https://devshipit.com/#business"},"areaServed":{"@type":"City","name":"Bengaluru"}}}]},{"@type":"FAQPage","@id":"https://devshipit.com/services/#faq","mainEntity":[{"@type":"Question","name":"Who will build my project?","acceptedAnswer":{"@type":"Answer","text":"Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own."}},{"@type":"Question","name":"How much does a website or web app cost?","acceptedAnswer":{"@type":"Answer","text":"Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget."}},{"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scope. The delivery dates are written into your quote before any work starts, so you know them up front."}},{"@type":"Question","name":"Who owns the code and the website?","acceptedAnswer":{"@type":"Answer","text":"You do. For freelance work, ownership of what is built passes to you once it is paid for, unless the quote says otherwise."}},{"@type":"Question","name":"How is the work delivered?","acceptedAnswer":{"@type":"Answer","text":"Online: a live website, a code repository or files, on the dates in your quote. Nothing is shipped physically."}},{"@type":"Question","name":"What if I need to cancel a project?","acceptedAnswer":{"@type":"Answer","text":"Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts."}},{"@type":"Question","name":"What do you build with?","acceptedAnswer":{"@type":"Answer","text":"TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack."}},{"@type":"Question","name":"How quickly do you reply?","acceptedAnswer":{"@type":"Answer","text":"Within 2 working days, usually sooner. Email is the fastest way to reach me."}}]}]}</script>
 <link rel="alternate" type="text/markdown" href="https://devshipit.com/services/index.md" title="This page as Markdown">
+<link rel="stylesheet" href="/assets/home.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="/">dev<b>ship</b>it</a>
-    <nav aria-label="Primary"><a href="/#live">Live</a><a href="/#work">Work</a><a href="/pricing/">Pricing</a><a href="/contact/">Contact</a></nav>
-  </div>
-</header>
+<div id="top-sentinel" aria-hidden="true"></div>
+<header class="gnav"><div class="gnav-in">
+  <a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a>
+  <nav aria-label="Primary"><span class="pill" aria-hidden="true"></span><a href="/work/">Work</a><a href="/services/" aria-current="page">Services</a><a href="/about/">About</a><a href="/pricing/">Pricing</a></nav>
+  <div class="gnav-r"><a class="btn arrow" href="/contact/" data-contact>Contact<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a><button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-expanded="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-list"/></svg>Menu</button></div>
+</div></header>
 <main id="main">
-<div class="wrap cs">
-  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Services</li></ol></nav>
-  <h1>Freelance web development in Bengaluru</h1>
-  <p class="lead">I build websites and web apps for property agents, agencies and small businesses: sites that list properties, capture enquiries and are easy to keep up to date. Every project is priced by a written quote before work starts.</p>
-  <div class="btns"><a class="btn primary" href="mailto:hello@devshipit.com?subject=Freelance%20project">Start a project</a><a class="btn" href="/pricing/">See pricing</a></div>
-</div>
-<section aria-labelledby="h-build">
+<section class="page-head">
   <div class="wrap">
-    <h2 id="h-build">What I can build for you</h2>
-    <div class="grid"><div class="card static" id="real-estate-websites"><h3>Real estate websites</h3><p>Listing and search pages, enquiry capture and landing sites for property agents and agencies, easy to keep up to date.</p><p class="status"><a href="mailto:hello@devshipit.com?subject=Real%20estate%20websites">Ask about this</a></p></div><div class="card static" id="full-stack-web-apps"><h3>Full-stack web apps</h3><p>Next.js, Node and PostgreSQL apps with real-time updates and map search, like RentWise.</p><p class="status"><a href="mailto:hello@devshipit.com?subject=Full-stack%20web%20apps">Ask about this</a></p></div><div class="card static" id="saas-products"><h3>SaaS products</h3><p>Subscription products with plans, roles and compliance, like JantaHR.</p><p class="status"><a href="mailto:hello@devshipit.com?subject=SaaS%20products">Ask about this</a></p></div><div class="card static" id="android-apps-and-ai-tools"><h3>Android apps and AI tools</h3><p>Background apps that export reports, and MCP servers that connect AI assistants to your tools.</p><p class="status"><a href="mailto:hello@devshipit.com?subject=Android%20apps%20and%20AI%20tools">Ask about this</a></p></div></div>
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Services</li></ol></nav>
+    <h1>Freelance web development in Bengaluru</h1>
+    <p class="lead">I build websites and web apps for property agents, agencies and small businesses: sites that list properties, capture enquiries and are easy to keep up to date. Every project is priced by a written quote before work starts.</p>
+    <div class="btns"><a class="btn arrow" href="/contact/" data-contact data-topic="Freelance project">Start a project<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a><a class="btn ghost" href="/pricing/">See pricing</a></div>
   </div>
 </section>
-<section aria-labelledby="h-steps">
+<section class="services" aria-labelledby="h-build">
+  <div class="wrap">
+    <div class="services-head"><h2 id="h-build" class="display-sm split"><span class="w"><span>What</span></span> <span class="w"><span>I</span></span> <span class="w"><span>can</span></span> <span class="w"><span>build</span></span> <span class="w"><span>for</span></span> <span class="w"><span>you</span></span></h2></div>
+    <ul class="rows"><li class="rv" id="real-estate-websites"><a class="row" href="/contact/" data-contact data-topic="Real estate website"><span class="n">01</span><h3>Real estate websites</h3><p>Listing and search pages, enquiry capture and landing sites for property agents and agencies, easy to keep up to date.</p><span class="rbadge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></li><li class="rv" id="full-stack-web-apps"><a class="row" href="/contact/" data-contact data-topic="Full-stack web app"><span class="n">02</span><h3>Full-stack web apps</h3><p>Next.js, Node and PostgreSQL apps with real-time updates and map search, like RentWise.</p><span class="rbadge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></li><li class="rv" id="saas-products"><a class="row" href="/contact/" data-contact data-topic="SaaS product"><span class="n">03</span><h3>SaaS products</h3><p>Subscription products with plans, roles and compliance, like JantaHR.</p><span class="rbadge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></li><li class="rv" id="android-apps-and-ai-tools"><a class="row" href="/contact/" data-contact data-topic="Android app or AI tool"><span class="n">04</span><h3>Android apps and AI tools</h3><p>Background apps that export reports, and MCP servers that connect AI assistants to your tools.</p><span class="rbadge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></li></ul>
+  </div>
+</section>
+<section class="block" aria-labelledby="h-steps">
   <div class="wrap">
     <h2 id="h-steps">How a project works</h2>
     <ol class="steps"><li><h3>Tell me what you need</h3><p>Email a few lines: what it is, when you need it and a rough budget. I reply within 2 working days.</p></li><li><h3>Get a written quote</h3><p>Scope, price and delivery dates, agreed before any work starts. You pay only the amounts in the quote.</p></li><li><h3>I build it</h3><p>I design and build what the quote describes, from the database to the interface.</p></li><li><h3>Delivered online</h3><p>A live website, a code repository or files, on the dates in your quote. Once paid for, it is yours.</p></li></ol>
   </div>
 </section>
-<section id="questions" aria-labelledby="h-faq">
+<section class="block" id="questions" aria-labelledby="h-faq">
   <div class="wrap">
     <h2 id="h-faq">Questions</h2>
-    <div class="faq"><details><summary>Who will build my project?</summary><div class="a"><p>Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. <a href="/about/">About Dev</a>.</p></div></details><details><summary>How much does a website or web app cost?</summary><div class="a"><p>Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget. <a href="/pricing/">See pricing</a>.</p></div></details><details><summary>How long does a project take?</summary><div class="a"><p>It depends on the scope. The delivery dates are written into your quote before any work starts, so you know them up front.</p></div></details><details><summary>Who owns the code and the website?</summary><div class="a"><p>You do. For freelance work, ownership of what is built passes to you once it is paid for, unless the quote says otherwise. <a href="/terms/">Read the terms</a>.</p></div></details><details><summary>How is the work delivered?</summary><div class="a"><p>Online: a live website, a code repository or files, on the dates in your quote. Nothing is shipped physically. <a href="/shipping/">Shipping and delivery policy</a>.</p></div></details><details><summary>What if I need to cancel a project?</summary><div class="a"><p>Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts. <a href="/refunds/">Cancellation and refund policy</a>.</p></div></details><details><summary>What do you build with?</summary><div class="a"><p>TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack.</p></div></details><details><summary>How quickly do you reply?</summary><div class="a"><p>Within 2 working days, usually sooner. Email is the fastest way to reach me. <a href="/contact/">Contact</a>.</p></div></details></div>
+    <div class="faq"><details><summary>Who will build my project?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. <a href="/about/">About Dev</a>.</p></div></details><details><summary>How much does a website or web app cost?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget. <a href="/pricing/">See pricing</a>.</p></div></details><details><summary>How long does a project take?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>It depends on the scope. The delivery dates are written into your quote before any work starts, so you know them up front.</p></div></details><details><summary>Who owns the code and the website?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>You do. For freelance work, ownership of what is built passes to you once it is paid for, unless the quote says otherwise. <a href="/terms/">Read the terms</a>.</p></div></details><details><summary>How is the work delivered?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>Online: a live website, a code repository or files, on the dates in your quote. Nothing is shipped physically. <a href="/shipping/">Shipping and delivery policy</a>.</p></div></details><details><summary>What if I need to cancel a project?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts. <a href="/refunds/">Cancellation and refund policy</a>.</p></div></details><details><summary>What do you build with?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack.</p></div></details><details><summary>How quickly do you reply?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>Within 2 working days, usually sooner. Email is the fastest way to reach me. <a href="/contact/">Contact</a>.</p></div></details></div>
   </div>
 </section>
 </main>
-<footer class="site">
-  <div class="wrap">
-    <nav class="foot-links" aria-label="Footer"><a href="/work/">Work</a><a href="/services/">Services</a><a href="/about/">About</a><a href="/pricing/">Pricing</a><a href="/developers/">Developers</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refunds/">Cancellation and refunds</a><a href="/shipping/">Shipping and delivery</a><a href="/contact/">Contact</a></nav>
-    <nav class="foot-links minor" aria-label="Case studies"><a href="/work/jantahr/">JantaHR</a><a href="/work/rentwise/">RentWise</a><a href="/work/linkedin-mcp/">linkedin-mcp</a><a href="/work/isp-evidence/">ISP Evidence</a></nav>
-    <nav class="foot-links minor" aria-label="Elsewhere"><a href="https://me.devshipit.com/">Dev Agarwalla</a><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a><a href="https://github.com/devag7" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a></nav>
-    <span>Each live project runs on its own subdomain of devshipit.com</span>
-    <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt &middot; Bengaluru, Karnataka, India &middot; <a href="mailto:hello@devshipit.com">hello@devshipit.com</a></span>
+<footer class="foot">
+  <div class="foot-cta">
+    <div class="glow" aria-hidden="true"></div><canvas aria-hidden="true"></canvas>
+    <div class="wrap foot-cta-in">
+      <h2 class="display split"><span class="w"><span>Have</span></span> <span class="w"><span>a</span></span> <span class="w"><span>project</span></span> <span class="w"><span>in</span></span> <span class="w"><span>mind?</span></span> <span class="w"><span class="tone">Let&#x27;s</span></span> <span class="w"><span class="tone">get</span></span> <span class="w"><span class="tone">to</span></span> <span class="w"><span class="tone">work.</span></span></h2>
+      <div class="rv"><a class="btn arrow light" href="/contact/" data-contact>Contact<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></div>
+    </div>
   </div>
+  <div class="wrap">
+    <div class="foot-cols">
+      <div class="f-about"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><p>DevShipIt is where Dev Agarwalla, a freelance full-stack developer in Bengaluru, ships products, case studies and client work.</p></div>
+      <div><h3>Work</h3><ul>
+        <li><a href="/work/">All work</a></li>
+        <li><a href="/work/jantahr/">JantaHR</a></li>
+        <li><a href="/work/rentwise/">RentWise</a></li>
+        <li><a href="/work/linkedin-mcp/">linkedin-mcp</a></li>
+        <li><a href="/work/isp-evidence/">ISP Evidence</a></li>
+      </ul></div>
+      <div><h3>Company</h3><ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/terms/">Terms</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/refunds/">Cancellation and refunds</a></li>
+        <li><a href="/shipping/">Shipping and delivery</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul></div>
+      <div><h3>Elsewhere</h3><ul>
+        <li><a href="https://me.devshipit.com/">Dev Agarwalla</a></li>
+        <li><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a></li>
+        <li><a href="https://github.com/devag7" rel="noopener">GitHub</a></li>
+        <li><a href="mailto:hello@devshipit.com">Email</a></li>
+        <li><a href="/developers/">Developers and agents</a></li>
+        <li><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-legal">
+      <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt. Bengaluru, Karnataka, India.</span>
+      <span>Each live project runs on its own subdomain of devshipit.com.</span>
+    </div>
+  </div>
+  <span class="mark-word" aria-hidden="true" data-word="devshipit"></span>
 </footer>
+<dialog class="menu" id="menu-dialog" aria-label="Menu">
+  <div class="menu-top"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><button class="close" type="button" data-close><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-x"/></svg>Close</button></div>
+  <nav aria-label="Menu"><ul><li><a href="/work/"><i>01</i>Work</a></li><li><a href="/services/"><i>02</i>Services</a></li><li><a href="/about/"><i>03</i>About</a></li><li><a href="/pricing/"><i>04</i>Pricing</a></li><li><a href="/developers/"><i>05</i>Developers</a></li><li><a href="/contact/" data-contact><i>06</i>Contact</a></li></ul></nav>
+  <div class="menu-bot"><a href="mailto:hello@devshipit.com">hello@devshipit.com</a><a href="https://github.com/devag7" rel="noopener">GitHub</a></div>
+</dialog>
+<dialog class="modal" id="contact-dialog" aria-labelledby="cd-title">
+  <button class="x" type="button" data-close aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-x"/></svg></button>
+  <div id="cd-wrap">
+    <h2 id="cd-title">Tell me what you're building.</h2>
+    <p class="sub">A few lines is plenty. I read every message myself.</p>
+    <p class="topic" id="cd-topic">Topic: <b></b></p>
+    <form id="cd-form">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Project<textarea name="msg" rows="4" required placeholder="What it is, when you need it, and a rough budget."></textarea></label>
+      <div class="actions"><p class="note">Opens your email app with this message ready to send.</p><button class="btn" type="submit">Send message</button></div>
+    </form>
+  </div>
+  <div class="done" id="cd-done" hidden>
+    <h2>Your email app should open now.</h2>
+    <p class="sub">If nothing happened, write to hello@devshipit.com or copy the address.</p>
+    <div class="btns"><button class="btn" type="button" id="cd-copy">Copy address</button><button class="btn ghost" type="button" data-close>Close</button></div>
+  </div>
+</dialog>
+<script type="module" src="/assets/app.js"></script>
 </body>
 </html>

@@ -488,6 +488,8 @@ Contact: hello@devshipit.com
 
 Open-source HR and payroll for Indian companies. It works out PF, ESI, professional tax, LWF and TDS every month and produces the files companies file with the government.
 
+[Open JantaHR](https://jantahr.devshipit.com) [Pricing](https://jantahr.devshipit.com/pricing) [Source on GitHub](https://github.com/devag7/jantahr)
+
 - **Role**: Design and development, solo
 - **Built**: September to October 2026
 - **Status**: Live at [jantahr.devshipit.com](https://jantahr.devshipit.com)
@@ -521,8 +523,6 @@ Indian payroll is mostly rules that keep changing: a provident fund wage ceiling
 
 The web app and API deploy as one Vercel project in Mumbai, backed by Supabase Postgres, Storage and scheduled jobs. Companies that prefer their own servers can self-host the whole product with one command.
 
-[Open JantaHR](https://jantahr.devshipit.com) [Pricing](https://jantahr.devshipit.com/pricing) [Source on GitHub](https://github.com/devag7/jantahr)
-
 ---
 
 Canonical page: https://devshipit.com/work/jantahr/  
@@ -535,6 +535,8 @@ Contact: hello@devshipit.com
 > Case study: RentWise, a Bangalore rental platform built with Next.js, TypeScript, PostgreSQL, Redis and Socket.io.
 
 A rental platform for Bangalore that collects listings automatically, pushes updates in real time and gives each kind of user the right level of access.
+
+[Live demo](https://bit.ly/4uiOams) [Source on GitHub](https://github.com/devag7/rentwise)
 
 - **Role**: Design and development, solo
 - **Built**: March to April 2026 (2.0)
@@ -557,8 +559,6 @@ Finding a rental in Bangalore means checking several sites and refreshing them b
 
 In March and April 2026 I rebuilt the project as RentWise 2.0 and wrote it up as a university academic report, matching the exact formatting my university requires. It is the project I treat as the centerpiece of my portfolio.
 
-[Live demo](https://bit.ly/4uiOams) [Source on GitHub](https://github.com/devag7/rentwise)
-
 ---
 
 Canonical page: https://devshipit.com/work/rentwise/  
@@ -571,6 +571,8 @@ Contact: hello@devshipit.com
 > Case study: linkedin-mcp, a 36-tool LinkedIn integration for AI assistants, published on npm as linkedin-mcp-tools.
 
 A Model Context Protocol server that lets AI assistants work with LinkedIn through 36 tools, with the caching, rate limiting and retries you need to run it for real.
+
+[View on npm](https://www.npmjs.com/package/linkedin-mcp-tools)
 
 - **Role**: Design, development and publishing, solo
 - **Built**: June 2026
@@ -590,8 +592,6 @@ AI assistants are useful for job search and networking work, but they can only a
 - **Retry logic** so transient failures do not break a longer task.
 - **Published to npm** as `linkedin-mcp-tools`, so it installs with one command.
 
-[View on npm](https://www.npmjs.com/package/linkedin-mcp-tools)
-
 ---
 
 Canonical page: https://devshipit.com/work/linkedin-mcp/  
@@ -604,6 +604,8 @@ Contact: hello@devshipit.com
 > Case study: ISP Evidence, an Android app that logs connection drops, latency and jitter and exports a PDF report for ISP complaints.
 
 An Android app that turns "my internet keeps dropping" into evidence: it logs every drop, latency and jitter reading, then exports a PDF report you can send with a complaint.
+
+[Ask about ISP Evidence](mailto:jantahr@devshipit.com?subject=ISP%20Evidence)
 
 - **Role**: Product, design and development, solo
 - **Started**: 2026
@@ -625,8 +627,6 @@ When home internet is unreliable, a complaint to the provider usually comes down
 The app is on the Google Play internal testing track while I work through feedback ahead of a wider release.
 
 This is the first Android app I am taking to Google Play, so the release process itself is part of what I am learning here.
-
-[Ask about ISP Evidence](mailto:jantahr@devshipit.com?subject=ISP%20Evidence)
 
 ---
 

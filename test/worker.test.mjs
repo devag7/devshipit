@@ -80,12 +80,12 @@ test("HEAD returns headers without a body", async () => {
 });
 
 test("static assets pass through untouched by negotiation, with cache headers", async () => {
-  const css = await get("/assets/styles.css", { Accept: "text/markdown" });
+  const css = await get("/assets/site.css", { Accept: "text/markdown" });
   assert.equal(css.status, 200);
   assert.match(css.headers.get("Content-Type"), /text\/css/);
   assert.equal(css.headers.get("Cache-Control"), "public, max-age=300, must-revalidate");
-  const img = await get("/assets/img/og.png");
-  assert.equal(img.headers.get("Cache-Control"), "public, max-age=86400");
+  const font = await get("/assets/fonts/onest-latin-wght-normal.woff2");
+  assert.match(font.headers.get("Cache-Control"), /immutable/);
 });
 
 test("www redirects to the apex domain, keeping path and query", async () => {
@@ -97,7 +97,7 @@ test("www redirects to the apex domain, keeping path and query", async () => {
 test("path helpers", () => {
   assert.equal(isPagePath("/"), true);
   assert.equal(isPagePath("/pricing"), true);
-  assert.equal(isPagePath("/assets/styles.css"), false);
+  assert.equal(isPagePath("/assets/site.css"), false);
   assert.equal(markdownPathFor("/"), "/index.md");
   assert.equal(markdownPathFor("/work/jantahr"), "/work/jantahr/index.md");
   assert.equal(markdownPathFor("/terms/index.html"), "/terms/index.md");

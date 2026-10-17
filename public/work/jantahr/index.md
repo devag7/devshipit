@@ -4,6 +4,8 @@
 
 Open-source HR and payroll for Indian companies. It works out PF, ESI, professional tax, LWF and TDS every month and produces the files companies file with the government.
 
+[Open JantaHR](https://jantahr.devshipit.com) [Pricing](https://jantahr.devshipit.com/pricing) [Source on GitHub](https://github.com/devag7/jantahr)
+
 - **Role**: Design and development, solo
 - **Built**: September to October 2026
 - **Status**: Live at [jantahr.devshipit.com](https://jantahr.devshipit.com)
@@ -36,8 +38,6 @@ Indian payroll is mostly rules that keep changing: a provident fund wage ceiling
 ## How it runs
 
 The web app and API deploy as one Vercel project in Mumbai, backed by Supabase Postgres, Storage and scheduled jobs. Companies that prefer their own servers can self-host the whole product with one command.
-
-[Open JantaHR](https://jantahr.devshipit.com) [Pricing](https://jantahr.devshipit.com/pricing) [Source on GitHub](https://github.com/devag7/jantahr)
 
 ---
 
