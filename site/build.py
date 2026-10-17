@@ -1066,7 +1066,7 @@ def housekeeping():
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
           + "".join(url_xml(*e) for e in entries) + "</urlset>\n")
     write("sitemap.xml", sm)
-    write("robots.txt", f"# Content signals (contentsignals.org): search engines, AI answers and AI training may all use this site.\nUser-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\nSitemap: {ME}/sitemap.xml\n# Agent guide: {SITE}/llms.txt\n# API description: {SITE}/openapi.json\n# Dev Agarwalla's personal site: {ME}/\n")
+    write("robots.txt", f"# Every crawler is welcome, including search engines and AI assistants.\nUser-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\nSitemap: {ME}/sitemap.xml\n# Agent guide: {SITE}/llms.txt\n# API description: {SITE}/openapi.json\n# Dev Agarwalla's personal site: {ME}/\n")
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY + "\n")
     write("site.webmanifest", json.dumps({
         "name": "DevShipIt", "short_name": "DevShipIt", "description": "Dev Agarwalla, freelance full-stack developer in Bengaluru.",

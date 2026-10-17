@@ -1,6 +1,5 @@
-# Content signals (contentsignals.org): search engines, AI answers and AI training may all use this site.
+# Every crawler is welcome, including search engines and AI assistants.
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 Sitemap: https://devshipit.com/sitemap.xml
