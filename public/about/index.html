@@ -13,8 +13,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="service-desc" type="application/json" href="/openapi.json" title="DevShipIt API (OpenAPI 3.1)">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#060507">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2457e6">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DevShipIt">
 <meta property="og:locale" content="en_IN">
@@ -23,31 +23,25 @@
 <meta property="og:url" content="https://devshipit.com/about/">
 <meta property="og:image" content="https://devshipit.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="/assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css">
-<script src="/assets/site.js"></script>
+<link rel="stylesheet" href="/assets/styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://devshipit.com/about/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://devshipit.com/"},{"@type":"ListItem","position":2,"name":"About","item":"https://devshipit.com/about/"}]},{"@type":"AboutPage","@id":"https://devshipit.com/about/#page","url":"https://devshipit.com/about/","name":"About DevShipIt and Dev Agarwalla","about":{"@id":"https://devshipit.com/#business"},"mainEntity":{"@id":"https://me.devshipit.com/#person"},"isPartOf":{"@id":"https://devshipit.com/#site"},"breadcrumb":{"@id":"https://devshipit.com/about/#breadcrumb"},"relatedLink":"https://me.devshipit.com/"},{"@type":"Person","@id":"https://me.devshipit.com/#person","name":"Dev Agarwalla","alternateName":["devag7","DevAgarwalla"],"url":"https://me.devshipit.com/","disambiguatingDescription":"Software engineer in Bengaluru, India, known as devag7 on GitHub; builder of JantaHR and linkedin-mcp and founder of DevShipIt. Spelled Agarwalla, not Agarwal.","description":"Full-stack and applied AI engineer in Bengaluru, India. Technical Delivery Associate at Falcon Reality, an AI product company. Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.","jobTitle":"Full-stack and applied AI engineer","worksFor":{"@type":"Organization","name":"Falcon Reality"},"affiliation":{"@type":"CollegeOrUniversity","name":"BITS Pilani"},"knowsAbout":["TypeScript","React","Next.js","Node.js","NestJS","PostgreSQL","MongoDB","Supabase","MERN stack","Applied AI","Model Context Protocol","Android"],"address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"email":"mailto:hello@devshipit.com","image":"https://devshipit.com/icon-512.png","brand":{"@id":"https://devshipit.com/#business"},"sameAs":["https://me.devshipit.com/","https://github.com/devag7","https://www.linkedin.com/in/devagarwalla","https://x.com/DevAgarwalla","https://www.npmjs.com/package/linkedin-mcp-tools"]},{"@type":"ProfessionalService","@id":"https://devshipit.com/#business","name":"DevShipIt","alternateName":"DevShipIt by Dev Agarwalla","url":"https://devshipit.com/","logo":"https://devshipit.com/icon-512.png","image":"https://devshipit.com/assets/img/og.png","description":"DevShipIt is the trading name of Dev Agarwalla, a freelance full-stack developer in Bengaluru. It builds websites and web apps for property agents, agencies and small businesses, and sells JantaHR, HR and payroll software for Indian companies.","founder":{"@id":"https://me.devshipit.com/#person"},"email":"hello@devshipit.com","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"areaServed":[{"@type":"City","name":"Bengaluru"},{"@type":"Country","name":"India"}],"knowsAbout":["Web development","Real estate websites","SaaS development","Next.js","MERN stack","HR and payroll software"],"sameAs":["https://github.com/devag7","https://www.linkedin.com/in/devagarwalla"]}]}</script>
 <link rel="alternate" type="text/markdown" href="https://devshipit.com/about/index.md" title="This page as Markdown">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div id="top-sentinel" aria-hidden="true"></div>
-<header class="gnav"><div class="gnav-in">
-  <a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a>
-  <nav aria-label="Primary"><span class="pill" aria-hidden="true"></span><a href="/work/">Work</a><a href="/services/">Services</a><a href="/about/" aria-current="page">About</a><a href="/pricing/">Pricing</a></nav>
-  <div class="gnav-r"><a class="btn arrow" href="/contact/" data-contact>Contact<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a><button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-expanded="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-list"/></svg>Menu</button></div>
-</div></header>
-<main id="main">
-<section class="page-head">
+<header class="site">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">About</li></ol></nav>
-    <h1>About Dev Agarwalla</h1>
-    <p class="lead">DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. Every DevShipIt project is built by him personally.</p>
-    <div class="btns"><a class="btn arrow" href="https://me.devshipit.com/">Full profile<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a><a class="btn ghost" href="/contact/" data-contact>Contact</a></div>
+    <a class="brand" href="/">dev<b>ship</b>it</a>
+    <nav aria-label="Primary"><a href="/#live">Live</a><a href="/#work">Work</a><a href="/pricing/">Pricing</a><a href="/contact/">Contact</a></nav>
   </div>
-</section>
-<section class="doc">
-  <div class="wrap"><div class="doc-in"><div class="prose">
+</header>
+<main id="main">
+<div class="wrap cs">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">About</li></ol></nav>
+  <h1>About Dev Agarwalla</h1>
+  <p class="lead">DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. Every DevShipIt project is built by him personally.</p>
+  <div class="btns"><a class="btn primary" href="https://me.devshipit.com/">Full profile</a><a class="btn" href="/contact/">Contact</a></div>
+  <div class="prose">
 <h2>Who builds your project</h2>
 <p>Dev is a Technical Delivery Associate at Falcon Reality, an AI product company, where he turns operations workflows into product specs and MVP scope. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: <a href="/work/jantahr/">JantaHR</a>, <a href="/work/rentwise/">RentWise</a>, <a href="/work/linkedin-mcp/">linkedin-mcp</a> and <a href="/work/isp-evidence/">ISP Evidence</a>.</p>
 <h2>What DevShipIt does</h2>
@@ -64,77 +58,16 @@
 <li>LinkedIn: <a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">linkedin.com/in/devagarwalla</a></li>
 <li>GitHub: <a href="https://github.com/devag7" rel="noopener">github.com/devag7</a></li>
 </ul>
-  </div></div></div>
-</section>
+  </div>
+</div>
 </main>
-<footer class="foot">
-  <div class="foot-cta">
-    <div class="glow" aria-hidden="true"></div><canvas aria-hidden="true"></canvas>
-    <div class="wrap foot-cta-in">
-      <h2 class="display split"><span class="w"><span>Have</span></span> <span class="w"><span>a</span></span> <span class="w"><span>project</span></span> <span class="w"><span>in</span></span> <span class="w"><span>mind?</span></span> <span class="w"><span class="tone">Let&#x27;s</span></span> <span class="w"><span class="tone">get</span></span> <span class="w"><span class="tone">to</span></span> <span class="w"><span class="tone">work.</span></span></h2>
-      <div class="rv"><a class="btn arrow light" href="/contact/" data-contact>Contact<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></div>
-    </div>
-  </div>
+<footer class="site">
   <div class="wrap">
-    <div class="foot-cols">
-      <div class="f-about"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><p>DevShipIt is where Dev Agarwalla, a freelance full-stack developer in Bengaluru, ships products, case studies and client work.</p></div>
-      <div><h3>Work</h3><ul>
-        <li><a href="/work/">All work</a></li>
-        <li><a href="/work/jantahr/">JantaHR</a></li>
-        <li><a href="/work/rentwise/">RentWise</a></li>
-        <li><a href="/work/linkedin-mcp/">linkedin-mcp</a></li>
-        <li><a href="/work/isp-evidence/">ISP Evidence</a></li>
-      </ul></div>
-      <div><h3>Company</h3><ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/pricing/">Pricing</a></li>
-        <li><a href="/terms/">Terms</a></li>
-        <li><a href="/privacy/">Privacy</a></li>
-        <li><a href="/refunds/">Cancellation and refunds</a></li>
-        <li><a href="/shipping/">Shipping and delivery</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul></div>
-      <div><h3>Elsewhere</h3><ul>
-        <li><a href="https://me.devshipit.com/">Dev Agarwalla</a></li>
-        <li><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a></li>
-        <li><a href="https://github.com/devag7" rel="noopener">GitHub</a></li>
-        <li><a href="mailto:hello@devshipit.com">Email</a></li>
-        <li><a href="/developers/">Developers and agents</a></li>
-        <li><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a></li>
-      </ul></div>
-    </div>
-    <div class="foot-legal">
-      <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt. Bengaluru, Karnataka, India.</span>
-      <span>Each live project runs on its own subdomain of devshipit.com.</span>
-    </div>
+    <nav class="foot-links" aria-label="Footer"><a href="/work/">Work</a><a href="/services/">Services</a><a href="/about/">About</a><a href="/pricing/">Pricing</a><a href="/developers/">Developers</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refunds/">Cancellation and refunds</a><a href="/shipping/">Shipping and delivery</a><a href="/contact/">Contact</a></nav>
+    <nav class="foot-links minor" aria-label="Elsewhere"><a href="https://me.devshipit.com/">Dev Agarwalla</a><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a><a href="https://github.com/devag7" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a></nav>
+    <span>Each live project runs on its own subdomain of devshipit.com</span>
+    <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt &middot; Bengaluru, Karnataka, India &middot; <a href="mailto:hello@devshipit.com">hello@devshipit.com</a></span>
   </div>
-  <span class="mark-word" aria-hidden="true" data-word="devshipit"></span>
 </footer>
-<dialog class="menu" id="menu-dialog" aria-label="Menu">
-  <div class="menu-top"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><button class="close" type="button" data-close><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-x"/></svg>Close</button></div>
-  <nav aria-label="Menu"><ul><li><a href="/work/"><i>01</i>Work</a></li><li><a href="/services/"><i>02</i>Services</a></li><li><a href="/about/"><i>03</i>About</a></li><li><a href="/pricing/"><i>04</i>Pricing</a></li><li><a href="/developers/"><i>05</i>Developers</a></li><li><a href="/contact/" data-contact><i>06</i>Contact</a></li></ul></nav>
-  <div class="menu-bot"><a href="mailto:hello@devshipit.com">hello@devshipit.com</a><a href="https://github.com/devag7" rel="noopener">GitHub</a></div>
-</dialog>
-<dialog class="modal" id="contact-dialog" aria-labelledby="cd-title">
-  <button class="x" type="button" data-close aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-x"/></svg></button>
-  <div id="cd-wrap">
-    <h2 id="cd-title">Tell me what you're building.</h2>
-    <p class="sub">A few lines is plenty. I read every message myself.</p>
-    <p class="topic" id="cd-topic">Topic: <b></b></p>
-    <form id="cd-form">
-      <label>Name<input name="name" required autocomplete="name"></label>
-      <label>Email<input name="email" type="email" required autocomplete="email"></label>
-      <label>Project<textarea name="msg" rows="4" required placeholder="What it is, when you need it, and a rough budget."></textarea></label>
-      <div class="actions"><p class="note">Opens your email app with this message ready to send.</p><button class="btn" type="submit">Send message</button></div>
-    </form>
-  </div>
-  <div class="done" id="cd-done" hidden>
-    <h2>Your email app should open now.</h2>
-    <p class="sub">If nothing happened, write to hello@devshipit.com or copy the address.</p>
-    <div class="btns"><button class="btn" type="button" id="cd-copy">Copy address</button><button class="btn ghost" type="button" data-close>Close</button></div>
-  </div>
-</dialog>
-<script type="module" src="/assets/app.js"></script>
 </body>
 </html>

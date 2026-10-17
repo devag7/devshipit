@@ -13,8 +13,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="service-desc" type="application/json" href="/openapi.json" title="DevShipIt API (OpenAPI 3.1)">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#060507">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2457e6">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DevShipIt">
 <meta property="og:locale" content="en_IN">
@@ -23,229 +23,158 @@
 <meta property="og:url" content="https://devshipit.com/">
 <meta property="og:image" content="https://devshipit.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="/assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css">
-<script src="/assets/site.js"></script>
+<link rel="stylesheet" href="/assets/styles.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://me.devshipit.com/#person","name":"Dev Agarwalla","alternateName":["devag7","DevAgarwalla"],"url":"https://me.devshipit.com/","disambiguatingDescription":"Software engineer in Bengaluru, India, known as devag7 on GitHub; builder of JantaHR and linkedin-mcp and founder of DevShipIt. Spelled Agarwalla, not Agarwal.","description":"Full-stack and applied AI engineer in Bengaluru, India. Technical Delivery Associate at Falcon Reality, an AI product company. Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.","jobTitle":"Full-stack and applied AI engineer","worksFor":{"@type":"Organization","name":"Falcon Reality"},"affiliation":{"@type":"CollegeOrUniversity","name":"BITS Pilani"},"knowsAbout":["TypeScript","React","Next.js","Node.js","NestJS","PostgreSQL","MongoDB","Supabase","MERN stack","Applied AI","Model Context Protocol","Android"],"address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"email":"mailto:hello@devshipit.com","image":"https://devshipit.com/icon-512.png","brand":{"@id":"https://devshipit.com/#business"},"sameAs":["https://me.devshipit.com/","https://github.com/devag7","https://www.linkedin.com/in/devagarwalla","https://x.com/DevAgarwalla","https://www.npmjs.com/package/linkedin-mcp-tools"]},{"@type":"ProfessionalService","@id":"https://devshipit.com/#business","name":"DevShipIt","alternateName":"DevShipIt by Dev Agarwalla","url":"https://devshipit.com/","logo":"https://devshipit.com/icon-512.png","image":"https://devshipit.com/assets/img/og.png","description":"DevShipIt is the trading name of Dev Agarwalla, a freelance full-stack developer in Bengaluru. It builds websites and web apps for property agents, agencies and small businesses, and sells JantaHR, HR and payroll software for Indian companies.","founder":{"@id":"https://me.devshipit.com/#person"},"email":"hello@devshipit.com","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"areaServed":[{"@type":"City","name":"Bengaluru"},{"@type":"Country","name":"India"}],"knowsAbout":["Web development","Real estate websites","SaaS development","Next.js","MERN stack","HR and payroll software"],"sameAs":["https://github.com/devag7","https://www.linkedin.com/in/devagarwalla"]},{"@type":"WebSite","@id":"https://devshipit.com/#site","name":"DevShipIt","alternateName":["devshipit.com","Dev Ship It"],"url":"https://devshipit.com/","description":"DevShipIt is the portfolio and product site of Dev Agarwalla, a freelance full-stack developer in Bengaluru: live products, case studies and freelance web development.","inLanguage":"en-IN","publisher":{"@id":"https://devshipit.com/#business"},"author":{"@id":"https://me.devshipit.com/#person"}},{"@type":"FAQPage","@id":"https://devshipit.com/#faq","mainEntity":[{"@type":"Question","name":"What is DevShipIt, and how is it related to JantaHR?","acceptedAnswer":{"@type":"Answer","text":"DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com."}},{"@type":"Question","name":"Who will build my project?","acceptedAnswer":{"@type":"Answer","text":"Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own."}},{"@type":"Question","name":"How much does a website or web app cost?","acceptedAnswer":{"@type":"Answer","text":"Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget."}},{"@type":"Question","name":"Who owns the code and the website?","acceptedAnswer":{"@type":"Answer","text":"You do. For freelance work, ownership of what is built passes to you once it is paid for, unless the quote says otherwise."}},{"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scope. The delivery dates are written into your quote before any work starts, so you know them up front."}}]}]}</script>
 <link rel="alternate" type="text/markdown" href="https://devshipit.com/index.md" title="This page as Markdown">
-<link rel="stylesheet" href="/assets/home.css">
-<link rel="preload" as="image" href="/assets/img/code-dim.webp" imagesrcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" imagesizes="100vw" type="image/webp" fetchpriority="high">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="loader" id="loader" aria-hidden="true"><div class="ld-in"><div class="ld-mark"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt logo"></div><p class="ld-tag">Ideas in. Products out.</p></div><div class="ld-prog"><div class="ld-bar"><i></i></div><div class="ld-row"><span>Loading</span><b id="ldn">000</b></div></div></div>
-<div id="top-sentinel" aria-hidden="true"></div>
-<header class="gnav"><div class="gnav-in">
-  <a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a>
-  <nav aria-label="Primary"><span class="pill" aria-hidden="true"></span><a href="/work/">Work</a><a href="/services/">Services</a><a href="/about/">About</a><a href="/pricing/">Pricing</a></nav>
-  <div class="gnav-r"><a class="btn arrow" href="/contact/" data-contact>Contact<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a><button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-expanded="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-list"/></svg>Menu</button></div>
-</div></header>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">dev<b>ship</b>it</a>
+    <nav aria-label="Primary"><a href="/#live">Live</a><a href="/#work">Work</a><a href="/pricing/">Pricing</a><a href="/contact/">Contact</a></nav>
+  </div>
+</header>
+
 <main id="main">
-
-<section class="hero" aria-labelledby="h-hero">
-  <div class="hero-panel">
-    <div class="hero-media" aria-hidden="true">
-      <img class="real" src="/assets/img/code-lit.webp" srcset="/assets/img/code-lit-1200.webp 1200w, /assets/img/code-lit.webp 2400w" sizes="100vw" width="2400" height="1500" alt="Source code from a DevShipIt product in a code editor, lit" decoding="async">
-      <img class="bp" src="/assets/img/code-dim.webp" srcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" sizes="100vw" width="2400" height="1500" alt="Source code from a DevShipIt product in a code editor, dimmed" decoding="async" fetchpriority="high">
-      <canvas></canvas>
-    </div>
-    <div class="hero-scrim"></div>
-    <div class="hero-copy">
-      <p class="chip-label rv">Full-stack and applied AI engineer, Bengaluru</p>
-      <h1 id="h-hero" class="display split"><span class="w"><span>I</span></span> <span class="w"><span>build</span></span> <span class="w"><span>products</span></span> <span class="w"><span class="tone">and</span></span> <span class="w"><span class="tone">ship</span></span> <span class="w"><span class="tone">them.</span></span></h1>
-      <p class="lead rv d1">I'm Dev Agarwalla. I build full-stack and AI products, and DevShipIt is where I ship them and take on freelance work. Most of it is live and open to look at.</p>
-      <div class="btns rv d2"><a class="btn arrow" href="#work">See work<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-right"/></svg></span></a><a class="btn ghost" href="/contact/" data-contact>Contact</a></div>
+  <div class="wrap hero">
+    <span class="pill"><i aria-hidden="true"></i> JantaHR is live &middot; Taking freelance projects</span>
+    <h1>I build full-stack products and ship them.</h1>
+    <p class="lead">Hi, I'm Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. I work on technical delivery at Falcon Reality, an AI product company, and DevShipIt is where I ship my own products and take on freelance work.</p>
+    <div class="btns">
+      <a class="btn primary" href="#work">See my work</a>
+      <a class="btn" href="mailto:hello@devshipit.com">Email me</a>
     </div>
   </div>
-</section>
 
-<section class="stack" aria-labelledby="h-stack">
-  <div class="wrap stack-in rv">
-    <h2 id="h-stack">Built with</h2>
-    <ul><li><svg role="img" aria-label="TypeScript"><use href="/assets/icons.svg#si-typescript"/></svg></li><li><svg role="img" aria-label="React"><use href="/assets/icons.svg#si-react"/></svg></li><li><svg role="img" aria-label="Next.js"><use href="/assets/icons.svg#si-nextdotjs"/></svg></li><li><svg role="img" aria-label="Node.js"><use href="/assets/icons.svg#si-nodedotjs"/></svg></li><li><svg role="img" aria-label="NestJS"><use href="/assets/icons.svg#si-nestjs"/></svg></li><li><svg role="img" aria-label="Express"><use href="/assets/icons.svg#si-express"/></svg></li><li><svg role="img" aria-label="PostgreSQL"><use href="/assets/icons.svg#si-postgresql"/></svg></li><li><svg role="img" aria-label="MongoDB"><use href="/assets/icons.svg#si-mongodb"/></svg></li><li><svg role="img" aria-label="Redis"><use href="/assets/icons.svg#si-redis"/></svg></li><li><svg role="img" aria-label="Supabase"><use href="/assets/icons.svg#si-supabase"/></svg></li><li><svg role="img" aria-label="Docker"><use href="/assets/icons.svg#si-docker"/></svg></li><li><svg role="img" aria-label="Socket.IO"><use href="/assets/icons.svg#si-socketdotio"/></svg></li></ul>
-  </div>
-</section>
-
-<section class="about" id="about" aria-labelledby="h-about">
-  <div class="wrap about-in">
-    <ul class="about-side facts-list rv">
-      <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-briefcase"/></svg><span>Technical Delivery Associate at Falcon Reality, an AI product company</span></li>
-      <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-rocket-launch"/></svg><span>Four products designed, built and shipped solo</span></li>
-      <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-storefront"/></svg><span>Freelance websites and web apps for real estate teams</span></li>
-    </ul>
-    <div>
-      <h2 id="h-about" class="sr-only">About</h2>
-      <p class="statement split"><span class="w"><span>I</span></span> <span class="w"><span>learn</span></span> <span class="w"><span>fastest</span></span> <span class="w"><span>by</span></span> <span class="w"><span>building</span></span> <span class="w"><span>something</span></span> <span class="w"><span>people</span></span> <span class="w"><span>can</span></span> <span class="w"><span>use,</span></span> <span class="w"><span class="tone">so</span></span> <span class="w"><span class="tone">most</span></span> <span class="w"><span class="tone">of</span></span> <span class="w"><span class="tone">my</span></span> <span class="w"><span class="tone">work</span></span> <span class="w"><span class="tone">is</span></span> <span class="w"><span class="tone">shipped,</span></span> <span class="w"><span class="tone">deployed</span></span> <span class="w"><span class="tone">and</span></span> <span class="w"><span class="tone">open</span></span> <span class="w"><span class="tone">to</span></span> <span class="w"><span class="tone">look</span></span> <span class="w"><span class="tone">at.</span></span></p>
-      <div class="about-foot rv">
-        <a class="textlink" href="/about/">More about Dev <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-right"/></svg></a>
-        <span class="muted">Find me online</span>
-        <div class="socials"><a href="https://github.com/devag7" rel="noopener" aria-label="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-github-logo"/></svg></a><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener" aria-label="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-linkedin-logo"/></svg></a><a href="mailto:hello@devshipit.com" aria-label="Email hello@devshipit.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-envelope-simple"/></svg></a></div>
+  <section id="live" aria-labelledby="h-live">
+    <div class="wrap">
+      <h2 id="h-live">Live projects</h2>
+      <p class="lead tight">Each project I ship runs on its own subdomain of devshipit.com. JantaHR is the one you can subscribe to.</p>
+      <div class="product">
+        <div class="tile t4" aria-hidden="true">JantaHR</div>
+        <div>
+          <h3>JantaHR: HR and payroll for Indian companies</h3>
+          <p class="status">&#9679; Live at <a href="https://jantahr.devshipit.com">jantahr.devshipit.com</a></p>
+          <img class="shot-hero" src="/assets/img/jantahr-payroll.webp" width="1400" height="875" loading="lazy" decoding="async" alt="A JantaHR payroll run with gross pay, deductions, net pay and employer contributions">
+          <p>Payroll with PF, ESI, professional tax, LWF and TDS calculated every month, filing-ready files, a compliance calendar, leave, attendance, onboarding and exits. Sold as a subscription; open source under AGPL-3.0.</p>
+          <ul class="plain">
+            <li>Free for up to 20 employees</li>
+            <li>Standard from &#8377;49 per employee a month, Professional from &#8377;99 (billed yearly; minimum 10 seats)</li>
+            <li>14-day free trial, no card needed; cancel any time</li>
+          </ul>
+          <div class="btns mt">
+            <a class="btn primary" href="https://jantahr.devshipit.com">Visit JantaHR</a>
+            <a class="btn" href="/work/jantahr/">Case study</a>
+            <a class="btn" href="/pricing/">All prices</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="band" aria-label="How I work: idea, build, ship">
-  <div class="wrap"><ul>
-    <li class="rv"><div class="b1">Idea</div></li>
-    <li class="rv d1"><div class="b2">Build</div></li>
-    <li class="rv d2"><div class="b3"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-right"/></svg></div></li>
-    <li class="rv d3"><div class="b4">Ship</div></li>
-  </ul></div>
-</section>
-
-<section class="live" id="live" aria-labelledby="h-live">
-  <div class="wrap">
-    <div class="live-head">
-      <h2 id="h-live" class="display-sm split"><span class="w"><span>JantaHR</span></span> <span class="w"><span>is</span></span> <span class="w"><span>live.</span></span> <span class="w"><span class="tone">HR</span></span> <span class="w"><span class="tone">and</span></span> <span class="w"><span class="tone">payroll</span></span> <span class="w"><span class="tone">for</span></span> <span class="w"><span class="tone">Indian</span></span> <span class="w"><span class="tone">companies.</span></span></h2>
-      <p class="lead rv">PF, ESI, professional tax, LWF and TDS calculated every month, with filing-ready files and a compliance calendar. Open source under AGPL-3.0.</p>
-    </div>
-    <div class="live-stage rv">
-      <img class="shot" src="/assets/img/jantahr-payroll.webp" width="1400" height="875" loading="lazy" decoding="async" alt="A JantaHR payroll run with gross pay, deductions, net pay and employer contributions">
-      <div class="phone"><img src="/assets/img/jantahr-mobile.webp" width="520" height="1040" loading="lazy" decoding="async" alt="JantaHR employee home screen on a phone with attendance check-in and leave balance"></div>
-    </div>
-    <ul class="live-facts">
-      <li class="rv"><b>Free</b><span>For up to 20 employees</span></li>
-      <li class="rv d1"><b>&#8377;49 and &#8377;99</b><span>Standard from &#8377;49 per employee a month, Professional from &#8377;99 (billed yearly; minimum 10 seats)</span></li>
-      <li class="rv d2"><b>14 days</b><span>Free trial, no card needed; cancel any time</span></li>
-    </ul>
-    <div class="btns rv"><a class="btn arrow" href="https://jantahr.devshipit.com" rel="noopener">Visit JantaHR<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a><a class="btn ghost" href="/work/jantahr/">Case study</a><a class="textlink" href="/pricing/">All prices <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-right"/></svg></a></div>
-  </div>
-</section>
-
-<section class="work" id="work" aria-labelledby="h-work">
-  <div class="wrap">
-    <div class="work-head head-row"><h2 id="h-work" class="display-sm split"><span class="w"><span>Selected</span></span> <span class="w"><span>work</span></span></h2><a class="textlink rv" href="/work/">All work and case studies <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-right"/></svg></a></div>
-    <div class="work-grid">
-      <a class="wcard tall rv" href="/work/rentwise/">
-        <div class="art art-rent" aria-hidden="true"></div><svg class="ghost" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-mapbox"/></svg><span class="spot" aria-hidden="true"></span>
-        <div class="top"><div class="marks"><svg aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-nextdotjs"/></svg><svg aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-postgresql"/></svg></div><span class="arrow-badge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></div>
-        <div>
-          <p class="status">Live</p>
+  <section id="work" aria-labelledby="h-work">
+    <div class="wrap">
+      <h2 id="h-work">Selected work</h2>
+      <div class="grid">
+        <a class="card" href="/work/jantahr/">
+          <div class="tile t4" aria-hidden="true">JantaHR</div>
+          <h3>JantaHR</h3>
+          <p>HR and payroll software for Indian companies: PF, ESI, professional tax, LWF and TDS every month, filing-ready files and a compliance calendar. Open source under AGPL-3.0.</p>
+          <div class="tags"><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Razorpay</span></div>
+          <p class="status">&#9679; Live at jantahr.devshipit.com</p>
+        </a>
+        <a class="card" href="/work/rentwise/">
+          <div class="tile t1" aria-hidden="true">RentWise</div>
           <h3>RentWise</h3>
           <p>A rental platform for Bangalore with automated listing collection, real-time updates, map search and role-based access.</p>
-          <ul class="tags"><li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">PostgreSQL</li><li class="tag">Socket.io</li></ul>
-        </div>
-      </a>
-      <a class="wcard rv d1" href="/work/linkedin-mcp/">
-        <div class="art art-mcp" aria-hidden="true"></div><svg class="ghost" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-nodedotjs"/></svg><span class="spot" aria-hidden="true"></span>
-        <div class="top"><div class="marks"><svg aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-nodedotjs"/></svg><svg aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-npm"/></svg></div><span class="arrow-badge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></div>
-        <div>
-          <p class="status">On npm</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Socket.io</span></div>
+          <p class="status">&#9679; Live</p>
+        </a>
+        <a class="card" href="/work/linkedin-mcp/">
+          <div class="tile t2" aria-hidden="true">linkedin-mcp</div>
           <h3>linkedin-mcp</h3>
           <p>A 36-tool LinkedIn integration for AI assistants, with caching, rate limiting and retries.</p>
-          <ul class="tags"><li class="tag">Node.js</li><li class="tag">MCP</li><li class="tag">npm</li></ul>
-        </div>
-      </a>
-      <a class="wcard rv d2" href="/work/isp-evidence/">
-        <div class="art art-isp" aria-hidden="true"></div><svg class="ghost" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-android"/></svg><span class="spot" aria-hidden="true"></span>
-        <div class="top"><div class="marks"><svg aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-android"/></svg><svg aria-hidden="true" focusable="false"><use href="/assets/icons.svg#si-googleplay"/></svg></div><span class="arrow-badge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></div>
-        <div>
-          <p class="status">In testing</p>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">MCP</span><span class="tag">npm</span></div>
+          <p class="status">&#9679; On npm</p>
+        </a>
+        <a class="card" href="/work/isp-evidence/">
+          <div class="tile t3" aria-hidden="true">ISP Evidence</div>
           <h3>ISP Evidence</h3>
           <p>An Android app that logs connection drops, latency and jitter, then exports a PDF report you can attach to an ISP complaint.</p>
-          <ul class="tags"><li class="tag">Android</li><li class="tag">Google Play</li></ul>
-        </div>
-      </a>
+          <div class="tags"><span class="tag">Android</span><span class="tag">Google Play</span></div>
+          <p class="status">&#9679; In testing</p>
+        </a>
+      </div>
+      <p class="more"><a href="/work/">All work and case studies</a></p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="services" id="services" aria-labelledby="h-services">
-  <div class="wrap">
-    <div class="services-head head-row"><h2 id="h-services" class="display-sm split"><span class="w"><span>What</span></span> <span class="w"><span>I</span></span> <span class="w"><span>can</span></span> <span class="w"><span>build</span></span> <span class="w"><span>for</span></span> <span class="w"><span>you</span></span></h2><a class="textlink rv" href="/services/">Freelance services and how a project works <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-right"/></svg></a></div>
-    <ul class="rows">
-      <li class="rv"><a class="row" href="/contact/" data-contact data-topic="Real estate website"><span class="n">01</span><h3>Real estate websites</h3><p>Listing and search pages, and landing sites for property agents and agencies.</p><span class="rbadge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></li><li class="rv"><a class="row" href="/contact/" data-contact data-topic="Full-stack web app"><span class="n">02</span><h3>Full-stack web apps</h3><p>Next.js, Node and PostgreSQL apps with real-time updates and map search, like RentWise.</p><span class="rbadge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></li><li class="rv"><a class="row" href="/contact/" data-contact data-topic="SaaS product"><span class="n">03</span><h3>SaaS products</h3><p>Subscription products with plans, roles and compliance, like JantaHR.</p><span class="rbadge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></li><li class="rv"><a class="row" href="/contact/" data-contact data-topic="Android app or AI tool"><span class="n">04</span><h3>Android apps and AI tools</h3><p>Background apps that export reports, and MCP servers that connect AI assistants to your tools.</p><span class="rbadge" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></li>
-    </ul>
-  </div>
-</section>
+  <section id="freelance" aria-labelledby="h-freelance">
+    <div class="wrap cols">
+      <div>
+        <h2 id="h-freelance">Freelance</h2>
+        <h3>Websites and web apps for real estate teams</h3>
+        <p>I build MERN-stack sites for property agents and agencies in Bangalore. If you need something that lists properties, captures enquiries and is easy to keep up to date, get in touch. Every project is priced by a written quote before work starts.</p>
+      </div>
+      <div class="side">
+        <ul class="plain">
+          <li>Property listing and search pages</li>
+          <li>Agent and agency landing sites</li>
+          <li>Admin dashboards to manage listings</li>
+          <li>Full-stack web apps and SaaS products</li>
+        </ul>
+        <p class="mt"><a href="mailto:hello@devshipit.com?subject=Website%20enquiry">Tell me what you need</a> or read <a href="/services/">how a project works</a>.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="numbers" aria-labelledby="h-numbers">
-  <div class="wrap"><div class="numbers-panel rv">
-    <h2 id="h-numbers" class="display-sm split"><span class="w"><span>Proof</span></span> <span class="w"><span>in</span></span> <span class="w"><span>the</span></span> <span class="w"><span>work,</span></span> <span class="w"><span class="tone">not</span></span> <span class="w"><span class="tone">the</span></span> <span class="w"><span class="tone">words.</span></span></h2>
-    <ul class="stats">
-      <li class="rv d0"><span class="num" data-to="4" data-suffix="">4</span><p>Products designed, built and shipped solo</p></li><li class="rv d1"><span class="num" data-to="36" data-suffix="">36</span><p>Tools in the linkedin-mcp server, published on npm</p></li><li class="rv d2"><span class="num" data-to="3" data-suffix="">3</span><p>MERN apps taken to production as a full-stack intern</p></li><li class="rv d3"><span class="num" data-to="15" data-suffix="k+">15k+</span><p>People following my engineering posts on LinkedIn</p></li>
-    </ul>
-  </div></div>
-</section>
+  <section id="about" aria-labelledby="h-about">
+    <div class="wrap cols">
+      <div>
+        <h2 id="h-about">About</h2>
+        <p>I'm a Technical Delivery Associate at Falcon Reality, an AI product company, where I turn operations workflows into product specs and MVP scope. Before that I shipped three MERN apps to production as a full-stack intern at Cyber Secure India. I learn fastest by building something people can use, so most of my work is shipped, deployed and open to look at.</p>
+        <p><a href="/about/">More about Dev</a> &middot; <a href="https://me.devshipit.com/">me.devshipit.com</a></p>
+      </div>
+      <div class="side">
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Socket.io</span><span class="tag">Supabase</span><span class="tag">Mapbox GL JS</span><span class="tag">Docker</span><span class="tag">Playwright</span><span class="tag">MCP</span></div>
+      </div>
+    </div>
+  </section>
 
-<section class="qa" id="questions" aria-labelledby="h-qa">
-  <div class="wrap">
-    <div class="qa-head head-row"><h2 id="h-qa" class="display-sm split"><span class="w"><span>Questions</span></span></h2><a class="textlink rv" href="/services/#questions">More answers <svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-right"/></svg></a></div>
-    <div class="rv"><div class="faq"><details><summary>What is DevShipIt, and how is it related to JantaHR?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com. <a href="/work/jantahr/">JantaHR case study</a>.</p></div></details><details><summary>Who will build my project?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. <a href="/about/">About Dev</a>.</p></div></details><details><summary>How much does a website or web app cost?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget. <a href="/pricing/">See pricing</a>.</p></div></details><details><summary>Who owns the code and the website?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>You do. For freelance work, ownership of what is built passes to you once it is paid for, unless the quote says otherwise. <a href="/terms/">Read the terms</a>.</p></div></details><details><summary>How long does a project take?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-plus"/></svg></summary><div class="a"><p>It depends on the scope. The delivery dates are written into your quote before any work starts, so you know them up front.</p></div></details></div></div>
-  </div>
-</section>
+  <section id="questions" aria-labelledby="h-qa">
+    <div class="wrap">
+      <h2 id="h-qa">Questions</h2>
+      <div class="faq"><details><summary>What is DevShipIt, and how is it related to JantaHR?</summary><div class="a"><p>DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com. <a href="/work/jantahr/">JantaHR case study</a>.</p></div></details><details><summary>Who will build my project?</summary><div class="a"><p>Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. <a href="/about/">About Dev</a>.</p></div></details><details><summary>How much does a website or web app cost?</summary><div class="a"><p>Every project is priced by a written quote with the scope, price and delivery dates, agreed before any work starts, and you pay only the amounts in that quote. Write to hello@devshipit.com with what you need, when you need it and a rough budget. <a href="/pricing/">See pricing</a>.</p></div></details><details><summary>Who owns the code and the website?</summary><div class="a"><p>You do. For freelance work, ownership of what is built passes to you once it is paid for, unless the quote says otherwise. <a href="/terms/">Read the terms</a>.</p></div></details><details><summary>How long does a project take?</summary><div class="a"><p>It depends on the scope. The delivery dates are written into your quote before any work starts, so you know them up front.</p></div></details></div>
+      <p class="more"><a href="/services/#questions">More answers</a></p>
+    </div>
+  </section>
 
+  <section id="contact" aria-labelledby="h-contact">
+    <div class="wrap">
+      <h2 id="h-contact">Contact</h2>
+      <p class="lead tight">Have a project in mind? The fastest way to reach me is email.</p>
+      <dl class="meta">
+        <div><dt>Operated by</dt><dd>Dev Agarwalla (individual), trading as DevShipIt</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:hello@devshipit.com">hello@devshipit.com</a></dd></div>
+        <div><dt>JantaHR support</dt><dd><a href="mailto:jantahr@devshipit.com">jantahr@devshipit.com</a></dd></div>
+        <div><dt>Location</dt><dd>Bengaluru, Karnataka, India</dd></div>
+      </dl>
+      <div class="btns">
+        <a class="btn primary" href="mailto:hello@devshipit.com">hello@devshipit.com</a>
+        <a class="btn" href="https://github.com/devag7" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="foot">
-  <div class="foot-cta">
-    <div class="glow" aria-hidden="true"></div><canvas aria-hidden="true"></canvas>
-    <div class="wrap foot-cta-in">
-      <h2 class="display split"><span class="w"><span>Have</span></span> <span class="w"><span>a</span></span> <span class="w"><span>project</span></span> <span class="w"><span>in</span></span> <span class="w"><span>mind?</span></span> <span class="w"><span class="tone">Let&#x27;s</span></span> <span class="w"><span class="tone">get</span></span> <span class="w"><span class="tone">to</span></span> <span class="w"><span class="tone">work.</span></span></h2>
-      <div class="rv"><a class="btn arrow light" href="/contact/" data-contact>Contact<span class="badge"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-arrow-up-right"/></svg></span></a></div>
-    </div>
-  </div>
+<footer class="site">
   <div class="wrap">
-    <div class="foot-cols">
-      <div class="f-about"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><p>DevShipIt is where Dev Agarwalla, a freelance full-stack developer in Bengaluru, ships products, case studies and client work.</p></div>
-      <div><h3>Work</h3><ul>
-        <li><a href="/work/">All work</a></li>
-        <li><a href="/work/jantahr/">JantaHR</a></li>
-        <li><a href="/work/rentwise/">RentWise</a></li>
-        <li><a href="/work/linkedin-mcp/">linkedin-mcp</a></li>
-        <li><a href="/work/isp-evidence/">ISP Evidence</a></li>
-      </ul></div>
-      <div><h3>Company</h3><ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/pricing/">Pricing</a></li>
-        <li><a href="/terms/">Terms</a></li>
-        <li><a href="/privacy/">Privacy</a></li>
-        <li><a href="/refunds/">Cancellation and refunds</a></li>
-        <li><a href="/shipping/">Shipping and delivery</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul></div>
-      <div><h3>Elsewhere</h3><ul>
-        <li><a href="https://me.devshipit.com/">Dev Agarwalla</a></li>
-        <li><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a></li>
-        <li><a href="https://github.com/devag7" rel="noopener">GitHub</a></li>
-        <li><a href="mailto:hello@devshipit.com">Email</a></li>
-        <li><a href="/developers/">Developers and agents</a></li>
-        <li><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a></li>
-      </ul></div>
-    </div>
-    <div class="foot-legal">
-      <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt. Bengaluru, Karnataka, India.</span>
-      <span>Each live project runs on its own subdomain of devshipit.com.</span>
-    </div>
+    <nav class="foot-links" aria-label="Footer"><a href="/work/">Work</a><a href="/services/">Services</a><a href="/about/">About</a><a href="/pricing/">Pricing</a><a href="/developers/">Developers</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/refunds/">Cancellation and refunds</a><a href="/shipping/">Shipping and delivery</a><a href="/contact/">Contact</a></nav>
+    <nav class="foot-links minor" aria-label="Elsewhere"><a href="https://me.devshipit.com/">Dev Agarwalla</a><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a><a href="https://github.com/devag7" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a></nav>
+    <span>Each live project runs on its own subdomain of devshipit.com</span>
+    <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt &middot; Bengaluru, Karnataka, India &middot; <a href="mailto:hello@devshipit.com">hello@devshipit.com</a></span>
   </div>
-  <span class="mark-word" aria-hidden="true" data-word="devshipit"></span>
 </footer>
-<dialog class="menu" id="menu-dialog" aria-label="Menu">
-  <div class="menu-top"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><button class="close" type="button" data-close><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-x"/></svg>Close</button></div>
-  <nav aria-label="Menu"><ul><li><a href="/work/"><i>01</i>Work</a></li><li><a href="/services/"><i>02</i>Services</a></li><li><a href="/about/"><i>03</i>About</a></li><li><a href="/pricing/"><i>04</i>Pricing</a></li><li><a href="/developers/"><i>05</i>Developers</a></li><li><a href="/contact/" data-contact><i>06</i>Contact</a></li></ul></nav>
-  <div class="menu-bot"><a href="mailto:hello@devshipit.com">hello@devshipit.com</a><a href="https://github.com/devag7" rel="noopener">GitHub</a></div>
-</dialog>
-<dialog class="modal" id="contact-dialog" aria-labelledby="cd-title">
-  <button class="x" type="button" data-close aria-label="Close"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#ph-x"/></svg></button>
-  <div id="cd-wrap">
-    <h2 id="cd-title">Tell me what you're building.</h2>
-    <p class="sub">A few lines is plenty. I read every message myself.</p>
-    <p class="topic" id="cd-topic">Topic: <b></b></p>
-    <form id="cd-form">
-      <label>Name<input name="name" required autocomplete="name"></label>
-      <label>Email<input name="email" type="email" required autocomplete="email"></label>
-      <label>Project<textarea name="msg" rows="4" required placeholder="What it is, when you need it, and a rough budget."></textarea></label>
-      <div class="actions"><p class="note">Opens your email app with this message ready to send.</p><button class="btn" type="submit">Send message</button></div>
-    </form>
-  </div>
-  <div class="done" id="cd-done" hidden>
-    <h2>Your email app should open now.</h2>
-    <p class="sub">If nothing happened, write to hello@devshipit.com or copy the address.</p>
-    <div class="btns"><button class="btn" type="button" id="cd-copy">Copy address</button><button class="btn ghost" type="button" data-close>Close</button></div>
-  </div>
-</dialog>
-<script type="module" src="/assets/app.js"></script>
-<script type="module" src="/assets/home.js"></script>
 </body>
 </html>

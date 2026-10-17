@@ -101,7 +101,7 @@ def parse(path):
 
 
 # ---------- shared chrome ----------
-NAV = [("Work", "/work/", "work"), ("Services", "/services/", "services"), ("About", "/about/", "about"), ("Pricing", "/pricing/", "pricing")]
+NAV = [("Live", "/#live", None), ("Work", "/#work", "work"), ("Pricing", "/pricing/", "pricing"), ("Contact", "/contact/", "contact")]
 MENU = [("Work", "/work/"), ("Services", "/services/"), ("About", "/about/"), ("Pricing", "/pricing/"), ("Developers", "/developers/"), ("Contact", "/contact/")]
 LASTMOD = "2026-10-16"
 INDEXNOW_KEY = "65e5a2c9e4e9ca153a417f71ef59cc9d"
@@ -141,8 +141,8 @@ def head(title, desc, path, extra="", noindex=False, ogtitle=None, ld=None):
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="service-desc" type="application/json" href="/openapi.json" title="DevShipIt API (OpenAPI 3.1)">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#060507">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2457e6">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DevShipIt">
 <meta property="og:locale" content="en_IN">
@@ -151,9 +151,7 @@ def head(title, desc, path, extra="", noindex=False, ogtitle=None, ld=None):
 <meta property="og:url" content="{canon}">
 <meta property="og:image" content="{OG}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="/assets/fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css">
-<script src="/assets/site.js"></script>
+<link rel="stylesheet" href="/assets/styles.css">
 {extra}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -189,92 +187,29 @@ def crumbs(*items):
 def gnav(active=None):
     cur = ' aria-current="page"'
     links = "".join('<a href="%s"%s>%s</a>' % (h, cur if (k and k == active) else "", l) for l, h, k in NAV)
-    return f"""<div id="top-sentinel" aria-hidden="true"></div>
-<header class="gnav"><div class="gnav-in">
-  <a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a>
-  <nav aria-label="Primary"><span class="pill" aria-hidden="true"></span>{links}</nav>
-  <div class="gnav-r">{btn("Contact", "/contact/", attrs=" data-contact" + (cur if active == "contact" else ""))}<button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu-dialog" aria-expanded="false">{phos("list")}Menu</button></div>
-</div></header>
+    return f"""<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">dev<b>ship</b>it</a>
+    <nav aria-label="Primary">{links}</nav>
+  </div>
+</header>
 """
 
 
-def dialogs():
-    lis = "".join(
-        '<li><a href="%s"%s><i>0%d</i>%s</a></li>' % (h, " data-contact" if l == "Contact" else "", n + 1, l) for n, (l, h) in enumerate(MENU)
-    )
-    return f"""<dialog class="menu" id="menu-dialog" aria-label="Menu">
-  <div class="menu-top"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><button class="close" type="button" data-close>{phos("x")}Close</button></div>
-  <nav aria-label="Menu"><ul>{lis}</ul></nav>
-  <div class="menu-bot"><a href="mailto:{HELLO}">{HELLO}</a><a href="https://github.com/devag7" rel="noopener">GitHub</a></div>
-</dialog>
-<dialog class="modal" id="contact-dialog" aria-labelledby="cd-title">
-  <button class="x" type="button" data-close aria-label="Close">{phos("x")}</button>
-  <div id="cd-wrap">
-    <h2 id="cd-title">Tell me what you're building.</h2>
-    <p class="sub">A few lines is plenty. I read every message myself.</p>
-    <p class="topic" id="cd-topic">Topic: <b></b></p>
-    <form id="cd-form">
-      <label>Name<input name="name" required autocomplete="name"></label>
-      <label>Email<input name="email" type="email" required autocomplete="email"></label>
-      <label>Project<textarea name="msg" rows="4" required placeholder="What it is, when you need it, and a rough budget."></textarea></label>
-      <div class="actions"><p class="note">Opens your email app with this message ready to send.</p><button class="btn" type="submit">Send message</button></div>
-    </form>
-  </div>
-  <div class="done" id="cd-done" hidden>
-    <h2>Your email app should open now.</h2>
-    <p class="sub">If nothing happened, write to {HELLO} or copy the address.</p>
-    <div class="btns"><button class="btn" type="button" id="cd-copy">Copy address</button><button class="btn ghost" type="button" data-close>Close</button></div>
-  </div>
-</dialog>
-"""
+FOOT_LINKS = [("Work", "/work/"), ("Services", "/services/"), ("About", "/about/"), ("Pricing", "/pricing/"), ("Developers", "/developers/"),
+              ("Terms", "/terms/"), ("Privacy", "/privacy/"), ("Cancellation and refunds", "/refunds/"), ("Shipping and delivery", "/shipping/"), ("Contact", "/contact/")]
 
 
 def footer(extra_js=""):
-    return f"""<footer class="foot">
-  <div class="foot-cta">
-    <div class="glow" aria-hidden="true"></div><canvas aria-hidden="true"></canvas>
-    <div class="wrap foot-cta-in">
-      <h2 class="display split">{split("Have a project in mind?", "Let's get to work.")}</h2>
-      <div class="rv">{btn("Contact", "/contact/", kind="light", attrs=" data-contact")}</div>
-    </div>
-  </div>
+    links = "".join(f'<a href="{h}">{l}</a>' for l, h in FOOT_LINKS)
+    return f"""<footer class="site">
   <div class="wrap">
-    <div class="foot-cols">
-      <div class="f-about"><a class="brand" href="/"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt home"></a><p>DevShipIt is where Dev Agarwalla, a freelance full-stack developer in Bengaluru, ships products, case studies and client work.</p></div>
-      <div><h3>Work</h3><ul>
-        <li><a href="/work/">All work</a></li>
-        <li><a href="/work/jantahr/">JantaHR</a></li>
-        <li><a href="/work/rentwise/">RentWise</a></li>
-        <li><a href="/work/linkedin-mcp/">linkedin-mcp</a></li>
-        <li><a href="/work/isp-evidence/">ISP Evidence</a></li>
-      </ul></div>
-      <div><h3>Company</h3><ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/pricing/">Pricing</a></li>
-        <li><a href="/terms/">Terms</a></li>
-        <li><a href="/privacy/">Privacy</a></li>
-        <li><a href="/refunds/">Cancellation and refunds</a></li>
-        <li><a href="/shipping/">Shipping and delivery</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul></div>
-      <div><h3>Elsewhere</h3><ul>
-        <li><a href="https://me.devshipit.com/">Dev Agarwalla</a></li>
-        <li><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a></li>
-        <li><a href="https://github.com/devag7" rel="noopener">GitHub</a></li>
-        <li><a href="mailto:{HELLO}">Email</a></li>
-        <li><a href="/developers/">Developers and agents</a></li>
-        <li><a href="https://www.linkedin.com/in/devagarwalla" rel="noopener">LinkedIn</a></li>
-      </ul></div>
-    </div>
-    <div class="foot-legal">
-      <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt. Bengaluru, Karnataka, India.</span>
-      <span>Each live project runs on its own subdomain of devshipit.com.</span>
-    </div>
+    <nav class="foot-links" aria-label="Footer">{links}</nav>
+    <nav class="foot-links minor" aria-label="Elsewhere"><a href="{ME}/">Dev Agarwalla</a><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a><a href="{GITHUB}" rel="noopener">GitHub</a><a href="{LINKEDIN}" rel="noopener">LinkedIn</a></nav>
+    <span>Each live project runs on its own subdomain of devshipit.com</span>
+    <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt &middot; Bengaluru, Karnataka, India &middot; <a href="mailto:{HELLO}">{HELLO}</a></span>
   </div>
-  <span class="mark-word" aria-hidden="true" data-word="devshipit"></span>
 </footer>
-{dialogs()}<script type="module" src="/assets/app.js"></script>
 {extra_js}</body>
 </html>
 """
@@ -333,7 +268,7 @@ def faq_html(items):
     out = []
     for q, a, link in items:
         more = f' <a href="{link[1]}">{H.escape(link[0])}</a>.' if link else ""
-        out.append(f'<details><summary>{H.escape(q)}{phos("plus")}</summary><div class="a"><p>{H.escape(a)}{more}</p></div></details>')
+        out.append(f'<details><summary>{H.escape(q)}</summary><div class="a"><p>{H.escape(a)}{more}</p></div></details>')
     return '<div class="faq">' + "".join(out) + "</div>"
 
 
@@ -385,152 +320,139 @@ STEPS = [
 ]
 
 
+TILES = {"jantahr": "t4", "rentwise": "t1", "linkedin-mcp": "t2", "isp-evidence": "t3"}
+CARD_TAGS = {"jantahr": ["NestJS", "Next.js", "Supabase", "Razorpay"], "rentwise": ["Next.js", "TypeScript", "PostgreSQL", "Socket.io"],
+             "linkedin-mcp": ["Node.js", "MCP", "npm"], "isp-evidence": ["Android", "Google Play"]}
+CARD_STATUS = {"jantahr": "Live at jantahr.devshipit.com", "rentwise": "Live", "linkedin-mcp": "On npm", "isp-evidence": "In testing"}
+
+
+def cards(heading="h3"):
+    out = []
+    for p in AGENT_PROJECTS:
+        k = p["slug"]
+        tags = "".join(f'<span class="tag">{t}</span>' for t in CARD_TAGS[k])
+        out.append(f"""<a class="card" href="/work/{k}/">
+          <div class="tile {TILES[k]}" aria-hidden="true">{p['name']}</div>
+          <{heading}>{p['name']}</{heading}>
+          <p>{p['summary']}</p>
+          <div class="tags">{tags}</div>
+          <p class="status">&#9679; {CARD_STATUS[k]}</p>
+        </a>""")
+    return '<div class="grid">\n        ' + "\n        ".join(out) + "\n      </div>"
+
+
 def home():
     h = head("DevShipIt | Dev Agarwalla, freelance full-stack developer in Bengaluru",
              "DevShipIt is Dev Agarwalla, a freelance full-stack developer in Bengaluru: websites and web apps for clients, JantaHR HR and payroll software, and case studies.",
-             "/", ld=[PERSON_NODE, BUSINESS_NODE, WEBSITE_NODE, faq_node(HOME_FAQ, "/")],
-             extra='<link rel="stylesheet" href="/assets/home.css">\n<link rel="preload" as="image" href="/assets/img/code-dim.webp" imagesrcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" imagesizes="100vw" type="image/webp" fetchpriority="high">\n')
-    b = '<div class="loader" id="loader" aria-hidden="true"><div class="ld-in"><div class="ld-mark"><img src="/assets/img/logo.svg" width="1969" height="453" alt="DevShipIt logo"></div><p class="ld-tag">Ideas in. Products out.</p></div><div class="ld-prog"><div class="ld-bar"><i></i></div><div class="ld-row"><span>Loading</span><b id="ldn">000</b></div></div></div>\n'
-    b += gnav()
-    b += f"""<main id="main">
-
-<section class="hero" aria-labelledby="h-hero">
-  <div class="hero-panel">
-    <div class="hero-media" aria-hidden="true">
-      <img class="real" src="/assets/img/code-lit.webp" srcset="/assets/img/code-lit-1200.webp 1200w, /assets/img/code-lit.webp 2400w" sizes="100vw" width="2400" height="1500" alt="Source code from a DevShipIt product in a code editor, lit" decoding="async">
-      <img class="bp" src="/assets/img/code-dim.webp" srcset="/assets/img/code-dim-1200.webp 1200w, /assets/img/code-dim.webp 2400w" sizes="100vw" width="2400" height="1500" alt="Source code from a DevShipIt product in a code editor, dimmed" decoding="async" fetchpriority="high">
-      <canvas></canvas>
-    </div>
-    <div class="hero-scrim"></div>
-    <div class="hero-copy">
-      <p class="chip-label rv">Full-stack and applied AI engineer, Bengaluru</p>
-      <h1 id="h-hero" class="display split">{split("I build products", "and ship them.")}</h1>
-      <p class="lead rv d1">I'm Dev Agarwalla. I build full-stack and AI products, and DevShipIt is where I ship them and take on freelance work. Most of it is live and open to look at.</p>
-      <div class="btns rv d2">{btn("See work", "#work", icon="arrow-right")}<a class="btn ghost" href="/contact/" data-contact>Contact</a></div>
+             "/", ld=[PERSON_NODE, BUSINESS_NODE, WEBSITE_NODE, faq_node(HOME_FAQ, "/")])
+    stack = "".join(f'<span class="tag">{l}</span>' for l in ["TypeScript", "React", "Next.js", "Node.js", "NestJS", "Express", "MongoDB", "PostgreSQL", "Redis", "Socket.io", "Supabase", "Mapbox GL JS", "Docker", "Playwright", "MCP"])
+    b = gnav()
+    b += f"""
+<main id="main">
+  <div class="wrap hero">
+    <span class="pill"><i aria-hidden="true"></i> JantaHR is live &middot; Taking freelance projects</span>
+    <h1>I build full-stack products and ship them.</h1>
+    <p class="lead">Hi, I'm Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. I work on technical delivery at Falcon Reality, an AI product company, and DevShipIt is where I ship my own products and take on freelance work.</p>
+    <div class="btns">
+      <a class="btn primary" href="#work">See my work</a>
+      <a class="btn" href="mailto:{HELLO}">Email me</a>
     </div>
   </div>
-</section>
 
-<section class="stack" aria-labelledby="h-stack">
-  <div class="wrap stack-in rv">
-    <h2 id="h-stack">Built with</h2>
-    <ul>{''.join(f'<li>{brand(s, l)}</li>' for s, l in STACK)}</ul>
-  </div>
-</section>
-
-<section class="about" id="about" aria-labelledby="h-about">
-  <div class="wrap about-in">
-    <ul class="about-side facts-list rv">
-      <li>{phos("briefcase")}<span>Technical Delivery Associate at Falcon Reality, an AI product company</span></li>
-      <li>{phos("rocket-launch")}<span>Four products designed, built and shipped solo</span></li>
-      <li>{phos("storefront")}<span>Freelance websites and web apps for real estate teams</span></li>
-    </ul>
-    <div>
-      <h2 id="h-about" class="sr-only">About</h2>
-      <p class="statement split">{split("I learn fastest by building something people can use,", "so most of my work is shipped, deployed and open to look at.")}</p>
-      <div class="about-foot rv">
-        <a class="textlink" href="/about/">More about Dev {phos("arrow-right")}</a>
-        <span class="muted">Find me online</span>
-        <div class="socials"><a href="https://github.com/devag7" rel="noopener" aria-label="GitHub">{phos("github-logo")}</a><a href="{LINKEDIN}" rel="noopener" aria-label="LinkedIn">{phos("linkedin-logo")}</a><a href="mailto:{HELLO}" aria-label="Email {HELLO}">{phos("envelope-simple")}</a></div>
+  <section id="live" aria-labelledby="h-live">
+    <div class="wrap">
+      <h2 id="h-live">Live projects</h2>
+      <p class="lead tight">Each project I ship runs on its own subdomain of devshipit.com. JantaHR is the one you can subscribe to.</p>
+      <div class="product">
+        <div class="tile t4" aria-hidden="true">JantaHR</div>
+        <div>
+          <h3>JantaHR: HR and payroll for Indian companies</h3>
+          <p class="status">&#9679; Live at <a href="https://jantahr.devshipit.com">jantahr.devshipit.com</a></p>
+          <img class="shot-hero" src="/assets/img/jantahr-payroll.webp" width="1400" height="875" loading="lazy" decoding="async" alt="A JantaHR payroll run with gross pay, deductions, net pay and employer contributions">
+          <p>Payroll with PF, ESI, professional tax, LWF and TDS calculated every month, filing-ready files, a compliance calendar, leave, attendance, onboarding and exits. Sold as a subscription; open source under AGPL-3.0.</p>
+          <ul class="plain">
+            <li>Free for up to 20 employees</li>
+            <li>Standard from &#8377;49 per employee a month, Professional from &#8377;99 (billed yearly; minimum 10 seats)</li>
+            <li>14-day free trial, no card needed; cancel any time</li>
+          </ul>
+          <div class="btns mt">
+            <a class="btn primary" href="https://jantahr.devshipit.com">Visit JantaHR</a>
+            <a class="btn" href="/work/jantahr/">Case study</a>
+            <a class="btn" href="/pricing/">All prices</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="band" aria-label="How I work: idea, build, ship">
-  <div class="wrap"><ul>
-    <li class="rv"><div class="b1">Idea</div></li>
-    <li class="rv d1"><div class="b2">Build</div></li>
-    <li class="rv d2"><div class="b3">{phos("arrow-right")}</div></li>
-    <li class="rv d3"><div class="b4">Ship</div></li>
-  </ul></div>
-</section>
-
-<section class="live" id="live" aria-labelledby="h-live">
-  <div class="wrap">
-    <div class="live-head">
-      <h2 id="h-live" class="display-sm split">{split("JantaHR is live.", "HR and payroll for Indian companies.")}</h2>
-      <p class="lead rv">PF, ESI, professional tax, LWF and TDS calculated every month, with filing-ready files and a compliance calendar. Open source under AGPL-3.0.</p>
+  <section id="work" aria-labelledby="h-work">
+    <div class="wrap">
+      <h2 id="h-work">Selected work</h2>
+      {cards()}
+      <p class="more"><a href="/work/">All work and case studies</a></p>
     </div>
-    <div class="live-stage rv">
-      <img class="shot" src="/assets/img/jantahr-payroll.webp" width="1400" height="875" loading="lazy" decoding="async" alt="A JantaHR payroll run with gross pay, deductions, net pay and employer contributions">
-      <div class="phone"><img src="/assets/img/jantahr-mobile.webp" width="520" height="1040" loading="lazy" decoding="async" alt="JantaHR employee home screen on a phone with attendance check-in and leave balance"></div>
+  </section>
+
+  <section id="freelance" aria-labelledby="h-freelance">
+    <div class="wrap cols">
+      <div>
+        <h2 id="h-freelance">Freelance</h2>
+        <h3>Websites and web apps for real estate teams</h3>
+        <p>I build MERN-stack sites for property agents and agencies in Bangalore. If you need something that lists properties, captures enquiries and is easy to keep up to date, get in touch. Every project is priced by a written quote before work starts.</p>
+      </div>
+      <div class="side">
+        <ul class="plain">
+          <li>Property listing and search pages</li>
+          <li>Agent and agency landing sites</li>
+          <li>Admin dashboards to manage listings</li>
+          <li>Full-stack web apps and SaaS products</li>
+        </ul>
+        <p class="mt"><a href="mailto:{HELLO}?subject=Website%20enquiry">Tell me what you need</a> or read <a href="/services/">how a project works</a>.</p>
+      </div>
     </div>
-    <ul class="live-facts">
-      <li class="rv"><b>Free</b><span>For up to 20 employees</span></li>
-      <li class="rv d1"><b>&#8377;49 and &#8377;99</b><span>Standard from &#8377;49 per employee a month, Professional from &#8377;99 (billed yearly; minimum 10 seats)</span></li>
-      <li class="rv d2"><b>14 days</b><span>Free trial, no card needed; cancel any time</span></li>
-    </ul>
-    <div class="btns rv">{btn("Visit JantaHR", "https://jantahr.devshipit.com", attrs=' rel="noopener"')}<a class="btn ghost" href="/work/jantahr/">Case study</a><a class="textlink" href="/pricing/">All prices {phos("arrow-right")}</a></div>
-  </div>
-</section>
+  </section>
 
-<section class="work" id="work" aria-labelledby="h-work">
-  <div class="wrap">
-    <div class="work-head head-row"><h2 id="h-work" class="display-sm split">{split("Selected work")}</h2><a class="textlink rv" href="/work/">All work and case studies {phos("arrow-right")}</a></div>
-    <div class="work-grid">
-      <a class="wcard tall rv" href="/work/rentwise/">
-        <div class="art art-rent" aria-hidden="true"></div>{brand("mapbox", cls="ghost", hidden=True)}<span class="spot" aria-hidden="true"></span>
-        <div class="top"><div class="marks">{brand("nextdotjs", hidden=True)}{brand("postgresql", hidden=True)}</div><span class="arrow-badge" aria-hidden="true">{phos("arrow-up-right")}</span></div>
-        <div>
-          <p class="status">Live</p>
-          <h3>RentWise</h3>
-          <p>A rental platform for Bangalore with automated listing collection, real-time updates, map search and role-based access.</p>
-          <ul class="tags"><li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">PostgreSQL</li><li class="tag">Socket.io</li></ul>
-        </div>
-      </a>
-      <a class="wcard rv d1" href="/work/linkedin-mcp/">
-        <div class="art art-mcp" aria-hidden="true"></div>{brand("nodedotjs", cls="ghost", hidden=True)}<span class="spot" aria-hidden="true"></span>
-        <div class="top"><div class="marks">{brand("nodedotjs", hidden=True)}{brand("npm", hidden=True)}</div><span class="arrow-badge" aria-hidden="true">{phos("arrow-up-right")}</span></div>
-        <div>
-          <p class="status">On npm</p>
-          <h3>linkedin-mcp</h3>
-          <p>A 36-tool LinkedIn integration for AI assistants, with caching, rate limiting and retries.</p>
-          <ul class="tags"><li class="tag">Node.js</li><li class="tag">MCP</li><li class="tag">npm</li></ul>
-        </div>
-      </a>
-      <a class="wcard rv d2" href="/work/isp-evidence/">
-        <div class="art art-isp" aria-hidden="true"></div>{brand("android", cls="ghost", hidden=True)}<span class="spot" aria-hidden="true"></span>
-        <div class="top"><div class="marks">{brand("android", hidden=True)}{brand("googleplay", hidden=True)}</div><span class="arrow-badge" aria-hidden="true">{phos("arrow-up-right")}</span></div>
-        <div>
-          <p class="status">In testing</p>
-          <h3>ISP Evidence</h3>
-          <p>An Android app that logs connection drops, latency and jitter, then exports a PDF report you can attach to an ISP complaint.</p>
-          <ul class="tags"><li class="tag">Android</li><li class="tag">Google Play</li></ul>
-        </div>
-      </a>
+  <section id="about" aria-labelledby="h-about">
+    <div class="wrap cols">
+      <div>
+        <h2 id="h-about">About</h2>
+        <p>I'm a Technical Delivery Associate at Falcon Reality, an AI product company, where I turn operations workflows into product specs and MVP scope. Before that I shipped three MERN apps to production as a full-stack intern at Cyber Secure India. I learn fastest by building something people can use, so most of my work is shipped, deployed and open to look at.</p>
+        <p><a href="/about/">More about Dev</a> &middot; <a href="{ME}/">me.devshipit.com</a></p>
+      </div>
+      <div class="side">
+        <div class="tags">{stack}</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="services" id="services" aria-labelledby="h-services">
-  <div class="wrap">
-    <div class="services-head head-row"><h2 id="h-services" class="display-sm split">{split("What I can build for you")}</h2><a class="textlink rv" href="/services/">Freelance services and how a project works {phos("arrow-right")}</a></div>
-    <ul class="rows">
-      {''.join(f'<li class="rv"><a class="row" href="/contact/" data-contact data-topic="{t}"><span class="n">0{i+1}</span><h3>{ti}</h3><p>{de}</p><span class="rbadge" aria-hidden="true">{phos("arrow-up-right")}</span></a></li>' for i, (ti, de, t) in enumerate(ROWS))}
-    </ul>
-  </div>
-</section>
+  <section id="questions" aria-labelledby="h-qa">
+    <div class="wrap">
+      <h2 id="h-qa">Questions</h2>
+      {faq_html(HOME_FAQ)}
+      <p class="more"><a href="/services/#questions">More answers</a></p>
+    </div>
+  </section>
 
-<section class="numbers" aria-labelledby="h-numbers">
-  <div class="wrap"><div class="numbers-panel rv">
-    <h2 id="h-numbers" class="display-sm split">{split("Proof in the work,", "not the words.")}</h2>
-    <ul class="stats">
-      {''.join(f'<li class="rv d{min(i,3)}"><span class="num" data-to="{n}" data-suffix="{x}">{n}{x}</span><p>{l}</p></li>' for i, (n, x, l) in enumerate(STATS))}
-    </ul>
-  </div></div>
-</section>
-
-<section class="qa" id="questions" aria-labelledby="h-qa">
-  <div class="wrap">
-    <div class="qa-head head-row"><h2 id="h-qa" class="display-sm split">{split("Questions")}</h2><a class="textlink rv" href="/services/#questions">More answers {phos("arrow-right")}</a></div>
-    <div class="rv">{faq_html(HOME_FAQ)}</div>
-  </div>
-</section>
-
+  <section id="contact" aria-labelledby="h-contact">
+    <div class="wrap">
+      <h2 id="h-contact">Contact</h2>
+      <p class="lead tight">Have a project in mind? The fastest way to reach me is email.</p>
+      <dl class="meta">
+        <div><dt>Operated by</dt><dd>Dev Agarwalla (individual), trading as DevShipIt</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:{HELLO}">{HELLO}</a></dd></div>
+        <div><dt>JantaHR support</dt><dd><a href="mailto:{JANTAHR}">{JANTAHR}</a></dd></div>
+        <div><dt>Location</dt><dd>Bengaluru, Karnataka, India</dd></div>
+      </dl>
+      <div class="btns">
+        <a class="btn primary" href="mailto:{HELLO}">{HELLO}</a>
+        <a class="btn" href="{GITHUB}" rel="noopener">GitHub</a>
+        <a class="btn" href="{LINKEDIN}" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
 </main>
 """
-    write("index.html", h + b + footer('<script type="module" src="/assets/home.js"></script>\n'))
+    write("index.html", h + b + footer())
 
 
 # ---------- inner pages ----------
@@ -550,29 +472,24 @@ def doc_page(slug, active=None, extra_meta_row=None):
     h = head(title, desc, path, ld=[crumb])
     b = gnav(active)
     updated = f'<p class="updated">{d["updated"]}</p>' if d["updated"] else ""
-    prose = d["prose"]
+    lead = f'<p class="lead">{d["lead"]}</p>' if d["lead"] else ""
     meta = ""
     if d["meta"]:
         rows = list(d["meta"])
         if extra_meta_row:
             rows.insert(2, extra_meta_row)
-        meta = '<div class="card meta-card"><dl class="meta">' + "".join(
-            f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows) + "</dl></div>\n"
+        meta = '<dl class="meta">' + "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows) + "</dl>"
     b += f"""<main id="main">
-<section class="page-head">
-  <div class="wrap">
-    {nav}
-    <h1>{d['h1']}</h1>
-    {updated}
+<div class="wrap cs">
+  {nav}
+  <h1>{d['h1']}</h1>
+  {updated}
+  {lead}
+  {meta}
+  <div class="prose">
+{d['prose']}
   </div>
-</section>
-<section class="doc">
-  <div class="wrap"><div class="doc-in">
-{meta}    <div class="prose">
-{prose}
-    </div>
-  </div></div>
-</section>
+</div>
 </main>
 """
     write(f"{slug}/index.html", h + b + footer())
@@ -627,31 +544,21 @@ def case_page(slug, gallery=""):
     nav, crumb = crumbs(("Work", "/work/"), (d["h1"], path))
     h = head(CASE_TITLES[slug], d["desc"] or "", path, ld=[crumb, project_node(slug)], ogtitle=f"{d['h1']} case study | DevShipIt")
     b = gnav("work")
-    btns = "".join(
-        '<a class="btn%s" href="%s"%s>%s</a>' % (
-            "" if prim else " ghost", href,
-            "" if href.startswith("mailto:") else ' rel="noopener"', label)
-        for href, label, prim in d["next"])
-    meta = '<div class="card meta-card"><dl class="meta">' + "".join(
-        f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in d["meta"]) + "</dl></div>"
+    btns = "".join('<a class="btn%s" href="%s"%s>%s</a>' % (" primary" if prim else "", href, "" if href.startswith("mailto:") else ' rel="noopener"', label)
+                   for href, label, prim in d["next"])
+    meta = '<dl class="meta">' + "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in d["meta"]) + "</dl>"
     b += f"""<main id="main">
-<section class="page-head">
-  <div class="wrap">
-    {nav}
-    <h1>{d['h1']}</h1>
-    <p class="lead">{d['lead']}</p>
-    <div class="btns">{btns}</div>
-  </div>
-</section>
-<section class="doc">
-  <div class="wrap">
-    {meta}
-    {gallery}
-    <div class="doc-in doc-prose"><div class="prose">
+<div class="wrap cs">
+  {nav}
+  <h1>{d['h1']}</h1>
+  <p class="lead">{d['lead']}</p>
+  {meta}
+  {gallery}
+  <div class="prose">
 {d['prose']}
-    </div></div>
   </div>
-</section>
+  <div class="next">{btns}</div>
+</div>
 </main>
 """
     write(f"work/{slug}/index.html", h + b + footer())
@@ -694,16 +601,12 @@ def developers():
     rows = "".join(f'<tr><td><code>GET {H.escape(e)}</code></td><td><code>{o}</code></td><td>{d}</td></tr>' for e, o, d in API_ENDPOINTS)
     errs = "".join(f'<tr id="error-{c}"><td><code>{c}</code></td><td>{st}</td><td>{m}</td><td>{hint}</td></tr>' for c, st, m, hint in API_ERRORS)
     b += f"""<main id="main">
-<section class="page-head">
-  <div class="wrap">
-    {nav}
-    <h1>DevShipIt for developers and AI agents</h1>
-    <p class="lead">A public JSON API with an OpenAPI 3.1 document, a command-line tool, an MCP server, llms.txt, and Markdown for every page. No sign-in, read-only.</p>
-    <div class="btns"><a class="btn" href="/openapi.json">OpenAPI document</a><a class="btn ghost" href="/api/v1">Try the API</a></div>
-  </div>
-</section>
-<section class="doc">
-  <div class="wrap"><div class="doc-in"><div class="prose">
+<div class="wrap cs">
+  {nav}
+  <h1>DevShipIt for developers and AI agents</h1>
+  <p class="lead">A public JSON API with an OpenAPI 3.1 document, a command-line tool, an MCP server, llms.txt, and Markdown for every page. No sign-in, read-only.</p>
+  <div class="btns"><a class="btn primary" href="/openapi.json">OpenAPI document</a><a class="btn" href="/api/v1">Try the API</a></div>
+  <div class="prose">
 <h2 id="api">DevShipIt API</h2>
 <p>A read-only JSON API at <code>https://devshipit.com/api/v1</code> with the same facts as the site. It needs no key, sends <code>Access-Control-Allow-Origin: *</code>, and is described by an OpenAPI 3.1 document at <a href="/openapi.json">/openapi.json</a>, where every operation has an <code>operationId</code>, typed parameters and response schemas. The API catalog is at <a href="/.well-known/api-catalog">/.well-known/api-catalog</a> (RFC 9727).</p>
 <p><code>curl https://devshipit.com/api/v1/projects/jantahr</code></p>
@@ -746,8 +649,8 @@ def developers():
 </ul>
 <h2 id="questions">Questions</h2>
 <p>Email <a href="mailto:{HELLO}">{HELLO}</a>.</p>
-  </div></div></div>
-</section>
+  </div>
+</div>
 </main>
 """
     write("developers/index.html", h + b + footer())
@@ -764,16 +667,12 @@ def about():
              path, ld=[crumb, page, PERSON_NODE, BUSINESS_NODE])
     b = gnav("about")
     b += f"""<main id="main">
-<section class="page-head">
-  <div class="wrap">
-    {nav}
-    <h1>About Dev Agarwalla</h1>
-    <p class="lead">DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. Every DevShipIt project is built by him personally.</p>
-    <div class="btns">{btn("Full profile", ME + "/")}<a class="btn ghost" href="/contact/" data-contact>Contact</a></div>
-  </div>
-</section>
-<section class="doc">
-  <div class="wrap"><div class="doc-in"><div class="prose">
+<div class="wrap cs">
+  {nav}
+  <h1>About Dev Agarwalla</h1>
+  <p class="lead">DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. Every DevShipIt project is built by him personally.</p>
+  <div class="btns"><a class="btn primary" href="{ME}/">Full profile</a><a class="btn" href="/contact/">Contact</a></div>
+  <div class="prose">
 <h2>Who builds your project</h2>
 <p>Dev is a Technical Delivery Associate at Falcon Reality, an AI product company, where he turns operations workflows into product specs and MVP scope. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: <a href="/work/jantahr/">JantaHR</a>, <a href="/work/rentwise/">RentWise</a>, <a href="/work/linkedin-mcp/">linkedin-mcp</a> and <a href="/work/isp-evidence/">ISP Evidence</a>.</p>
 <h2>What DevShipIt does</h2>
@@ -790,8 +689,8 @@ def about():
 <li>LinkedIn: <a href="{LINKEDIN}" rel="noopener">linkedin.com/in/devagarwalla</a></li>
 <li>GitHub: <a href="{GITHUB}" rel="noopener">github.com/devag7</a></li>
 </ul>
-  </div></div></div>
-</section>
+  </div>
+</div>
 </main>
 """
     write("about/index.html", h + b + footer())
@@ -807,33 +706,30 @@ def services_page():
     biz = {**BUSINESS_NODE, "hasOfferCatalog": {"@id": catalog["@id"]}}
     h = head("Freelance web development in Bengaluru | DevShipIt",
              "Websites and web apps for property agents, agencies and small businesses in Bengaluru, built by Dev Agarwalla at DevShipIt. Priced by a written quote before work starts.",
-             path, ld=[crumb, biz, catalog, faq_node(SERVICES_FAQ, path)], extra='<link rel="stylesheet" href="/assets/home.css">\n')
+             path, ld=[crumb, biz, catalog, faq_node(SERVICES_FAQ, path)])
     b = gnav("services")
-    rows = "".join(f'<li class="rv" id="{x["slug"]}"><a class="row" href="/contact/" data-contact data-topic="{t}"><span class="n">0{i+1}</span><h3>{x["name"]}</h3><p>{x["summary"]}</p><span class="rbadge" aria-hidden="true">{phos("arrow-up-right")}</span></a></li>'
-                   for i, (x, (_, _, t)) in enumerate(zip(SERVICES, ROWS)))
+    items = "".join(f'<div class="card static" id="{x["slug"]}"><h3>{x["name"]}</h3><p>{x["summary"]}</p><p class="status"><a href="mailto:{HELLO}?subject={x["name"].replace(" ", "%20")}">Ask about this</a></p></div>' for x in SERVICES)
     steps = "".join(f"<li><h3>{a}</h3><p>{d}</p></li>" for a, d in STEPS)
     b += f"""<main id="main">
-<section class="page-head">
+<div class="wrap cs">
+  {nav}
+  <h1>Freelance web development in Bengaluru</h1>
+  <p class="lead">I build websites and web apps for property agents, agencies and small businesses: sites that list properties, capture enquiries and are easy to keep up to date. Every project is priced by a written quote before work starts.</p>
+  <div class="btns"><a class="btn primary" href="mailto:{HELLO}?subject=Freelance%20project">Start a project</a><a class="btn" href="/pricing/">See pricing</a></div>
+</div>
+<section aria-labelledby="h-build">
   <div class="wrap">
-    {nav}
-    <h1>Freelance web development in Bengaluru</h1>
-    <p class="lead">I build websites and web apps for property agents, agencies and small businesses: sites that list properties, capture enquiries and are easy to keep up to date. Every project is priced by a written quote before work starts.</p>
-    <div class="btns">{btn("Start a project", "/contact/", attrs=' data-contact data-topic="Freelance project"')}<a class="btn ghost" href="/pricing/">See pricing</a></div>
+    <h2 id="h-build">What I can build for you</h2>
+    <div class="grid">{items}</div>
   </div>
 </section>
-<section class="services" aria-labelledby="h-build">
-  <div class="wrap">
-    <div class="services-head"><h2 id="h-build" class="display-sm split">{split("What I can build for you")}</h2></div>
-    <ul class="rows">{rows}</ul>
-  </div>
-</section>
-<section class="block" aria-labelledby="h-steps">
+<section aria-labelledby="h-steps">
   <div class="wrap">
     <h2 id="h-steps">How a project works</h2>
     <ol class="steps">{steps}</ol>
   </div>
 </section>
-<section class="block" id="questions" aria-labelledby="h-faq">
+<section id="questions" aria-labelledby="h-faq">
   <div class="wrap">
     <h2 id="h-faq">Questions</h2>
     {faq_html(SERVICES_FAQ)}
@@ -842,14 +738,6 @@ def services_page():
 </main>
 """
     write("services/index.html", h + b + footer())
-
-
-WORK_CARDS = {
-    "jantahr": ("art-jhr", "nestjs", ["nestjs", "nextdotjs"], ["NestJS", "Next.js", "PostgreSQL", "Supabase"]),
-    "rentwise": ("art-rent", "mapbox", ["nextdotjs", "postgresql"], ["Next.js", "TypeScript", "PostgreSQL", "Socket.io"]),
-    "linkedin-mcp": ("art-mcp", "nodedotjs", ["nodedotjs", "npm"], ["Node.js", "MCP", "npm"]),
-    "isp-evidence": ("art-isp", "android", ["android", "googleplay"], ["Android", "Google Play"]),
-}
 
 
 def work_page():
@@ -861,34 +749,17 @@ def work_page():
             "mainEntity": {"@id": items["@id"]}, "isPartOf": {"@id": SITE_ID}, "author": {"@id": DEV_ID}, "breadcrumb": {"@id": crumb["@id"]}}
     h = head("Work and case studies by Dev Agarwalla | DevShipIt",
              "Products Dev Agarwalla has built and shipped as DevShipIt, each with a case study: JantaHR, RentWise, linkedin-mcp and ISP Evidence, with their stack, status and links.",
-             path, ld=[crumb, page, items], extra='<link rel="stylesheet" href="/assets/home.css">\n')
+             path, ld=[crumb, page, items])
     b = gnav("work")
-    cards = []
-    for i, p in enumerate(AGENT_PROJECTS):
-        art, ghost, marks, tags = WORK_CARDS[p["slug"]]
-        cards.append(f"""<a class="wcard rv d{min(i, 3)}" href="/work/{p['slug']}/">
-        <div class="art {art}" aria-hidden="true"></div>{brand(ghost, cls="ghost", hidden=True)}<span class="spot" aria-hidden="true"></span>
-        <div class="top"><div class="marks">{"".join(brand(m, hidden=True) for m in marks)}</div><span class="arrow-badge" aria-hidden="true">{phos("arrow-up-right")}</span></div>
-        <div>
-          <p class="status">{p['status']}</p>
-          <h2 class="h3">{p['name']}</h2>
-          <p>{p['summary']}</p>
-          <ul class="tags">{"".join(f'<li class="tag">{t}</li>' for t in tags)}</ul>
-        </div>
-      </a>""")
     b += f"""<main id="main">
-<section class="page-head">
+<div class="wrap cs">
+  {nav}
+  <h1>Work and case studies</h1>
+  <p class="lead">Four products I've built and shipped, each with a case study: what it does, how it is built and where to see it.</p>
+</div>
+<section aria-label="Projects">
   <div class="wrap">
-    {nav}
-    <h1>Work and case studies</h1>
-    <p class="lead">Four products I've built and shipped, each with a case study: what it does, how it is built and where to see it.</p>
-  </div>
-</section>
-<section class="work" aria-label="Projects">
-  <div class="wrap">
-    <div class="work-grid even">
-      {"".join(cards)}
-    </div>
+      {cards("h2")}
   </div>
 </section>
 </main>
@@ -899,12 +770,11 @@ def work_page():
 def notfound():
     h = head("Page not found | DevShipIt", "That page does not exist.", "/404", noindex=True)
     b = gnav()
-    b += f"""<main id="main" class="err">
-  <div class="wrap">
-    <h1>That page does not exist.</h1>
-    <p class="lead">It may have moved, or the link may be wrong.</p>
-    <div class="btns"><a class="btn" href="/">Back to the homepage</a><a class="btn ghost" href="/work/">See work</a><a class="btn ghost" href="/services/">Services</a></div>
-  </div>
+    b += """<main id="main" class="wrap err">
+  <p class="pill">404</p>
+  <h1>That page does not exist.</h1>
+  <p class="lead">It may have moved, or the link may be wrong.</p>
+  <div class="btns"><a class="btn primary" href="/">Back to the homepage</a><a class="btn" href="/work/">See work</a><a class="btn" href="/services/">Services</a></div>
 </main>
 """
     write("404.html", h + b + footer())
@@ -1199,7 +1069,7 @@ def housekeeping():
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY + "\n")
     write("site.webmanifest", json.dumps({
         "name": "DevShipIt", "short_name": "DevShipIt", "description": "Dev Agarwalla, freelance full-stack developer in Bengaluru.",
-        "start_url": "/", "scope": "/", "display": "browser", "background_color": "#060507", "theme_color": "#060507", "lang": "en-IN",
+        "start_url": "/", "scope": "/", "display": "browser", "background_color": "#fafaf7", "theme_color": "#2457e6", "lang": "en-IN",
         "icons": [{"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"},
                   {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"},
                   {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml"}],
@@ -1223,6 +1093,7 @@ def housekeeping():
 
 
 if __name__ == "__main__":
+    write("assets/styles.css", open(os.path.join(HERE, "styles.css"), encoding="utf-8").read())
     home()
     work_page()
     services_page()
