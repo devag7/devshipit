@@ -103,7 +103,7 @@ def parse(path):
 # ---------- shared chrome ----------
 NAV = [("Live", "/#live", None), ("Work", "/#work", "work"), ("Pricing", "/pricing/", "pricing"), ("Contact", "/contact/", "contact")]
 MENU = [("Work", "/work/"), ("Services", "/services/"), ("About", "/about/"), ("Pricing", "/pricing/"), ("Developers", "/developers/"), ("Contact", "/contact/")]
-LASTMOD = "2026-10-16"
+LASTMOD = "2026-10-17"
 INDEXNOW_KEY = "65e5a2c9e4e9ca153a417f71ef59cc9d"
 
 
@@ -205,6 +205,7 @@ def footer(extra_js=""):
     return f"""<footer class="site">
   <div class="wrap">
     <nav class="foot-links" aria-label="Footer">{links}</nav>
+    <nav class="foot-links minor" aria-label="Case studies"><a href="/work/jantahr/">JantaHR</a><a href="/work/rentwise/">RentWise</a><a href="/work/linkedin-mcp/">linkedin-mcp</a><a href="/work/isp-evidence/">ISP Evidence</a></nav>
     <nav class="foot-links minor" aria-label="Elsewhere"><a href="{ME}/">Dev Agarwalla</a><a href="https://jantahr.devshipit.com" rel="noopener">JantaHR app</a><a href="{GITHUB}" rel="noopener">GitHub</a><a href="{LINKEDIN}" rel="noopener">LinkedIn</a></nav>
     <span>Each live project runs on its own subdomain of devshipit.com</span>
     <span>&copy; 2026 Dev Agarwalla, trading as DevShipIt &middot; Bengaluru, Karnataka, India &middot; <a href="mailto:{HELLO}">{HELLO}</a></span>
@@ -661,7 +662,7 @@ def about():
     nav, crumb = crumbs(("About", path))
     page = {"@type": "AboutPage", "@id": SITE + path + "#page", "url": SITE + path, "name": "About DevShipIt and Dev Agarwalla",
             "about": {"@id": BIZ_ID}, "mainEntity": {"@id": DEV_ID}, "isPartOf": {"@id": SITE_ID}, "breadcrumb": {"@id": crumb["@id"]},
-            "relatedLink": ME + "/"}
+            "relatedLink": ME + "/", "dateModified": LASTMOD}
     h = head("About Dev Agarwalla, the developer behind DevShipIt | DevShipIt",
              "DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru who builds every project himself. Who he is, what DevShipIt does, and where to read more.",
              path, ld=[crumb, page, PERSON_NODE, BUSINESS_NODE])
@@ -746,7 +747,7 @@ def work_page():
     items = {"@type": "ItemList", "@id": SITE + path + "#list", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "url": p["case_study"], "name": p["name"]} for i, p in enumerate(AGENT_PROJECTS)]}
     page = {"@type": "CollectionPage", "@id": SITE + path + "#page", "url": SITE + path, "name": "Work and case studies",
-            "mainEntity": {"@id": items["@id"]}, "isPartOf": {"@id": SITE_ID}, "author": {"@id": DEV_ID}, "breadcrumb": {"@id": crumb["@id"]}}
+            "mainEntity": {"@id": items["@id"]}, "isPartOf": {"@id": SITE_ID}, "author": {"@id": DEV_ID}, "breadcrumb": {"@id": crumb["@id"]}, "dateModified": LASTMOD}
     h = head("Work and case studies by Dev Agarwalla | DevShipIt",
              "Products Dev Agarwalla has built and shipped as DevShipIt, each with a case study: JantaHR, RentWise, linkedin-mcp and ISP Evidence, with their stack, status and links.",
              path, ld=[crumb, page, items])
@@ -1065,7 +1066,7 @@ def housekeeping():
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
           + "".join(url_xml(*e) for e in entries) + "</urlset>\n")
     write("sitemap.xml", sm)
-    write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\nSitemap: {ME}/sitemap.xml\n# Agent guide: {SITE}/llms.txt\n# API description: {SITE}/openapi.json\n# Dev Agarwalla's personal site: {ME}/\n")
+    write("robots.txt", f"# Content signals (contentsignals.org): search engines, AI answers and AI training may all use this site.\nUser-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\nSitemap: {ME}/sitemap.xml\n# Agent guide: {SITE}/llms.txt\n# API description: {SITE}/openapi.json\n# Dev Agarwalla's personal site: {ME}/\n")
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY + "\n")
     write("site.webmanifest", json.dumps({
         "name": "DevShipIt", "short_name": "DevShipIt", "description": "Dev Agarwalla, freelance full-stack developer in Bengaluru.",
