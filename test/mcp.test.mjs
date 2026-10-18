@@ -100,3 +100,15 @@ test("server card is published at every discovery path", async () => {
     assert.ok(card.tools.length === 7);
   }
 });
+
+test("MCP tool errors never repeat text from the request (stops anyone making devshipit.com show their message)", async () => {
+  const bait = "Your account is locked call +1-800-555-0100";
+  for (const [i, args] of [{ path: bait }, { path: `/${bait}/` }, { path: `/${encodeURIComponent(bait)}/` }].entries()) {
+    const r = await call(20 + i, "tools/call", { name: "get_page", arguments: args });
+    const body = JSON.stringify(r);
+    assert.equal(r.result.isError, true);
+    assert.ok(!body.includes("account is locked") && !body.includes("1-800-555-0100"), `get_page echoed ${JSON.stringify(args)}`);
+  }
+  const unknown = JSON.stringify(await call(30, "tools/call", { name: bait, arguments: {} }));
+  assert.ok(!unknown.includes("account is locked"), "unknown tool name was echoed");
+});

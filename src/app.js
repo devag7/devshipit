@@ -185,7 +185,7 @@ export function publicMcpServer(env, origin) {
           const { pages } = await siteData(env, origin);
           const path = normalise(args.path);
           const known = pages.map((p) => p.path);
-          if (!path || !known.includes(path)) throw new Error(`No public page at ${String(args.path)}. Available paths: ${known.join(", ")}`);
+          if (!path || !known.includes(path)) throw new Error(`No public page at that path. Available paths: ${known.join(", ")}`);
           const r = await env.ASSETS.fetch(new Request(`${origin}${markdownPathFor(path)}`));
           if (r.status !== 200) throw new Error("That page could not be loaded just now. Try again shortly.");
           return r.text();
