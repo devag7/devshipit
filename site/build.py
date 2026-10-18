@@ -103,7 +103,7 @@ def parse(path):
 # ---------- shared chrome ----------
 NAV = [("Work", "/work/", "work"), ("Services", "/services/", "services"), ("About", "/about/", "about"), ("Pricing", "/pricing/", "pricing")]
 MENU = [("Work", "/work/"), ("Services", "/services/"), ("About", "/about/"), ("Pricing", "/pricing/"), ("Developers", "/developers/"), ("Contact", "/contact/")]
-LASTMOD = "2026-10-17"
+LASTMOD = "2026-10-18"
 INDEXNOW_KEY = "65e5a2c9e4e9ca153a417f71ef59cc9d"
 
 
@@ -296,16 +296,16 @@ GITHUB = "https://github.com/devag7"
 
 PERSON_NODE = {
     "@type": "Person", "@id": DEV_ID, "name": "Dev Agarwalla", "alternateName": ["devag7", "DevAgarwalla"], "url": ME + "/",
-    "disambiguatingDescription": "Software engineer in Bengaluru, India, known as devag7 on GitHub; builder of JantaHR and linkedin-mcp and founder of DevShipIt. Spelled Agarwalla, not Agarwal.",
-    "description": "Full-stack and applied AI engineer in Bengaluru, India. Technical Delivery Associate at Falcon Reality, an AI product company. Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.",
-    "jobTitle": "Full-stack and applied AI engineer",
-    "worksFor": {"@type": "Organization", "name": "Falcon Reality"},
+    "disambiguatingDescription": "Software engineer in Bengaluru, India, known as devag7 on GitHub; founder of AEOLedger (answer engine optimization) and DevShipIt, builder of JantaHR and linkedin-mcp. Spelled Agarwalla, not Agarwal.",
+    "description": "Founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS (aeoledger.com). Full-stack and applied AI engineer in Bengaluru, India. Builds and ships products under the name DevShipIt: JantaHR (HR and payroll software for Indian companies), RentWise (a rental platform for Bangalore), linkedin-mcp (a LinkedIn integration for AI assistants) and ISP Evidence (an Android app), and takes freelance web development projects.",
+    "jobTitle": "Founder, AEOLedger",
+    "worksFor": {"@type": "Organization", "@id": "https://aeoledger.com/#org", "name": "AEOLedger", "url": "https://aeoledger.com/"},
     "affiliation": {"@type": "CollegeOrUniversity", "name": "BITS Pilani"},
-    "knowsAbout": ["TypeScript", "React", "Next.js", "Node.js", "NestJS", "PostgreSQL", "MongoDB", "Supabase", "MERN stack", "Applied AI", "Model Context Protocol", "Android"],
+    "knowsAbout": ["Answer engine optimization (AEO)", "TypeScript", "React", "Next.js", "Node.js", "NestJS", "PostgreSQL", "MongoDB", "Supabase", "MERN stack", "Applied AI", "Model Context Protocol", "Android"],
     "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN"},
     "email": "mailto:" + HELLO, "image": SITE + "/icon-512.png",
     "brand": {"@id": BIZ_ID},
-    "sameAs": [ME + "/", GITHUB, LINKEDIN, "https://x.com/DevAgarwalla", "https://www.npmjs.com/package/linkedin-mcp-tools"],
+    "sameAs": [ME + "/", GITHUB, LINKEDIN, "https://x.com/DevAgarwalla", "https://www.npmjs.com/package/linkedin-mcp-tools", "https://aeoledger.com/about/"],
 }
 BUSINESS_NODE = {
     "@type": "ProfessionalService", "@id": BIZ_ID, "name": "DevShipIt", "alternateName": "DevShipIt by Dev Agarwalla",
@@ -365,7 +365,7 @@ FAQ = {
     "cancel": ("What if I need to cancel a project?", "Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts.", ("Cancellation and refund policy", "/refunds/")),
     "stack": ("What do you build with?", "TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack.", None),
     "reply": ("How quickly do you reply?", "Within 2 working days, usually sooner. Email is the fastest way to reach me.", ("Contact", "/contact/")),
-    "who": ("Who will build my project?", "Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own.", ("About Dev", "/about/")),
+    "who": ("Who will build my project?", "Dev Agarwalla, personally. He is the founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own.", ("About Dev", "/about/")),
     "brand": ("What is DevShipIt, and how is it related to JantaHR?", "DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com.", ("JantaHR case study", "/work/jantahr/")),
 }
 HOME_FAQ = [FAQ[k] for k in ("brand", "who", "cost", "own", "time")]
@@ -421,7 +421,7 @@ def home():
 <section class="about" id="about" aria-labelledby="h-about">
   <div class="wrap about-in">
     <ul class="about-side facts-list rv">
-      <li>{phos("briefcase")}<span>Technical Delivery Associate at Falcon Reality, an AI product company</span></li>
+      <li>{phos("briefcase")}<span>Founder of <a href="https://aeoledger.com/">AEOLedger</a>, answer engine optimization (AEO) for B2B SaaS</span></li>
       <li>{phos("rocket-launch")}<span>Four products designed, built and shipped solo</span></li>
       <li>{phos("storefront")}<span>Freelance websites and web apps for real estate teams</span></li>
     </ul>
@@ -775,7 +775,7 @@ def about():
 <section class="doc">
   <div class="wrap"><div class="doc-in"><div class="prose">
 <h2>Who builds your project</h2>
-<p>Dev is a Technical Delivery Associate at Falcon Reality, an AI product company, where he turns operations workflows into product specs and MVP scope. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: <a href="/work/jantahr/">JantaHR</a>, <a href="/work/rentwise/">RentWise</a>, <a href="/work/linkedin-mcp/">linkedin-mcp</a> and <a href="/work/isp-evidence/">ISP Evidence</a>.</p>
+<p>Dev is the founder of <a href="https://aeoledger.com/">AEOLedger</a>, an answer engine optimization (AEO) agency that helps B2B SaaS companies get named by ChatGPT, Claude, Perplexity and Gemini. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: <a href="/work/jantahr/">JantaHR</a>, <a href="/work/rentwise/">RentWise</a>, <a href="/work/linkedin-mcp/">linkedin-mcp</a> and <a href="/work/isp-evidence/">ISP Evidence</a>.</p>
 <h2>What DevShipIt does</h2>
 <ul>
 <li><strong>Freelance:</strong> {AGENT_PROFILE["freelance"]}. Every project is priced by a written quote before work starts. See <a href="/services/">freelance services</a>.</li>
@@ -784,7 +784,7 @@ def about():
 <h2>DevShipIt and JantaHR</h2>
 <p>DevShipIt is Dev's trading name, and devshipit.com is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at <a href="https://jantahr.devshipit.com" rel="noopener">jantahr.devshipit.com</a>. Each live project runs on its own subdomain of devshipit.com.</p>
 <h2>More about Dev</h2>
-<p>His full experience, skills, writing and résumé are on his personal site, <a href="{ME}/">me.devshipit.com</a>.</p>
+<p>His full experience, skills and writing are on his personal site, <a href="{ME}/">me.devshipit.com</a>.</p>
 <ul>
 <li>Email: <a href="mailto:{HELLO}">{HELLO}</a></li>
 <li>LinkedIn: <a href="{LINKEDIN}" rel="noopener">linkedin.com/in/devagarwalla</a></li>
@@ -1059,8 +1059,8 @@ AGENT_PROFILE = {
     "name": "Dev Agarwalla",
     "brand": "DevShipIt",
     "site": SITE + "/",
-    "role": "Full-stack and applied AI engineer",
-    "current_role": "Technical Delivery Associate at Falcon Reality, an AI product company, since September 2026",
+    "role": "Founder, AEOLedger",
+    "current_role": "Founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS (https://aeoledger.com), since October 2026",
     "location": "Bengaluru, Karnataka, India",
     "freelance": "MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date",
     "stack": [l for _, l in STACK],
@@ -1068,10 +1068,10 @@ AGENT_PROFILE = {
     "linkedin": "https://www.linkedin.com/in/devagarwalla",
     "personal_site": "https://me.devshipit.com/",
 }
-# From Dev's LinkedIn profile (experience section), October 2026.
+# Dev's experience, October 2026.
 EXPERIENCE = [
-    {"organisation": "Falcon Reality", "role": "Technical Delivery Associate", "dates": "September 2026 to now",
-     "summary": "Joined as an intern in August 2026 and moved to full-time. Turns operations workflows into product specs, user stories and MVP scope for an AI product, and plans how it integrates with the systems customers already run."},
+    {"organisation": "AEOLedger", "role": "Founder", "dates": "October 2026 to now",
+     "summary": "Runs AEOLedger (aeoledger.com), an answer engine optimization (AEO) agency for B2B SaaS. Measures how often ChatGPT, Claude, Perplexity and Gemini name a company for real buyer questions, then fixes why they don't: crawler access, rendering, structured data and the pages they cite."},
     {"organisation": "Cyber Secure India", "role": "Full-stack Developer Intern", "dates": "January to June 2025",
      "summary": "Shipped three MERN applications to production and built 15+ REST APIs with JWT authentication and role-based access, cutting API latency by about 30% through query indexing, caching and modular routes."},
     {"organisation": "GDSC", "role": "Student Developer", "dates": "2023 to 2024",
@@ -1136,7 +1136,7 @@ def agents_pass():
         + LLMS_WHEN +
         "\n## Pages\n\n" + pages_md + "\n\n"
         "## About Dev\n\n"
-        "- [Dev Agarwalla](https://me.devshipit.com/): personal site with experience, skills, writing and résumé (also https://me.devshipit.com/llms.txt)\n\n"
+        "- [Dev Agarwalla](https://me.devshipit.com/): personal site with experience, skills and writing (also https://me.devshipit.com/llms.txt)\n\n"
         "## Developer resources\n\n"
         f"- [DevShipIt developer docs]({SITE}/developers/index.md): the API, CLI, MCP server, Markdown negotiation and llms.txt\n"
         f"- [DevShipIt API OpenAPI 3.1 document]({SITE}/openapi.json): every operation with an operationId, typed parameters and response schemas\n"

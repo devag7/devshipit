@@ -10,7 +10,7 @@
 
 I'm Dev Agarwalla. I build full-stack and AI products, and DevShipIt is where I ship them and take on freelance work. Most of it is live and open to look at.
 
-- Now: Technical Delivery Associate at Falcon Reality, an AI product company, since September 2026
+- Now: Founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS (https://aeoledger.com), since October 2026
 - Freelance: MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date
 - Built with: TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker, Socket.IO
 
@@ -75,7 +75,7 @@ DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengal
 
 ### Who will build my project?
 
-Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
+Dev Agarwalla, personally. He is the founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
 
 ### How much does a website or web app cost?
 
@@ -175,7 +175,7 @@ I build websites and web apps for property agents, agencies and small businesses
 
 ### Who will build my project?
 
-Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
+Dev Agarwalla, personally. He is the founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own. [About Dev](https://devshipit.com/about/).
 
 ### How much does a website or web app cost?
 
@@ -224,7 +224,7 @@ DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. E
 
 ## Who builds your project
 
-Dev is a Technical Delivery Associate at Falcon Reality, an AI product company, where he turns operations workflows into product specs and MVP scope. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: [JantaHR](https://devshipit.com/work/jantahr/), [RentWise](https://devshipit.com/work/rentwise/), [linkedin-mcp](https://devshipit.com/work/linkedin-mcp/) and [ISP Evidence](https://devshipit.com/work/isp-evidence/).
+Dev is the founder of [AEOLedger](https://aeoledger.com/), an answer engine optimization (AEO) agency that helps B2B SaaS companies get named by ChatGPT, Claude, Perplexity and Gemini. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: [JantaHR](https://devshipit.com/work/jantahr/), [RentWise](https://devshipit.com/work/rentwise/), [linkedin-mcp](https://devshipit.com/work/linkedin-mcp/) and [ISP Evidence](https://devshipit.com/work/isp-evidence/).
 
 ## What DevShipIt does
 
@@ -237,7 +237,7 @@ DevShipIt is Dev's trading name, and devshipit.com is its website. JantaHR is HR
 
 ## More about Dev
 
-His full experience, skills, writing and résumé are on his personal site, [me.devshipit.com](https://me.devshipit.com/).
+His full experience, skills and writing are on his personal site, [me.devshipit.com](https://me.devshipit.com/).
 
 - Email: [hello@devshipit.com](mailto:hello@devshipit.com)
 - LinkedIn: [linkedin.com/in/devagarwalla](https://www.linkedin.com/in/devagarwalla)

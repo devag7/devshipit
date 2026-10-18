@@ -50,7 +50,7 @@ Use this site, or its MCP server, when the task is one of these:
 
 ## About Dev
 
-- [Dev Agarwalla](https://me.devshipit.com/): personal site with experience, skills, writing and résumé (also https://me.devshipit.com/llms.txt)
+- [Dev Agarwalla](https://me.devshipit.com/): personal site with experience, skills and writing (also https://me.devshipit.com/llms.txt)
 
 ## Developer resources
 
@@ -73,7 +73,7 @@ Use this site, or its MCP server, when the task is one of these:
 - **What if I need to cancel a project?** Cancellation and refund terms for a project, including any advance, are written into the quote you accept before work starts.
 - **What do you build with?** TypeScript, React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Redis, Supabase, Docker and Socket.IO. Websites for property agents are usually built on the MERN stack.
 - **How quickly do you reply?** Within 2 working days, usually sooner. Email is the fastest way to reach me.
-- **Who will build my project?** Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own.
+- **Who will build my project?** Dev Agarwalla, personally. He is the founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own.
 - **What is DevShipIt, and how is it related to JantaHR?** DevShipIt is the trading name of Dev Agarwalla, a full-stack developer in Bengaluru, and this is its website. JantaHR is HR and payroll software for Indian companies that DevShipIt builds and sells at jantahr.devshipit.com.
 
 ## Optional

@@ -8,7 +8,7 @@ DevShipIt is Dev Agarwalla, a full-stack and applied AI engineer in Bengaluru. E
 
 ## Who builds your project
 
-Dev is a Technical Delivery Associate at Falcon Reality, an AI product company, where he turns operations workflows into product specs and MVP scope. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: [JantaHR](https://devshipit.com/work/jantahr/), [RentWise](https://devshipit.com/work/rentwise/), [linkedin-mcp](https://devshipit.com/work/linkedin-mcp/) and [ISP Evidence](https://devshipit.com/work/isp-evidence/).
+Dev is the founder of [AEOLedger](https://aeoledger.com/), an answer engine optimization (AEO) agency that helps B2B SaaS companies get named by ChatGPT, Claude, Perplexity and Gemini. Before that he shipped three MERN applications to production as a full-stack intern at Cyber Secure India. On his own he has built and shipped four products: [JantaHR](https://devshipit.com/work/jantahr/), [RentWise](https://devshipit.com/work/rentwise/), [linkedin-mcp](https://devshipit.com/work/linkedin-mcp/) and [ISP Evidence](https://devshipit.com/work/isp-evidence/).
 
 ## What DevShipIt does
 
@@ -21,7 +21,7 @@ DevShipIt is Dev's trading name, and devshipit.com is its website. JantaHR is HR
 
 ## More about Dev
 
-His full experience, skills, writing and résumé are on his personal site, [me.devshipit.com](https://me.devshipit.com/).
+His full experience, skills and writing are on his personal site, [me.devshipit.com](https://me.devshipit.com/).
 
 - Email: [hello@devshipit.com](mailto:hello@devshipit.com)
 - LinkedIn: [linkedin.com/in/devagarwalla](https://www.linkedin.com/in/devagarwalla)

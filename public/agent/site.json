@@ -3,8 +3,8 @@
     "name": "Dev Agarwalla",
     "brand": "DevShipIt",
     "site": "https://devshipit.com/",
-    "role": "Full-stack and applied AI engineer",
-    "current_role": "Technical Delivery Associate at Falcon Reality, an AI product company, since September 2026",
+    "role": "Founder, AEOLedger",
+    "current_role": "Founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS (https://aeoledger.com), since October 2026",
     "location": "Bengaluru, Karnataka, India",
     "freelance": "MERN-stack websites and web apps for property agents and agencies in Bangalore that list properties, capture enquiries and are easy to keep up to date",
     "stack": [
@@ -26,10 +26,10 @@
     "personal_site": "https://me.devshipit.com/",
     "experience": [
       {
-        "organisation": "Falcon Reality",
-        "role": "Technical Delivery Associate",
-        "dates": "September 2026 to now",
-        "summary": "Joined as an intern in August 2026 and moved to full-time. Turns operations workflows into product specs, user stories and MVP scope for an AI product, and plans how it integrates with the systems customers already run."
+        "organisation": "AEOLedger",
+        "role": "Founder",
+        "dates": "October 2026 to now",
+        "summary": "Runs AEOLedger (aeoledger.com), an answer engine optimization (AEO) agency for B2B SaaS. Measures how often ChatGPT, Claude, Perplexity and Gemini name a company for real buyer questions, then fixes why they don't: crawler access, rendering, structured data and the pages they cite."
       },
       {
         "organisation": "Cyber Secure India",
@@ -188,7 +188,7 @@
     },
     {
       "question": "Who will build my project?",
-      "answer": "Dev Agarwalla, personally. He is a Technical Delivery Associate at Falcon Reality, an AI product company, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own."
+      "answer": "Dev Agarwalla, personally. He is the founder of AEOLedger, an answer engine optimization (AEO) agency for B2B SaaS, shipped three MERN applications to production as a full-stack intern at Cyber Secure India, and has built and shipped four products of his own."
     },
     {
       "question": "What is DevShipIt, and how is it related to JantaHR?",
