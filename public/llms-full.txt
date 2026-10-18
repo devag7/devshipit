@@ -665,9 +665,9 @@ To use it as tools for a model with function calling, load the OpenAPI document:
 
 ## Errors
 
-Every error is RFC 9457 problem details, sent as `application/problem+json`, with three extra members: `code` (stable and machine-readable), `hint` (what to do next) and `docs`. The `type` URI of each error opens its row below. Clients that ask for JSON also get problem details for a missing page or file anywhere on the site.
+Every error is RFC 9457 problem details, sent as `application/problem+json`, with three extra members: `code` (stable and machine-readable), `hint` (what to do next) and `docs`. Errors never repeat the request path or parameters back. The `type` URI of each error opens its row below. Clients that ask for JSON also get problem details for a missing page or file anywhere on the site.
 
-`{"type": "https://devshipit.com/developers/#error-project_not_found", "title": "Project not found", "status": 404, "detail": "There is no project "x". Valid slugs: jantahr, rentwise, linkedin-mcp, isp-evidence.", "code": "project_not_found", "hint": "Call GET /api/v1/projects for the valid slugs.", "instance": "/api/v1/projects/x"}`
+`{"type": "https://devshipit.com/developers/#error-project_not_found", "title": "Project not found", "status": 404, "detail": "There is no project with that slug. Valid slugs: jantahr, rentwise, linkedin-mcp, isp-evidence.", "code": "project_not_found", "hint": "Call GET /api/v1/projects for the valid slugs.", "docs": "https://devshipit.com/developers/"}`
 
 | code | Status | Meaning | What to do |
 | --- | --- | --- | --- |

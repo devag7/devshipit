@@ -45,7 +45,7 @@ export async function handleMcpMessage(message, server) {
       });
     case "tools/call": {
       const tool = server.tools.find((t) => t.name === params.name);
-      if (!tool) return fail(id, -32602, `Unknown tool: ${String(params.name)}`);
+      if (!tool) return fail(id, -32602, "Unknown tool. Call tools/list for the available tools.");
       const args = isObject(params.arguments) ? params.arguments : {};
       const missing = (tool.inputSchema.required || []).filter((k) => args[k] === undefined || args[k] === null || args[k] === "");
       if (missing.length) return ok({ content: [{ type: "text", text: `Missing required argument: ${missing.join(", ")}` }], isError: true });
@@ -60,7 +60,7 @@ export async function handleMcpMessage(message, server) {
       }
     }
     default:
-      return fail(id, -32601, `Method not found: ${message.method}`);
+      return fail(id, -32601, "Method not found.");
   }
 }
 

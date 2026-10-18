@@ -272,7 +272,6 @@ export const openapi = {
           title: str("Short summary of the problem type."),
           status: { type: "integer", description: "HTTP status code.", minimum: 400, maximum: 599 },
           detail: str("What went wrong with this request."),
-          instance: str("The path and query of the request that failed."),
           code: { type: "string", enum: Object.keys(ERRORS), description: "Stable machine-readable error code." },
           hint: str("What to do next to resolve it."),
           docs: uri("Where the errors are documented."),

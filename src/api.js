@@ -32,7 +32,7 @@ export const ERRORS = {
   unavailable: { status: 503, title: "Temporarily unavailable", hint: "Retry after a few seconds." },
 };
 
-/** Builds an RFC 9457 problem response. */
+/** Builds an RFC 9457 problem response. It never repeats the request path or parameters, so nobody can make devshipit.com display their own text. */
 export function problem(code, detail, { instance, method = "GET", headers = {} } = {}) {
   const e = ERRORS[code] || ERRORS.not_found;
   const body = {
@@ -43,7 +43,6 @@ export function problem(code, detail, { instance, method = "GET", headers = {} }
     code,
     hint: e.hint,
     docs: DOCS,
-    ...(instance ? { instance } : {}),
   };
   const h = { "Content-Type": "application/problem+json", "Cache-Control": "no-store", ...API_HEADERS, ...headers };
   if (e.status === 405) h.Allow = "GET, HEAD, OPTIONS";
@@ -79,7 +78,7 @@ export async function handleApi(request, env, openapi) {
   const method = request.method;
   const instance = url.pathname + url.search;
   if (method === "OPTIONS") return new Response(null, { status: 204, headers: { ...API_HEADERS } });
-  if (method !== "GET" && method !== "HEAD") return problem("method_not_allowed", `${method} is not supported on ${url.pathname}.`, { instance });
+  if (method !== "GET" && method !== "HEAD") return problem("method_not_allowed", "This method is not supported here.", { instance });
 
   const path = url.pathname.replace(/\/+$/, "") || "/";
   if (path === API_BASE || path === `${API_BASE}/index.json`) {
@@ -104,10 +103,11 @@ export async function handleApi(request, env, openapi) {
   if (rest === "/faq") return ok({ questions: data.faq }, method);
   if (rest === "/projects") return ok({ projects: data.projects }, method);
   if (rest.startsWith("/projects/")) {
-    const slug = decodeURIComponent(rest.slice("/projects/".length));
-    if (!/^[a-z0-9-]{1,40}$/.test(slug)) return problem("invalid_parameter", `"${slug}" is not a valid project slug (lowercase letters, digits and hyphens).`, { instance, method });
+    let slug = "";
+    try { slug = decodeURIComponent(rest.slice("/projects/".length)); } catch { slug = ""; }
+    if (!/^[a-z0-9-]{1,40}$/.test(slug)) return problem("invalid_parameter", "That is not a valid project slug (lowercase letters, digits and hyphens).", { instance, method });
     const project = data.projects.find((p) => p.slug === slug);
-    if (!project) return problem("project_not_found", `There is no project "${slug}". Valid slugs: ${data.projects.map((p) => p.slug).join(", ")}.`, { instance, method });
+    if (!project) return problem("project_not_found", `There is no project with that slug. Valid slugs: ${data.projects.map((p) => p.slug).join(", ")}.`, { instance, method });
     return ok(project, method);
   }
   if (rest === "/pages") return ok({ pages: data.pages }, method);
@@ -117,10 +117,10 @@ export async function handleApi(request, env, openapi) {
     const p = normalisePagePath(raw);
     if (!p) return problem("invalid_parameter", "`path` must start with a slash, for example /work/jantahr/.", { instance, method });
     const meta = data.pages.find((x) => x.path === p);
-    if (!meta) return problem("page_not_found", `There is no public page at ${p}.`, { instance, method });
+    if (!meta) return problem("page_not_found", "There is no public page at that path.", { instance, method });
     const r = await env.ASSETS.fetch(new Request(`${url.origin}${p}index.md`));
-    if (r.status !== 200) return problem("unavailable", `The page ${p} could not be loaded just now.`, { instance, method });
+    if (r.status !== 200) return problem("unavailable", "That page could not be loaded just now.", { instance, method });
     return ok({ ...meta, url: `${ORIGIN}${p}`, markdown: await r.text() }, method);
   }
-  return problem("not_found", `There is no API endpoint at ${url.pathname}.`, { instance, method });
+  return problem("not_found", "There is no API endpoint at this address.", { instance, method });
 }

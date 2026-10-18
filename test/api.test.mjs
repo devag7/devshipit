@@ -7,13 +7,14 @@ import { ASSETS } from "./assets-mock.mjs";
 
 const env = { ASSETS };
 const get = (path, headers = {}, init = {}) => worker.fetch(new Request(`https://devshipit.com${path}`, { headers, ...init }), env);
-const PROBLEM_KEYS = ["type", "title", "status", "detail", "code", "hint", "docs", "instance"];
+const PROBLEM_KEYS = ["type", "title", "status", "detail", "code", "hint", "docs"];
 
 async function expectProblem(res, status, code) {
   assert.equal(res.status, status);
   assert.equal(res.headers.get("Content-Type"), "application/problem+json");
   const body = await res.json();
   for (const k of PROBLEM_KEYS) assert.ok(k in body, `problem has ${k}`);
+  assert.ok(!("instance" in body), "problem never repeats the request path");
   assert.equal(body.status, status);
   assert.equal(body.code, code);
   assert.equal(body.type, `https://devshipit.com/developers/#error-${code}`);
@@ -83,10 +84,9 @@ test("api: HEAD and CORS preflight", async () => {
 
 test("site: clients that prefer JSON get problem details, browsers keep HTML", async () => {
   const missing = await expectProblem(await get("/no-such-page/", { Accept: "application/json" }), 404, "not_found");
-  assert.equal(missing.instance, "/no-such-page/");
   await expectProblem(await get("/no-such-file.json", { Accept: "application/json" }), 404, "not_found");
   const page = await expectProblem(await get("/pricing/", { Accept: "application/json" }), 406, "not_acceptable");
-  assert.match(page.detail, /\/api\/v1\/page\?path=%2Fpricing%2F/);
+  assert.match(page.detail, /\/api\/v1\/page\?path=/);
   const axiosLike = await get("/pricing/", { Accept: "application/json, text/plain, */*" });
   assert.equal(axiosLike.status, 200);
   assert.match(axiosLike.headers.get("Content-Type"), /^text\/html/);
@@ -142,4 +142,18 @@ test("api-catalog (RFC 9727) and service-desc links (RFC 8631)", async () => {
   assert.match(link, /<https:\/\/devshipit\.com\/openapi\.json>; rel="service-desc"/);
   assert.match(link, /rel="api-catalog"/);
   assert.match(await home.text(), /<link rel="service-desc" type="application\/json" href="\/openapi\.json"/);
+});
+
+test("no response repeats text from the address (stops anyone making devshipit.com show their message)", async () => {
+  const bait = "Your account is locked call +1-800-555-0100";
+  const enc = encodeURIComponent(bait);
+  const paths = [`/${enc}`, `/${enc}/`, `/${enc}/index.md`, `/work/${enc}`, `/api/v1/projects/${enc}`, `/api/v1/projects/abc${enc.slice(0, 20)}`,
+    `/api/v1/page?path=/${enc}/`, `/api/v1/${enc}`, `/?q=${enc}`];
+  for (const p of paths) {
+    for (const accept of ["text/html", "application/json", "text/markdown", "text/plain", "*/*"]) {
+      const r = await get(p, { Accept: accept });
+      const body = await r.text();
+      assert.ok(!body.includes(bait) && !body.includes("1-800-555-0100") && !body.toLowerCase().includes("account is locked"), `${p} (${accept}) echoed the address`);
+    }
+  }
 });

@@ -86,11 +86,11 @@ function text(body, status, headers, method) {
   return new Response(method === "HEAD" ? null : body, { status, headers });
 }
 
-export function notFoundMarkdown(pathname) {
+export function notFoundMarkdown() {
   return [
     "# Page not found",
     "",
-    `There is no page at \`${pathname}\` on devshipit.com. It may have moved, or the link may be wrong.`,
+    "There is no page at this address on devshipit.com. It may have moved, or the link may be wrong.",
     "",
     "Try one of these instead:",
     "",
@@ -108,7 +108,7 @@ async function serveMarkdown(request, env, url, label) {
   const type = label === "plain" ? "text/plain; charset=utf-8" : MARKDOWN;
   const base = { "Content-Type": type, Vary: "Accept", ...SECURITY };
   if (asset.status !== 200) {
-    return text(notFoundMarkdown(url.pathname), 404, { ...base, "Cache-Control": "no-store" }, request.method);
+    return text(notFoundMarkdown(), 404, { ...base, "Cache-Control": "no-store" }, request.method);
   }
   const body = await asset.text();
   return text(body, 200, {
@@ -187,7 +187,7 @@ export function publicMcpServer(env, origin) {
           const known = pages.map((p) => p.path);
           if (!path || !known.includes(path)) throw new Error(`No public page at ${String(args.path)}. Available paths: ${known.join(", ")}`);
           const r = await env.ASSETS.fetch(new Request(`${origin}${markdownPathFor(path)}`));
-          if (r.status !== 200) throw new Error(`The page ${path} could not be loaded just now. Try again shortly.`);
+          if (r.status !== 200) throw new Error("That page could not be loaded just now. Try again shortly.");
           return r.text();
         },
       },
@@ -253,7 +253,7 @@ export const handler = {
 
     if (OPENAPI_PATHS.includes(url.pathname)) {
       if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { ...CORS } });
-      if (request.method !== "GET" && request.method !== "HEAD") return problem("method_not_allowed", `${request.method} is not supported on ${url.pathname}.`, { instance: url.pathname, headers: SECURITY });
+      if (request.method !== "GET" && request.method !== "HEAD") return problem("method_not_allowed", "This method is not supported here.", { headers: SECURITY });
       return new Response(request.method === "HEAD" ? null : JSON.stringify(openapi, null, 2), {
         status: 200,
         headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "public, max-age=3600", Link: `<${ORIGIN}/developers/>; rel="service-doc"`, ...CORS, ...SECURITY },
@@ -262,7 +262,7 @@ export const handler = {
 
     if (url.pathname === CATALOG_PATH) {
       if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { ...CORS } });
-      if (request.method !== "GET" && request.method !== "HEAD") return problem("method_not_allowed", `${request.method} is not supported on ${url.pathname}.`, { instance: url.pathname, headers: SECURITY });
+      if (request.method !== "GET" && request.method !== "HEAD") return problem("method_not_allowed", "This method is not supported here.", { headers: SECURITY });
       return new Response(request.method === "HEAD" ? null : JSON.stringify(apiCatalog, null, 2), {
         status: 200,
         headers: { "Content-Type": CATALOG_TYPE, "Cache-Control": "public, max-age=3600", Link: `<${ORIGIN}${CATALOG_PATH}>; rel="api-catalog"`, ...CORS, ...SECURITY },
@@ -280,7 +280,7 @@ export const handler = {
 
     if (url.pathname.endsWith(".md")) {
       const asset = await env.ASSETS.fetch(request);
-      if (asset.status !== 200) return text(notFoundMarkdown(url.pathname), 404, { "Content-Type": MARKDOWN, "Cache-Control": "no-store", ...SECURITY }, request.method);
+      if (asset.status !== 200) return text(notFoundMarkdown(), 404, { "Content-Type": MARKDOWN, "Cache-Control": "no-store", ...SECURITY }, request.method);
       return withHeaders(asset, url.pathname, { "Content-Type": MARKDOWN, Link: `<${canonicalFor(url.pathname)}>; rel="canonical"`, "X-Robots-Tag": "noindex" });
     }
 
@@ -289,7 +289,7 @@ export const handler = {
 
     if (!isPagePath(url.pathname)) {
       const res = await env.ASSETS.fetch(request);
-      if (res.status === 404 && wantsJson) return problem("not_found", `There is no file at ${url.pathname}.`, { instance: url.pathname, method: request.method, headers: { Vary: "Accept", ...SECURITY } });
+      if (res.status === 404 && wantsJson) return problem("not_found", "There is no file at this address.", { method: request.method, headers: { Vary: "Accept", ...SECURITY } });
       return withHeaders(res, url.pathname);
     }
 
@@ -298,18 +298,18 @@ export const handler = {
       const twin = await env.ASSETS.fetch(new Request(`${url.origin}${markdownPathFor(url.pathname)}`));
       const headers = { Vary: "Accept", ...SECURITY };
       if (twin.status !== 200) {
-        if (wantsJson) return problem("not_found", `There is no page at ${url.pathname}.`, { instance: url.pathname, method: request.method, headers });
+        if (wantsJson) return problem("not_found", "There is no page at this address.", { method: request.method, headers });
         return text("404 Not Found: there is no page at this path. See https://devshipit.com/sitemap.xml.\n", 404, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store", ...headers }, request.method);
       }
       if (wantsJson) {
-        return problem("not_acceptable", `${url.pathname} is a page, available as text/html or text/markdown. For JSON use the API: ${ORIGIN}${API_BASE}/page?path=${encodeURIComponent(url.pathname.endsWith("/") ? url.pathname : url.pathname + "/")}`, { instance: url.pathname, method: request.method, headers });
+        return problem("not_acceptable", `This address is a page, available as text/html or text/markdown. For JSON use the API: ${ORIGIN}${API_BASE}/page?path=/pricing/ (with the page path).`, { method: request.method, headers });
       }
       return text("406 Not Acceptable: this page is available as text/html or text/markdown.\n", 406, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store", ...headers }, request.method);
     }
     if (choice === "markdown" || choice === "plain") return serveMarkdown(request, env, url, choice);
 
     const res = await env.ASSETS.fetch(request);
-    if (res.status === 404 && wantsJson) return problem("not_found", `There is no page at ${url.pathname}.`, { instance: url.pathname, method: request.method, headers: { Vary: "Accept", ...SECURITY } });
+    if (res.status === 404 && wantsJson) return problem("not_found", "There is no page at this address.", { method: request.method, headers: { Vary: "Accept", ...SECURITY } });
     const extra = { Vary: varyAccept(res.headers.get("Vary")) };
     if (res.status === 200) extra.Link = `<${ORIGIN}${markdownPathFor(url.pathname)}>; rel="alternate"; type="text/markdown", ${API_LINKS}`;
     return withHeaders(res, url.pathname, extra);
